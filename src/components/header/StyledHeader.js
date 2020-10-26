@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import banner from '@a/images/banner_dog.png'
 const HeaderWrap = styled.div`
     background:url(${banner}) no-repeat center top; 
-    overflow-x:scroll;
     >div{
         width:1300px;
         height:546px;

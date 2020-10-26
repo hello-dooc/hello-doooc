@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
  import Header from '@c/header/Header'
+ import Footer from '@c/footer/Footer'
+ import SelfInfoWrap from './StyledSelf'
 class SelfInfo extends Component {
     render() {
         return (
-            <div>
+            <SelfInfoWrap>
                 <Header></Header>
-            </div>
+                <div className="self-wrap"> 
+                </div>
+                <Footer></Footer>
+            </SelfInfoWrap>
         );
     }
 }
