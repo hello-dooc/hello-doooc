@@ -1,0 +1,16 @@
+{
+  "id": "2155297",
+  "name": "hello-doooc",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "6353030",
+      "name": "下 拉 (1)",
+      "font_class": "xiala",
+      "unicode": "e64c",
+      "unicode_decimal": 58956
+    }
+  ]
+}
