@@ -1,25 +1,66 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+
 import FooterWrap from './StyledFooter'
-class Footer extends Component {
+
+export default class Footer extends Component {
     render() {
         return (
-            <FooterWrap>
-                <div id="link">
-                    <div className="link-wrap">
-                        <div className="logo"></div>
-                        <p>我们愿意与对未知拥有极强探索欲，能快速接受并学习新事物，对任何感兴趣的事情能大胆尝试的人共事，<br/>
-                        我们相信简单、热情且善于沟通的人总是充满了能量并拥有一颗年轻的心。<br/>
-                        我们希望聚集最优秀的人才，致力于追求卓越、持续创新、解决问题、创造价值为世界的发展探索正确的<br/>
-                        方向，成为驱动前进的力量</p>
-                        <div className="link_way">
-                            <span></span>
-                            <span></span>
-                        </div>
+            <FooterWrap id="footer">
+                <div className="footer-wrap">
+                    <div className="clear_fix">
+                        <span className="float_left">友情链接：</span>
+                        <ul className="float_left">
+                            <li>
+                                宠物用品商场
+                            </li>
+                            <li>
+                                兽药营销策划
+                            </li>
+                            <li className="border_none">
+                                兽药动保咨询
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="clear_fix">
+                        <ul className="clear_fix">
+                            <li>
+                                关于我们
+                            </li>
+                            <li>
+                                联系我们
+                            </li>
+                            <li>
+                                商家入驻
+                            </li>
+                            <li>
+                                友情链接
+                            </li>
+                            <li>
+                                站点地图
+                            </li>
+                            <li>
+                                手机商城
+                            </li>
+                            <li>
+                                销售联盟
+                            </li>
+                            <li>
+                                商城社区
+                            </li>
+                            <li>
+                                企业文化
+                            </li>
+                            <li className="border_none">
+                                帮助中心
+                            </li>
+                        </ul>
+                        <span>  ICP备案证书号：粤ICP备17156774号-2</span>
+                    </div>
+                    <div>
+                        <p>&copy;2015-2019&nbsp;道奇宠物商城&nbsp;版权所有，并保留所有权利。中国广东深圳市</p>
                     </div>
                 </div>
             </FooterWrap>
-        );
+        )
     }
 }
-
-export default Footer;
