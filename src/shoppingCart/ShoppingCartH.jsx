@@ -6,7 +6,7 @@ import {
 } from './StyledCartH'
 
 // import img1 from '../assets/images/shoppingCartH_02.png'
-import img2 from '../assets/images/dogHead_03.png'
+import img2 from '@a/images/ShoppingCart/dogHead_03.png'
 
 
 class ShoppingCart extends Component {
@@ -37,6 +37,7 @@ class ShoppingCart extends Component {
                                     </>
                                     <i>删除</i>
                                 </div>
+                                
                                 <div className="pay">
                                     <i>合计：  RMB &nbsp; 5000</i>
                                     <button>结 &nbsp;&nbsp;&nbsp;&nbsp; 算</button>

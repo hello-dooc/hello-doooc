@@ -7,9 +7,9 @@ exports.Container = void 0;
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
-var _shoppingCartH_ = _interopRequireDefault(require("../assets/images/shoppingCartH_02.png"));
+var _shoppingCartH_ = _interopRequireDefault(require("@a/images/ShoppingCart/shoppingCartH_02.png"));
 
-var _bg = _interopRequireDefault(require("../assets/images/bg.png"));
+var _bg = _interopRequireDefault(require("@a/images/bg.png"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 

@@ -5,8 +5,8 @@ import {
   } from './StyledCartN'
 
 // import img1 from '../assets/images/shoppingCartH_02.png'
-import img2 from '../assets/images/dogHead_03.png'
-import cart from '../assets/images/cart_03.png'
+import img2 from '@a/images/dogHead_03.png'
+import cart from '@a/images/ShoppingCart/cart_03.png'
 
 
 class ShoppingCart extends Component {

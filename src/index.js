@@ -3,8 +3,8 @@ import React from 'react'
 
 import App from './App'
 
-import './assets/styles/reset.css'
 import 'antd/dist/antd.css';
+import './assets/styles/reset.css'
 
 ReactDOM.render(
   <App></App>,

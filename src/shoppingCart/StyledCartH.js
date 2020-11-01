@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import bg2 from '../assets/images/shoppingCartH_02.png'
-import bg from '../assets/images/bg.png'
+import bg2 from '@a/images/ShoppingCart/shoppingCartH_02.png'
+import bg from '@a/images/bg.png'
 
 
 const Container = styled.div `
