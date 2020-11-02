@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 // import {get} from '@u/http.js'
 
-import { VarietyWrap }from './StyledPetMarket'
+import { FilterWrap }from './StyledPetMarket'
 import HeaderNoPg from '@c/header/HeaderNoPg'
 import Link from '@c/link/Link'
 import Footer from '@c/footer/Footer'
@@ -10,7 +10,7 @@ import Display from '@m/petMarket/Display'
 
 import Search from './Search'
 
-export default class Variety extends Component {
+export default class Filter extends Component {
     constructor(props){
         super(props)
         this.handleDown=this.handleClickUp.bind(this)
@@ -24,7 +24,7 @@ export default class Variety extends Component {
     }
     render() {
         return (
-            <VarietyWrap>
+            <FilterWrap>
                 <HeaderNoPg></HeaderNoPg>
                 <div className="variety-wrap">
                     <Search></Search>
@@ -70,7 +70,7 @@ export default class Variety extends Component {
                 <Display></Display>
                 <Link></Link>
                 <Footer></Footer>
-            </VarietyWrap>
+            </FilterWrap>
         )
     }
 }

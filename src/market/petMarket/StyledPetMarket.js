@@ -7,7 +7,7 @@ import display_bg from '@a/images/display_bg_01.png'
 import pet_bg from '@a/images/pet_bg_02.png'
 import shoppingCart from '@a/images/shoppingCart_04.png'
 import v_footer from '@a/images/variety_footer_02.png'
-const NoVarietyWrap = styled.div`
+const NoFilterWrap = styled.div`
     height:837px;
     &::before{
         content:'';
@@ -77,7 +77,7 @@ const NoVarietyWrap = styled.div`
         background:#4c4c4c;
     }
 `
-const VarietyWrap = styled.div`
+const FilterWrap = styled.div`
     height:837px;
     background:url(${display_bg}) no-repeat;
     .variety-wrap{
@@ -320,8 +320,8 @@ const SearchWrap=styled.div`
 `
 
 export{
-    NoVarietyWrap,
+    NoFilterWrap,
     SearchWrap,
-    VarietyWrap,
+    FilterWrap,
     DisplayWrap
 }

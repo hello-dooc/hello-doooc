@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import NoVariety from './NoVariety'
-import Variety from './Variety'
+import NoFilter from './NoFilter'
+import Filter from './Filter'
 
 class PetMarket extends Component {
     constructor(){
@@ -24,7 +24,7 @@ class PetMarket extends Component {
         return (
             <div>
                 {
-                    this.state.isVariety?<Variety callback={this.callback} isVariety={this.state.isVariety}/>:<NoVariety callback={this.callback} isVariety={this.state.isVariety} />   
+                    this.state.isVariety?<Filter callback={this.callback} isVariety={this.state.isVariety}/>:<NoFilter callback={this.callback} isVariety={this.state.isVariety} />   
                 }
             </div>
         );

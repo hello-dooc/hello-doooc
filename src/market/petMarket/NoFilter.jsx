@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import{
-    NoVarietyWrap
+    NoFilterWrap
 } from './StyledPetMarket'
 import HeaderNoPg from '@c/header/HeaderNoPg'
 
@@ -11,7 +11,7 @@ import Search from './Search'
 import Link from '@c/link/Link'
 import Footer from '@c/footer/Footer'
 
-class NoVariety extends Component {
+class NoFilter extends Component {
     constructor(props){
         super(props)
         this.handleClickDown=this.handleClickDown.bind(this);
@@ -26,7 +26,7 @@ class NoVariety extends Component {
     }
     render() {
         return (
-            <NoVarietyWrap>
+            <NoFilterWrap>
                 <HeaderNoPg></HeaderNoPg>
                 <div className="bg"></div>
                 <div className="noVariety">
@@ -52,9 +52,9 @@ class NoVariety extends Component {
                 <Display></Display>
                 <Link></Link>
                 <Footer></Footer>
-            </NoVarietyWrap>
+            </NoFilterWrap>
         );
     }
 }
 
-export default NoVariety;
+export default NoFilter;
