@@ -7,7 +7,7 @@ class GoodDetail extends Component {
         return (
             <div className="goodsList">
                 {
-                    this.props.indexList && this.props.indexList.map(value=>{
+                    this.props.list && this.props.list.map(value=>{
                         return(
                             <div key={value.clothesId} className="oneGood">
                             <img src={value.clothesImage} alt=""/>

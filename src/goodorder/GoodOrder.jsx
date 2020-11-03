@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
 import touxiang from '@a/images/goodsdetail/touxiang.jpg';
+import Header from '@c/header/Header.jsx'
+import Footer from '@c/footer/Footer.jsx'
+import Link from '@c/link/Link.jsx'
 
 
 
@@ -14,7 +17,9 @@ class GoodOrder extends Component {
     render() {
         return (
             <Container>
-                <header></header>
+                <header>
+                    <Header></Header>
+                </header>
 
                 <div className="detail-con">
                     <div className="detail-wrap">
@@ -38,7 +43,10 @@ class GoodOrder extends Component {
 
 
 
-                <footer></footer>
+                <footer>
+                <Link></Link>
+                <Footer></Footer>
+                </footer>
             </Container>
         );
     }

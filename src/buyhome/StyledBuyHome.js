@@ -188,7 +188,8 @@ const BuyBannerWrap = styled.div`
 
 const Container = styled.div`
     footer{
-        height:730px;
+        /* height:730px; */
+        height:640px;
         width:100%;
         background:#000;
     }

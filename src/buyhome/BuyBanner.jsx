@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 
 import imgbanner from '@a/images/buyhome/scbanner.png'
+import Header from '@c/header/Header.jsx'
+
 
 
 import {
@@ -20,7 +22,9 @@ export default class BuyBanner extends Component {
                 <div className="banner_box">
                     <img src={imgbanner} alt="" />
                 </div>
-                <header></header>
+                <header>
+                    <Header></Header>
+                </header>
                 <div className="nav_box">
                     <div className="search_box">
                         <div className="search">

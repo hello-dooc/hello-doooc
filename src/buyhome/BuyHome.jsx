@@ -8,6 +8,8 @@ import {
 
 import BuyBanner from './BuyBanner'
 import AllGoods from './AllGoods'
+import Footer from '@c/footer/Footer.jsx'
+import Link from '@c/link/Link.jsx'
 
 export default class BuyHome extends Component {
 
@@ -36,7 +38,10 @@ export default class BuyHome extends Component {
         <AllGoods
           cate = {this.state.cate}
         ></AllGoods>
-        <footer></footer>
+        <footer>
+          <Link></Link>
+          <Footer></Footer>
+        </footer>
       </Container>
     );
   }

@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Header from '@c/header/Header.jsx'
+import Footer from '@c/footer/Footer.jsx'
+import Link from '@c/link/Link.jsx'
 
 import {
     Container
@@ -11,7 +14,9 @@ class ShowPets extends Component {
     render() {
         return (
             <Container>
-                <header></header>
+                <header>
+                    <Header></Header>
+                </header>
                 <div className="contain">
                     <div className="mypets"></div>
                             <div className="middle">
@@ -22,7 +27,10 @@ class ShowPets extends Component {
                             </div>
                     <YouLike></YouLike>
                 </div>
-                <footer></footer>
+                <footer>
+                    <Link></Link>
+                    <Footer></Footer>
+                </footer>
             </Container>
         );
     }

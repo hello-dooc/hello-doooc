@@ -7,7 +7,8 @@ const Container = styled.div`
         background:pink;
     }
     footer{
-        height:730px;
+        /* height:730px; */
+        height:640px;
         width:100%;
         background:#000;
     }

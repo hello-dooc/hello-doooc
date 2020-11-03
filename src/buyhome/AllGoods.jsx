@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import img1 from '@a/images/buyhome/petscan.png'
 import img2 from '@a/images/buyhome/petseat.png'

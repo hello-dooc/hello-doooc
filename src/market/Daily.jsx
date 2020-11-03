@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Breadcrumb, Pagination } from 'antd';
 import GoodDetail from './GoodDetail'
-import PageButton from './PageButton'
 
 import {
     Container
@@ -9,60 +8,142 @@ import {
 
 import { get } from '@u/http'
 
+//nav数组
+const navList = [
+    {
+        "title": "分类",
+        "des": " ",
+        "list": [
+            {
+                "id": "1",
+                "name": "服饰",
+                "des": "clothes",
+                "ads": "Clothes"
+            },
+            {
+                "id": "2",
+                "name": "餐具",
+                "des": "foodtool",
+                "ads": "Food"
+            },
+            {
+                "id": "3",
+                "name": "清洁",
+                "des": "cleaning",
+                "ads": "Clean"
+            },
+            {
+                "id": "4",
+                "name": "玩具",
+                "des": "play",
+                "ads": "Play"
+            }
+        ]
+    },
+    {
+        "title": "品种",
+        "des": "PetType",
+        "list": [
+            {
+                "id": "1",
+                "name": "喵喵",
+                "PetType": "1"
+            },
+            {
+                "id": "2",
+                "name": "汪汪",
+                "PetType": "2"
+            }
+        ]
+    },
+    {
+        "title": "价格",
+        "des": "PriceBetween",
+        "list": [
+            {
+                "id": "1",
+                "name": "全部",
+                "price1": "0",
+                "price2": "10000"
+            },
+            {
+                "id": "2",
+                "name": "￥0-50",
+                "price1": "0",
+                "price2": "50"
+            },
+            {
+                "id": "3",
+                "name": "￥51-100",
+                "price1": "51",
+                "price2": "100"
+            },
+            {
+                "id": "4",
+                "name": "￥101-200",
+                "price1": "101",
+                "price2": "200"
+            },
+            {
+                "id": "5",
+                "name": "￥200-500",
+                "price1": "200",
+                "price2": "500"
+            },
+
+        ]
+    },
+];
+
+
+
 class Daily extends Component {
-     constructor(props){
-        super(props);
-        this.pageNext=this.pageNext.bind(this);
-        this.setPage=this.setPage.bind(this);
-        this.state = {
-            indexList:[],//当前渲染的页面数据
-            totalData:[],
-            current: 1, //当前页码
-            pageSize:10, //每页显示的条数
-            goValue:0,  //要去的条数index
-            totalPage:0,//总页数
-            current: 1,
-            list:[]
-        };
+    state = {
+        current: 1,
+        type: 1,
+        list: []
+    };
 
+    //分页器
+    onChange = page => {
+        console.log(page);
+        this.setState({
+            current: page
+        });
+    };
+
+    //猫狗数据测试
+    listStatus = (item) => {
+        console.log(item);
+        console.log(this.state.type);
+        if(item.PetType!==undefined){
+            console.log(111);
+            this.setState(
+                { type: item.PetType },
+                () => { this.getData(this.state.type) }
+                );
+        }
+        // this.setState(
+        //     {type:item.PetType},
+        //     ()=>{this.getData(this.state.type)}
+        //     );
     }
 
-
-
-    async componentDidMount() {
+    //请求数据函数
+    async getData() {
+        // console.log(this.state.type);
         let result = await get({
-            url: 'http://123.56.160.44:8080/clothes/findAllByClothesPetTypeOrderByClothesIdDesc/1'
+            url: 'http://123.56.160.44:8080/clothes/findAllByClothesPetTypeOrderByClothesIdDesc/' + this.state.type
         })
-
-        console.log(result.data.data); 
-
         this.setState({
-            list: result.data.data,
-            totalPage:Math.ceil( result.data.data.length/this.state.pageSize),
-
-        })
-        this.pageNext(this.state.goValue)
-    }
-    
-    //设置内容
-    setPage(num){
-        this.setState({
-            indexList:this.state.list.slice(num,num+this.state.pageSize)
+            list: result.data.data
         })
     }
 
-    pageNext (num) {
-        this.setPage(num)
-    }
-
-
-
-
-
-
-
-
-
+    //请求数据，第一次渲染
+    async componentDidMount() {
+        this.getData(this.state.type)
+    };
 
     render() {
         return (
@@ -81,30 +162,27 @@ class Daily extends Component {
                         </Breadcrumb>
                     </>
                     <ul className="classification">
-                        <li>
-                            <i>分类:</i>
-                            <span>服饰</span>
-                            <span>餐具</span>
-                            <span>清洁</span>
-                            <span>玩具</span>
-                        </li>
-                        <li>
-                            <i>品种:</i>
-                            <span>喵喵</span>
-                            <span>汪汪</span>
-                        </li>
-                        <li>
-                            <i>价格:</i>
-                            <span>全部</span>
-                            <span>￥0-50</span>
-                            <span>￥51-100</span>
-                            <span>￥101-200</span>
-                            <span>￥201-500</span>
-                        </li>
+                        {
+                            navList.map((value, key) => {
+                                // console.log(value,key);
+                                return (
+                                    <li key={value.des}>
+                                        <i>{value.title}</i>
+                                        {
+                                            value.list.map((value1, key1) => {
+                                                // console.log(value1,key1);
+                                                return (
+                                                    <span key={value1.id} onClick={(e) => this.listStatus(value1)}>{value1.name}</span>
+                                                )
+                                            })
+                                        }
+                                    </li>
+                                )
+                            })
+                        }
                     </ul>
                     <ul className="priceSort">
                         <i>排序:</i>
-                        <li>默认<span> ↓</span></li>
                         <li>价格<span> ↓</span></li>
                         <li>销量<span> ↓</span></li>
                     </ul>
@@ -112,13 +190,10 @@ class Daily extends Component {
 
                 <div className="goods">
                     <GoodDetail
-                        indexList={this.state.indexList}
-                    ></GoodDetail>            
+                        list={this.state.list}
+                    ></GoodDetail>
                     <>
-                        <Pagination current={this.state.current} onChange={this.onChange} total={this.state.totalPage} />
-                      {/*  <PageButton
-                       { ...this.state } pageNext={this.pageNext}
-                       ></PageButton> */}
+                        <Pagination current={this.state.current} onChange={this.onChange} total={31} />
                     </>
                 </div>
 
