@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import {HeaderWrap} from './StyledHeader'
 import logo from '@a/images/logo_03.png'
 import profile from '@a/images/profile_03.png'
+import {withRouter } from 'react-router-dom'
+
+
 class Header extends Component {
     constructor(props){
         super(props);
@@ -22,21 +25,34 @@ class Header extends Component {
             isNone:true
         })
     }
+    handleLogin=(props)=>{
+        let history = this.props.history
+
+        history.push('/login')
+    }
+    handleFood=(props)=>{
+        let history = this.props.history
+        history.push('/food')
+    }
+    handleKnow=(props)=>{
+        let history = this.props.history
+        history.push('/love')
+    }
     render() {
         return (
-            <HeaderWrap>
+            <HeaderWrap {...this.props}>
                 <div>
                     <ul>
                         <li>首页</li>
-                        <li>商城</li>
-                        <li>知宠</li>
+                        <li onClick={this.handleFood}>商城</li>
+                        <li onClick={this.handleKnow}>知宠</li>
                     </ul>
                     <div className="logo">
                         <img src={logo} alt=""/>
                     </div>
                     <div>
                         <div>
-                            <img src={profile} alt=""/>
+                            <img src={profile} alt="" onClick={this.handleLogin}/>
                         </div>
                         <div>
                             <i className="iconfont icon-xiala" onClick={this.handleClick} ></i>
@@ -54,4 +70,4 @@ class Header extends Component {
     }
 }
 
-export default Header;
+export default withRouter(Header);

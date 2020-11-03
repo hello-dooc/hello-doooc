@@ -6,6 +6,7 @@ const FooterWrap = styled.div`
         height:516px;
         margin:0 auto;
         padding-top:91px;   
+        background: url(${props => props.outerbg}) no-repeat center center;
         .logo{
             width:202px;
             height:160px;

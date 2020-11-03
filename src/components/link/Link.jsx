@@ -3,8 +3,8 @@ import LinkWrap from './StyledLink'
 class Footer extends Component {
     render() {
         return (
-            <LinkWrap id="link">
-                <div className="link-wrap">
+            <LinkWrap id="link" {...this.props}>
+                <div className="link-wrap" {...this.props}>
                     <div className="logo"></div>
                     <p>我们愿意与对未知拥有极强探索欲，能快速接受并学习新事物，对任何感兴趣的事情能大胆尝试的人共事，<br/>
                     我们相信简单、热情且善于沟通的人总是充满了能量并拥有一颗年轻的心。<br/>
