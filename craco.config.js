@@ -7,6 +7,7 @@ module.exports = {
       "@c":path.resolve(__dirname,'src/components'),
       "@s":path.resolve(__dirname,'src/self'),
       "@a":path.resolve(__dirname, 'src/assets'),
+      "@u":path.resolve(__dirname, 'src/utils'),
 
     }
   },

@@ -3,9 +3,9 @@ import { InputNumber , Select  } from 'antd';
 
 import {
     Info
-} from './StyledInfo'
+} from '../self/StyledOrder'
 
-class DetaiInfo extends Component {
+class DetailInfo extends Component {
     render() {
         const { Option } = Select;
         return (
@@ -32,4 +32,4 @@ class DetaiInfo extends Component {
     }
 }
 
-export default DetaiInfo;
+export default DetailInfo;

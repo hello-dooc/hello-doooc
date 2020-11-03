@@ -52,12 +52,16 @@ const Container = styled.div `
         width:1300px;
         margin:0 auto;
         .goodsList{
-            height:1047px;
+            /* height:1047px; */
+            min-height:330px;
             display:flex;
             flex-wrap:wrap;
-            justify-content:space-between;
-            align-content:space-between;
+            justify-content:start; 
+            column-count:5;
+            column-gap:50px;
+            align-content:space-between; 
             .oneGood{
+                margin-bottom:30px;
                 height:330px;
                 width:220px;
                 padding-top:20px;
@@ -93,7 +97,7 @@ const Container = styled.div `
                         font-weight:600;
                     }
                     p{
-                        width:120px;
+                        width:115px;
                     }
                 }
             }

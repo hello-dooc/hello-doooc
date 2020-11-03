@@ -1,27 +1,43 @@
 import React, { Component } from 'react';
-import { Breadcrumb,Pagination } from 'antd';
+import { Breadcrumb, Pagination } from 'antd';
+import GoodDetail from './GoodDetail'
 
 import {
     Container
 } from './StyledDaily'
 
-import cs from '@a/images/market/ceshi.jpg'
+import { get } from '@u/http'
 
 class Daily extends Component {
     state = {
         current: 1,
-      };
-    
-      onChange = page => {
+        list:null
+    };
+
+    onChange = page => {
         console.log(page);
         this.setState({
-          current: page,
+            current: page,
         });
-      };
+    };
+
+    async componentDidMount() {
+        let result = await get({
+            url: 'http://123.56.160.44:8080/clothes/findAllByClothesPetTypeOrderByClothesIdDesc/1'
+        })
+
+        console.log(result.data.data);
+        this.setState({
+          list: result.data.data
+        })
+
+    }
+
     render() {
         return (
             <Container>
                 <header>123</header>
+
                 <div className="nav">
                     <div className="search">123456</div>
                     <>
@@ -32,7 +48,7 @@ class Daily extends Component {
                             </Breadcrumb.Item>
                             <Breadcrumb.Item>宠物主粮</Breadcrumb.Item>
                         </Breadcrumb>
-                    </>   
+                    </>
                     <ul className="classification">
                         <li>
                             <i>分类:</i>
@@ -61,40 +77,18 @@ class Daily extends Component {
                         <li>价格<span> ↓</span></li>
                         <li>销量<span> ↓</span></li>
                     </ul>
-                </div>    
+                </div>
+
                 <div className="goods">
-                    <div className="goodsList">
-                        <div className="oneGood">
-                            <img src={cs} alt=""/>
-                            <div>
-                                <h2>满99减20</h2>
-                                <p>麦富迪  双拼标准颗粒成犬粮10KG</p>
-                            </div>
-                            <div>
-                                <h3>￥290</h3>
-                                <i>已售2345</i>
-                            </div>
-                        </div>
-                        <div className="oneGood"></div>
-                        <div className="oneGood"></div>
-                        <div className="oneGood"></div>
-                        <div className="oneGood"></div>
-                        <div className="oneGood"></div>
-                        <div className="oneGood"></div>
-                        <div className="oneGood"></div>
-                        <div className="oneGood"></div>
-                        <div className="oneGood"></div>
-                        <div className="oneGood"></div>
-                        <div className="oneGood"></div>
-                        <div className="oneGood"></div>
-                        <div className="oneGood"></div>
-                        <div className="oneGood"></div>
-                    </div>
+                    <GoodDetail
+                        list={this.state.list}
+                    ></GoodDetail>            
                     <>
                         <Pagination current={this.state.current} onChange={this.onChange} total={50} />
                     </>
-                </div> 
-                <footer></footer>         
+                </div>
+
+                <footer></footer>
             </Container>
         );
     }
