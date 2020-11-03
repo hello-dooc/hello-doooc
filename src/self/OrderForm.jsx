@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Tabs } from 'antd';
 
-import DetailInfo from '../components/DetailInfo';
+import DetailInfo from '../components/Detail/DetailInfo';
 
 const { TabPane } = Tabs;
 

@@ -109,11 +109,9 @@ const Container = styled.div `
             align-items:center;
         }
     }
-    footer{
-        height: 607px;
-        /* background-color:#eeeeee; */
+    #link{
         background:url(${bg}) no-repeat;
-        background-size:100%
+        /* background-size:100% */
     }
 `
 

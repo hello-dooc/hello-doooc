@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component } from 'react'
 import LinkIndex from './zhichong/LinkIndex'
 import {Switch,Route,BrowserRouter as Router,Redirect} from 'react-router-dom'
@@ -27,3 +28,5 @@ export default class App extends Component {
     )
   }
 }
+=======
+>>>>>>> origin/syf
