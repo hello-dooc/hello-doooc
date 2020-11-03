@@ -1,15 +1,8 @@
 import React, { Component } from 'react'
-// import Home from './home/Home'
-// import ShoppingCartH from './shoppingCart/ShoppingCartH'
-// import Training  from './zhichong/Training'
-import Daily  from './market/Daily'
-// import Order  from './self/Order'
-import {Switch,Route,Redirect} from 'react-router-dom'
-
-import SelfInfo from '@s/SelfInfo'
-import AddressList from '@d/AddressList'
-import AddAddress from '@d/AddAddress'
-import PetMarket from '@m/petMarket/PetMarket'
+import LinkIndex from './zhichong/LinkIndex'
+import {Switch,Route,BrowserRouter as Router,Redirect} from 'react-router-dom'
+import Login from './login/Login'
+import Register from './register/Register'
 
 export default class App extends Component {
   render() {
@@ -19,13 +12,20 @@ export default class App extends Component {
       // <Training></Training>
       // <Daily></Daily>
       // <Order></Order>
+
+      <Router>
         <Switch>
+          <Route path="/zhichong" component={LinkIndex}></Route>
+          <Route path="/login" component={Login}></Route>
+          <Route path ="/register" component={Register}></Route>
           <Route path='/self' component={SelfInfo}></Route>
           <Route path='/address' component={AddressList}></Route>
           <Route path='/add' component={AddAddress}></Route>
           <Route path="/petMarket" component={PetMarket}></Route>
           <Redirect from='/' to='/self'></Redirect>
+          <Redirect  from='/' to='/zhichong'></Redirect>
         </Switch>
+      </Router>
     )
   }
 }

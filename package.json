@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/plugin-proposal-decorators": "^7.12.1",
     "@craco/craco": "^5.7.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -10,14 +11,21 @@
     "antd": "^4.7.2",
     "axios": "^0.21.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "babel-plugin-import": "^1.13.1",
     "customize-cra": "^1.0.0",
 =======
 >>>>>>> hm
+=======
+    "http-proxy-middleware": "^1.0.6",
+>>>>>>> origin/zhangyan
     "react": "^16.14.0",
     "react-app-rewired": "^2.1.6",
     "react-dom": "^16.14.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/zhangyan
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "styled-components": "^5.2.0"
