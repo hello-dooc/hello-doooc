@@ -4,6 +4,8 @@ import {Switch,Route,BrowserRouter as Router,Redirect} from 'react-router-dom'
 import Login from './login/Login'
 import Register from './register/Register'
 
+import Home from '@h/home/Home'
+
 export default class App extends Component {
   render() {
     return (
@@ -15,15 +17,15 @@ export default class App extends Component {
 
       <Router>
         <Switch>
-          <Route path="/zhichong" component={LinkIndex}></Route>
-          <Route path="/login" component={Login}></Route>
-          <Route path ="/register" component={Register}></Route>
-          <Route path='/self' component={SelfInfo}></Route>
+          {/* <Route path="/zhichong" component={LinkIndex}></Route> */}
+          <Route path="/home" component={Home}></Route>
+          {/* <Route path ="/register" component={Register}></Route> */}
+          {/* <Route path='/self' component={SelfInfo}></Route>
           <Route path='/address' component={AddressList}></Route>
           <Route path='/add' component={AddAddress}></Route>
-          <Route path="/petMarket" component={PetMarket}></Route>
-          <Redirect from='/' to='/self'></Redirect>
-          <Redirect  from='/' to='/zhichong'></Redirect>
+          <Route path="/petMarket" component={PetMarket}></Route> */}
+          {/* <Redirect from='/' to='/self'></Redirect> */}
+          <Redirect  from='/' to='/home'></Redirect>
         </Switch>
       </Router>
     )

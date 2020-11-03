@@ -1,38 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-import axios from 'axios'
-
-const get = ({url}) => {
-  return new Promise((resolve, reject) => {
-    axios({
-      url
-    })
-    .then(result => {
-      resolve(result)
-    })
-    .then(error => {
-      reject(error)
-=======
-import axios from 'axios'
-
-const get = (url) => {
-  return new Promise((resolve, reject) => {
-    axios(url     
-    )     
-    .then(res => {
-      resolve(res)
-    })
-    .then(err => {
-      reject(err)
->>>>>>> origin/zhangyan
-    })
-  })
-}
-
-<<<<<<< HEAD
-export {
-  get
-=======
 import axios from 'axios'
 
 const get = ({url,params}) => {
@@ -49,21 +14,6 @@ const get = ({url,params}) => {
     })
   })
 }
-const post = (url,data)=>{
-  return new Promise((resolve,reject)=>{
-    axios.post(url,data).then(response=>{
-      resolve(response,data);
-    },err=>{
-      reject(err);
-    })
-  })
-}
-
-export {
-  get,
-  post
->>>>>>> hm
-=======
 const put = (url) => {
   return new Promise((resolve, reject) => {
     axios.put(url)
@@ -94,5 +44,4 @@ export {
   get,
   put,
   post
->>>>>>> origin/zhangyan
 }

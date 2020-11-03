@@ -10,33 +10,15 @@
     "@testing-library/user-event": "^7.1.2",
     "antd": "^4.7.2",
     "axios": "^0.21.0",
-<<<<<<< HEAD
-<<<<<<< HEAD
     "babel-plugin-import": "^1.13.1",
     "customize-cra": "^1.0.0",
-=======
->>>>>>> hm
-=======
     "http-proxy-middleware": "^1.0.6",
->>>>>>> origin/zhangyan
     "react": "^16.14.0",
     "react-app-rewired": "^2.1.6",
     "react-dom": "^16.14.0",
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/zhangyan
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-    "styled-components": "^5.2.0"
-  },
-  "scripts": {
-    "start": "craco  start",
-    "build": "craco  build",
-    "test": "craco  test",
-=======
     "react-redux": "^7.2.2",
-    "react-scripts": "3.4.3",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
   },
@@ -44,7 +26,6 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
->>>>>>> hm
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
