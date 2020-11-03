@@ -40,6 +40,7 @@ const UserInfo = (props) => {
         onValuesChange={onFormLayoutChange}
       >
         <Form.Item label="手机号">
+<<<<<<< HEAD
             <Input placeholder="input placeholder" />
         </Form.Item>
         <Form.Item label="性别">
@@ -53,6 +54,21 @@ const UserInfo = (props) => {
         </Form.Item>
         <Form.Item label="收货地址">
             <Input placeholder="input placeholder" disabled />
+=======
+            <Input placeholder={props.userInfo.userTelephone} />
+        </Form.Item>
+        <Form.Item label="性别">
+            <Input placeholder={props.userInfo.userGender} />
+        </Form.Item>
+        <Form.Item label="邮箱">
+            <Input placeholder={props.userInfo.email} />
+        </Form.Item>
+        <Form.Item label="QQ">
+            <Input placeholder={props.userInfo.userQq} />
+        </Form.Item>
+        <Form.Item label="收货地址">
+            <Input placeholder={props.userInfo.addr} disabled />
+>>>>>>> hm
             <Button type="primary" onClick={handleGotoAddress(props.addressList)}>确认修改</Button>
         </Form.Item>
         <Form.Item {...buttonItemLayout}>

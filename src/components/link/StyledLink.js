@@ -1,6 +1,6 @@
 import styled from 'styled-components'
  
-import sprite from '@a/images/sprite.png'
+import sprite from '../../assets/images/sprite.png'
 const FooterWrap = styled.div`
     .link-wrap{
         height:516px;

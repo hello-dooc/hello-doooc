@@ -1,12 +1,16 @@
 import styled from 'styled-components';
-import banner from '@a/images/footer_banner_03.png'
+
 const SelfInfoWrap=styled.div`
     .self-wrap{
+        width:864px;
+        margin:72px 0 0 217px;
         height:1096px;
-        
-    }
-    #link{
-        background:url(${banner}) no-repeat center 
+        .ant-upload-select{
+            margin-left:50%;
+        }
+        .ant-form{
+            margin-left:145px
+        }
     }
 `
 export default SelfInfoWrap

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {HeaderWrap} from './StyledHeader'
+import {HeaderNoPgWrap} from './StyledHeader'
 import logo from '@a/images/logo_03.png'
 import profile from '@a/images/profile_03.png'
 class Header extends Component {
@@ -24,7 +24,7 @@ class Header extends Component {
     }
     render() {
         return (
-            <HeaderWrap id="header">
+            <HeaderNoPgWrap id="header">
                 <div>
                     <ul>
                         <li>首页</li>
@@ -49,7 +49,7 @@ class Header extends Component {
                         </div>
                     </div>
                 </div>
-            </HeaderWrap>
+            </HeaderNoPgWrap>
         );
     }
 }
