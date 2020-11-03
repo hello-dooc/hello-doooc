@@ -68,7 +68,6 @@ const HeaderWrap = styled.div`
     }
 `
 const HeaderNoPgWrap = styled.div`
-    background:url(${banner}) no-repeat center top; 
     >div{
         width:1300px;
         height:94px;
