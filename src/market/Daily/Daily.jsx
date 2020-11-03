@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Breadcrumb, Pagination } from 'antd';
 import GoodDetail from './GoodDetail'
+import Footer from '@c/footer/Footer'
+import Link from '@c/link/Link'
+
 
 import {
     Container
@@ -123,10 +126,8 @@ class Daily extends Component {
                 () => { this.getData(this.state.type) }
                 );
         }
-        // this.setState(
-        //     {type:item.PetType},
-        //     ()=>{this.getData(this.state.type)}
-        //     );
+
+        
     }
 
     //请求数据函数
@@ -193,11 +194,11 @@ class Daily extends Component {
                         list={this.state.list}
                     ></GoodDetail>
                     <>
-                        <Pagination current={this.state.current} onChange={this.onChange} total={31} />
+                        <Pagination current={this.state.current} onChange={this.onChange} total={this.state.list.length} />
                     </>
                 </div>
-
-                <footer></footer>
+                <Link></Link>
+                <Footer></Footer>
             </Container>
         );
     }

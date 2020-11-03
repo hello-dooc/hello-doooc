@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+import Footer from '@c/footer/Footer'
+import Link from '@c/link/Link'
+import Header from '@c/header/Header'
+
 import navImg from '@a/images/Trainning/nav_03.png'
 import ban from '@a/images/Trainning/TrBan_03.png'
 import news1 from '@a/images/Trainning/TrNews01_03.png'
@@ -15,8 +19,8 @@ class Training extends Component {
     render() {
         return (
             <Container>
+                <Header></Header>
                 <div className="con">
-                    <header>123</header>
                     <nav>
                         <ul>
                             <li>
@@ -97,8 +101,8 @@ class Training extends Component {
                             <img src={news3} alt=""/>
                         </div>
                     </div>
-
-                    <footer></footer>
+                    <Link></Link>
+                    <Footer></Footer>
                 </div>
             </Container>
         );

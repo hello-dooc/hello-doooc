@@ -3,7 +3,7 @@ import { InputNumber , Select  } from 'antd';
 
 import {
     Info
-} from '../self/StyledOrder'
+} from '../../self/StyledOrder'
 
 class DetailInfo extends Component {
     render() {
