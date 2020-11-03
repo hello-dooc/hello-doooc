@@ -1,10 +1,13 @@
 import styled from 'styled-components'
 import banner from '../../assets/images/banner_dog.png'
+// import banner from '@a/images/banner.jpeg'
 const HeaderWrap = styled.div`
-    background:url(${banner}) no-repeat center top; 
+    background:${props => props.bg.charAt(0) === "#" ? props.bg : ''}
+    url(${props => props.bg})no-repeat center top;
+    width: 100%;
+    height: ${props => props.ht};
     >div{
         width:1300px;
-        height:546px;
         margin:0 auto;
         >ul{
             float:left;
@@ -15,7 +18,7 @@ const HeaderWrap = styled.div`
                 margin-left:80px;
                 font-family:MicrosoftYaHei;
                 font-size:30px;
-                color:#f4f4f4;
+                color:${props => props.color};
             }
         }
        .logo{

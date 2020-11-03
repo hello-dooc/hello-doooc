@@ -30,14 +30,28 @@ class Header extends Component {
 
         history.push('/login')
     }
+<<<<<<< HEAD
     render() {
         return (
             <HeaderWrap id="header">
+=======
+    handleFood=(props)=>{
+        let history = this.props.history
+        history.push('/food')
+    }
+    handleKnow=(props)=>{
+        let history = this.props.history
+        history.push('/love')
+    }
+    render() {
+        return (
+            <HeaderWrap {...this.props}>
+>>>>>>> origin/lyx
                 <div>
                     <ul>
                         <li>首页</li>
-                        <li>商城</li>
-                        <li>知宠</li>
+                        <li onClick={this.handleFood}>商城</li>
+                        <li onClick={this.handleKnow}>知宠</li>
                     </ul>
                     <div className="logo">
                         <img src={logo} alt=""/>
