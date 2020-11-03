@@ -47,4 +47,5 @@ const FooterWrap = styled.div`
     }
 `
 
+
 export default FooterWrap

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import banner from '@a/images/banner_dog.png'
+import banner from '../../assets/images/banner_dog.png'
 const HeaderWrap = styled.div`
     background:url(${banner}) no-repeat center top; 
     >div{
@@ -66,8 +66,59 @@ const HeaderWrap = styled.div`
             }
         }
     }
-
+`
+const RelevantWrap = styled.div`
+    .relevant{
+        background-color:#f5a64a;
+        width:100%;
+        height:60px;
+        .centerWrap{
+            width:1308px;
+            height:60px;
+            margin:0 auto;
+            position:relative;
+            .r-left{
+                ul{
+                    padding-left:9px;
+                    li{
+                        img{
+                            float:left;
+                            margin-right:18px;
+                        }
+                        float:left;
+                        font-size:26px;
+                        line-height:26px;
+                        padding-top:20px;
+                        padding-right:33px;
+                    }
+                }
+            }
+            .r-center{
+                position:absolute;
+                left:543px;
+                top:-107px;
+            }
+            .r-right{
+                ul{
+                    padding-right:9px;
+                    float:right;
+                    li{
+                        float:left;
+                        font-size:26px;
+                        line-height:26px;
+                        padding-top:20px;
+                        padding-left:33px;
+                        img{
+                            float:left;
+                            padding-right:18px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 `
 export{
-    HeaderWrap
+    HeaderWrap,
+    RelevantWrap
 }
