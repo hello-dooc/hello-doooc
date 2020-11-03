@@ -1,5 +1,5 @@
 {
-  "name": "hello-doooc",
+  "name": "daoqi",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -29,7 +29,10 @@
     "test": "craco  test"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
     "production": [
