@@ -1,29 +1,17 @@
-import React, { Component } from 'react'
-
-import imgbanner from '@a/images/buyhome/scbanner.png'
-import Header from '@c/header/Header.jsx'
-import BuySearch from "./BuySearch"
-
-
+import React, { Component } from 'react';
 import {
-    BuyBannerWrap
+    BuySearchWrap
 } from './StyledBuyHome'
 
+import img1 from '@a/images/buyhome/petscan.png'
+import img2 from '@a/images/buyhome/petseat.png'
+import img3 from '@a/images/buyhome/petsmac.png'
 
-
-export default class BuyBanner extends Component {
-
+class BuySearch extends Component {
     render() {
         return (
-            <BuyBannerWrap>
-                <div className="banner_box">
-                    <img src={imgbanner} alt="" />
-                </div>
-                <header>
-                    <Header></Header>
-                </header>
-                <BuySearch></BuySearch>
-               {/*  <div className="nav_box">
+            <BuySearchWrap>
+                 <div className="nav_box">
                     <div className="search_box">
                         <div className="search">
                             <span>搜索商品</span>
@@ -49,10 +37,10 @@ export default class BuyBanner extends Component {
                             <li><p>宠物市场</p></li>
                         </ul>
                     </div>
-                </div> */}
-            </BuyBannerWrap>
-
-
-        )
+                </div>
+            </BuySearchWrap>
+        );
     }
 }
+
+export default BuySearch;
