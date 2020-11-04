@@ -5,7 +5,7 @@
 /* export default class App extends Component {
   render() {
     return (
-        <BuyHome></BuyHome>  
+      <BuyHome></BuyHome>  
       <GoodsDetail></GoodsDetail> 
       <ShowPets></ShowPets> 
       <GoodOrder></GoodOrder> 

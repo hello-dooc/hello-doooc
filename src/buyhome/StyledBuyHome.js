@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import bgImage from "../assets/images/buyhome/bg.png"
+import bgImage from "@a/images/buyhome/bg.png"
+import scbg from "@a/images/buyhome/scbg.png"
 
 const BuyBannerWrap = styled.div`
     height:525px;
@@ -191,7 +192,7 @@ const Container = styled.div`
         /* height:730px; */
         height:640px;
         width:100%;
-        background:#000;
+        background:url(${scbg});
     }
 
 `

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import owncenter from '@a/images/showpets/owncenter.png'
-
+import shaibg from "@a/images/showpets/shaibg.png"
 
 const Container = styled.div`
     header{
@@ -12,7 +12,7 @@ const Container = styled.div`
         /* height:730px; */
         height:640px;
         width:100%;
-        background:#000;
+        background:url(${shaibg});
     }
     .contain{
         height:1203px;
@@ -104,34 +104,43 @@ const MyShowWrap = styled.div`
             height:100%;
         }
     }
-    .button-box{
-        width:194px;
-        height:62px;
-        margin:0 auto;
-        padding-top:35px;
-        display:flex;
-        justify-content:space-between;
-        .left-button{
-            height:25px;
-            width:72px;
-            border:1px solid #6d6d6d;
-            border-radius:3px;
-            text-align:center;
-            line-height:25px;
-            color:#6d6d6d;
-            font-size:14px;
-        }
-        .middle-box{
-            width:25px;
-            height:27px;
-            color:#6d6d6d;
-            font-size:14px;
-        }
+   
+`
+
+
+const PageButtonWrap = styled.div`
+.button-box{
+    width:214px;
+    height:62px;
+    margin:0 auto;
+    padding-top:35px;
+    display:flex;
+    justify-content:space-between;
+    .left-button{
+        height:25px;
+        width:72px;
+        border:1px solid #6d6d6d;
+        border-radius:3px;
+        text-align:center;
+        line-height:25px;
+        color:#6d6d6d;
+        font-size:14px;
     }
+    .middle-box{
+        /* width:25px; */
+        height:27px;
+        color:#6d6d6d;
+        font-size:14px;
+        display:flex;
+    }
+}
+
+
 `
 
 export {
     Container,
     YouLikeWrap,
-    MyShowWrap
+    MyShowWrap,
+    PageButtonWrap
 }
