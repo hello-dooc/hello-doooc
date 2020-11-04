@@ -10,6 +10,7 @@ import {
 import YouLike from './YouLike'
 import MyShow from './MyShow'
 
+
 class ShowPets extends Component {
     render() {
         return (
@@ -23,9 +24,10 @@ class ShowPets extends Component {
                                 <div className="left-nav">
 
                                 </div>
-                                <MyShow></MyShow>
+                                <MyShow ></MyShow>
                             </div>
                     <YouLike></YouLike>
+                    
                 </div>
                 <footer>
                     <Link></Link>

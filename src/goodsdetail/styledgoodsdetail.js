@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import bgImage from "@a/images/buyhome/bg.png"
+import detailbg from "@a/images/buyhome/scbg.png"
 
 const Container = styled.div`
     header{
@@ -10,7 +11,7 @@ const Container = styled.div`
         /* height:730px; */
         height:640px;
         width:100%;
-        background:#000;
+        background:url(${detailbg});
     }
     .detail-con{
         min-height:732px;

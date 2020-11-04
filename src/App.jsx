@@ -12,6 +12,7 @@ import Love from '../src/home/love/index'
 export default class App extends Component {
   render() {
     return (
+<<<<<<< HEAD
       <Router>
         <Switch>
           {/* <Route path="/home" component={LinkIndex}></Route> */}
@@ -30,6 +31,13 @@ export default class App extends Component {
           <Redirect from="/" to="/food"></Redirect>
         </Switch>
       </Router>
+=======
+      <BuyHome></BuyHome>  
+      <GoodsDetail></GoodsDetail> 
+      <ShowPets></ShowPets> 
+      <GoodOrder></GoodOrder> 
+      <Daily></Daily> 
+>>>>>>> origin/lrl
     )
   }
 }
