@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import {withRouter} from 'react-router-dom'
 // import CartH from './CartH';
 import CartN from './CartN';
 
+import Footer from '@c/footer/Footer'
+import Link from '@c/link/Link'
+import Header from '@c/header/Header'
 
 import {
     Container
@@ -9,14 +13,16 @@ import {
 
 // import img1 from '../assets/images/shoppingCartH_02.png'
 import img2 from '@a/images/ShoppingCart/dogHead_03.png'
-
+import banner from '@a/images/banner_dog.png'
 
 class ShoppingCart extends Component {
     render() {
         return (
             <Container>
+                <Header ht="546px" bg={banner}></Header>
+
                 <div className="con">
-                    <header>123</header>
+                    
                     <main>
                         <img src={img2} alt="" />
                         <p>我的购物车</p>
@@ -25,9 +31,8 @@ class ShoppingCart extends Component {
                             <CartN></CartN>
                         </div>
                     </main>
-                    <footer>
-                        {/* <img src={img1} alt=""/> */}
-                    </footer>
+                    <Link></Link>
+                    <Footer></Footer>
                 </div>
             </Container>
         );

@@ -12,9 +12,12 @@ module.exports = {
       "@s":path.resolve(__dirname,'src/self'),
       "@a":path.resolve(__dirname, 'src/assets'),
       "@d":path.resolve(__dirname,'src/address'),
+      "@m":path.resolve(__dirname,'src/market'),
+      "@z":path.resolve(__dirname,'src/zhichong'),
       "@u":path.resolve(__dirname,'src/utils'),
-      "@m":path.resolve(__dirname,'src/market')
-    }
-  },
+      "@sc":path.resolve(__dirname,'src/shoppingCart'),
+      "@b":path.resolve(__dirname,'src/buyhome'),
+   },
+  }  
 }
       

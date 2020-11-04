@@ -8,8 +8,11 @@ import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 
 import SelfInfoWrap from './StyledSelf'
 import UserInfo from './UserInfo'
-
+import Header from '@c/header/Header'
+import Link from '@c/link/Link'
+import Footer from '@c/footer/Footer'
 // import profile from '@a/images/timg.jpeg'
+import banner from '@a/images/banner_dog.png'
 function getBase64(img, callback) {
     const reader = new FileReader();
     reader.addEventListener('load', () => callback(reader.result));
@@ -102,20 +105,25 @@ class SelfInfo extends Component {
         );
         return (
             <SelfInfoWrap id="self">
+                <Header ht="546px" bg={banner}></Header>
                 <div className="self-wrap"> 
-                    <Upload
-                        name="avatar"
-                        listType="picture-card"
-                        className="avatar-uploader"
-                        showUploadList={false}
-                        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-                        beforeUpload={beforeUpload}
-                        onChange={this.handleChange}
-                    >
-                        {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
-                    </Upload>
-                    <UserInfo userInfo={this.state.userInfo}></UserInfo>
+                    <div className="self_info">
+                        <Upload
+                            name="avatar"
+                            listType="picture-card"
+                            className="avatar-uploader"
+                            showUploadList={false}
+                            action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                            beforeUpload={beforeUpload}
+                            onChange={this.handleChange}
+                        >
+                            {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
+                        </Upload>
+                        <UserInfo userInfo={this.state.userInfo} addressList={this.state.addressList}></UserInfo>
+                    </div>
                 </div>
+                <Link></Link>
+                <Footer></Footer>
             </SelfInfoWrap>
         );
     }

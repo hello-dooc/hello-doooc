@@ -9,13 +9,6 @@ const Container = styled.div`
     overflow:auto; */
     background:url(${bg});
     background-size:100%;
-    header {
-      height: 96px;
-      line-height: 96px;
-      text-align: center;
-      font-size: 30px;
-      background-color: #eeeeee;
-    }
     main{
       width:1300px;
       margin:0 auto;
@@ -42,16 +35,9 @@ const Container = styled.div`
         display:flex;
       }
     }
-    footer{
-      height: 732px;
-      /* background-color:#eeeeee; */
+    #link{
       background:url(${bg2}) no-repeat;
-      background-size:100%;
-      img{
-        /* width:1920px; */
-        /* width:100%; */
-        display:block;
-      }
+      /* background-size:100%; */
     }
   }
 `

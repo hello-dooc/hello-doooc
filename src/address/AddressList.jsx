@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import Header from '@c/header/Header'
+import Header from '@c/header/HeaderNoBg'
 import Link from '@c/link/Link'
 import Footer from '@c/footer/Footer'
 
@@ -36,7 +36,7 @@ export default class AddressList extends Component {
                         <span onClick={this.handleClickRight}>添加</span>
                     </div>
                     {
-                        addressList.map(value=>{
+                        addressList && addressList.map(value=>{
                             return(
                                 <div className="address_list"  key={value.addrId}>
                                     <div className="address_top clear_fix">

@@ -4,13 +4,12 @@ import {get} from '@u/http.js'
 
 import { Cascader } from 'antd';
 
-import Header from '@c/header/Header'
+import Header from '@c/header/HeaderNoBg'
 import Link from '@c/link/Link'
 import Footer from '@c/footer/Footer'
 
 import { AddAddWrap } from './StyledAddressList'
 import addLogo from '@a/images/add_logo_03.png'
-
 export default class AddAddress extends Component {
     constructor(props){
         super(props)
@@ -63,6 +62,9 @@ export default class AddAddress extends Component {
             })
         }
     }
+    handleBack=()=>{
+        this.props.history.goBack()
+    }
 
     componentDidMount(){
         this.getList(this.state.changeId,this.state.provinceList);
@@ -100,7 +102,7 @@ export default class AddAddress extends Component {
                                     <input type="text"/>
                                 </label>
                                 <div className="choice clear_fix">
-                                    <span>返回</span>
+                                    <span onClick={this.handleBack}>返回</span>
                                     <span>确定</span>
                                 </div>
                             </div>

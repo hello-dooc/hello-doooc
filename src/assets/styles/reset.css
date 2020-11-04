@@ -33,6 +33,7 @@ ul,
 ol,
 li {
     list-style: none;
+    margin-bottom: 0 !important;
 }
 
 b,
@@ -58,6 +59,7 @@ h5,
 h6 {
     font-size: 16px;
     font-weight: normal;
+    margin-bottom: 0 !important;
 }
 
 input {
@@ -134,4 +136,9 @@ textarea {
 
 .clear_fix {
     zoom: 1;
+}
+
+.center {
+  width: 1300px;
+  margin: 0 auto;
 }

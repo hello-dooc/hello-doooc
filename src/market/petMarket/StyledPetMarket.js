@@ -77,116 +77,12 @@ const NoFilterWrap = styled.div`
         background:#4c4c4c;
     }
 `
-const FilterWrap = styled.div`
+const HasFilterWrap = styled.div`
     height:837px;
     background:url(${display_bg}) no-repeat;
     .variety-wrap{
         width:1300px;
         margin:0 auto;
-        >ul{
-            >span{
-                display:block;
-                background:#f6feff;
-                width:100%;
-                height:1px;
-            }
-            >li{
-                height:40px;
-                width:100%;
-                background:#d89c4e;
-                line-height:40px;
-                padding-left:16px;
-                font-size:13px;
-                color:#000;
-                &:first-child{
-                    height:56px;
-                    line-height:56px;
-                    background:none;
-                    >span{
-                        &:first-child{
-                            margin-right:11px;
-                        } 
-                        &:last-child{
-                            margin-left:9px;
-                        }
-                    }
-                }
-                &:nth-child(2){
-                    >span{
-                        margin-right:20px;
-                    }
-                }
-                &:nth-child(4){
-                    >span{
-                        float:left;
-                        &:first-child{
-                            margin-right:113px;
-                        }
-                        &:nth-child(2){
-                            margin:0 116px 0 91px;
-                        }
-                        &:nth-child(3){
-                            margin-left:89px;
-                        }
-                    }
-                    >div{
-                        margin-right:36px;
-                        >span{
-                            &:last-child{
-                                display:inline-block;
-                                width:8px;
-                                height:5px;
-                                background:url(${pet_down}) no-repeat;
-                                margin:0 36px 0 11px;
-                            }
-                        }
-                    }
-                }
-                &:last-child{
-                    font-size:15px;
-                    text-align:center;
-                    background:#fdc98c;
-                    height:35px;
-                    line-height:35px;
-                    span{
-                        &:last-child{
-                            display:inline-block;
-                            width:8px;
-                            height:4px;
-                            background:url(${display_up}) no-repeat;
-                            margin:15px 36px 0 11px;
-                        }
-                    }
-                }
-            }
-            .classify{
-                height:244px;
-                background:rgba(248,214,174,.6);
-                >ul{
-                    height:100%;
-                    border-right:1px solid #fff;
-                    padding-top:12px;
-                    >li{
-                        height:33px;
-                        font-size:13px;
-                        color:#000;
-                        line-height:33px;
-                    }
-                }
-                .pet_variety{
-                    width:182px;
-                    padding-left:17px;
-                }
-                .pet_sex{
-                    width:167px;
-                    padding-left:91px;
-                }
-                .pet_age{
-                    width:250px;
-                    padding-left:90px;
-                }
-            }
-        }
     }
     #header{
         height:94px;
@@ -200,6 +96,110 @@ const FilterWrap = styled.div`
     }
     #link{
         background:url(${v_footer}) no-repeat;
+    }
+`
+const FilterWrap = styled.ul`
+    >span{
+        display:block;
+        background:#f6feff;
+        width:100%;
+        height:1px;
+    }
+    >li{
+        height:40px;
+        width:100%;
+        background:#d89c4e;
+        line-height:40px;
+        padding-left:16px;
+        font-size:13px;
+        color:#000;
+        &:first-child{
+            height:56px;
+            line-height:56px;
+            background:none;
+            >span{
+                &:first-child{
+                    margin-right:11px;
+                } 
+                &:last-child{
+                    margin-left:9px;
+                }
+            }
+        }
+        &:nth-child(2){
+            >span{
+                margin-right:20px;
+            }
+        }
+        &:nth-child(4){
+            >span{
+                float:left;
+                &:first-child{
+                    margin-right:113px;
+                }
+                &:nth-child(2){
+                    margin:0 116px 0 91px;
+                }
+                &:nth-child(3){
+                    margin-left:89px;
+                }
+            }
+            >div{
+                margin-right:36px;
+                >span{
+                    &:last-child{
+                        display:inline-block;
+                        width:8px;
+                        height:5px;
+                        background:url(${pet_down}) no-repeat;
+                        margin:0 36px 0 11px;
+                    }
+                }
+            }
+        }
+        &:last-child{
+            font-size:15px;
+            text-align:center;
+            background:#fdc98c;
+            height:35px;
+            line-height:35px;
+            span{
+                &:last-child{
+                    display:inline-block;
+                    width:8px;
+                    height:4px;
+                    background:url(${display_up}) no-repeat;
+                    margin:15px 36px 0 11px;
+                }
+            }
+        }
+    }
+    .classify{
+        height:244px;
+        background:rgba(248,214,174,.6);
+        >ul{
+            height:100%;
+            border-right:1px solid #fff;
+            padding-top:12px;
+            >li{
+                height:33px;
+                font-size:13px;
+                color:#000;
+                line-height:33px;
+            }
+        }
+        .pet_variety{
+            width:182px;
+            padding-left:17px;
+        }
+        .pet_sex{
+            width:167px;
+            padding-left:91px;
+        }
+        .pet_age{
+            width:250px;
+            padding-left:90px;
+        }
     }
 `
 const DisplayWrap = styled.div`
@@ -321,6 +321,7 @@ const SearchWrap=styled.div`
 
 export{
     NoFilterWrap,
+    HasFilterWrap,
     SearchWrap,
     FilterWrap,
     DisplayWrap

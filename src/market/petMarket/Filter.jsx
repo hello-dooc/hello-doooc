@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 // import {get} from '@u/http.js'
 
 import { FilterWrap }from './StyledPetMarket'
-import HeaderNoPg from '@c/header/HeaderNoPg'
+import HeaderNoBg from '@c/header/HeaderNoBg'
 import Link from '@c/link/Link'
 import Footer from '@c/footer/Footer'
 import Display from '@m/petMarket/Display'
@@ -25,7 +25,7 @@ export default class Filter extends Component {
     render() {
         return (
             <FilterWrap>
-                <HeaderNoPg></HeaderNoPg>
+                <HeaderNoBg></HeaderNoBg>
                 <div className="variety-wrap">
                     <Search></Search>
                     <ul>

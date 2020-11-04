@@ -3,13 +3,13 @@ import styled from 'styled-components'
 import bg from '@a/images/best.jpg'
 
 const Container = styled.div `
-    header {
+    /* header {
         height: 96px;
         line-height: 96px;
         text-align: center;
         font-size: 30px;
         background-color: #eeeeee;
-    }
+    } */
     main{
         width:1300px;
         margin:0 auto;
@@ -40,10 +40,10 @@ const Container = styled.div `
             }
         }
     }
-    footer{
-        height: 607px;
+    #link{
+        
         background:url(${bg}) no-repeat;
-        background-size:100%
+        /* background-size:100% */
     }
 `
 const Info = styled.div `

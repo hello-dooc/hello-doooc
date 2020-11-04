@@ -10,13 +10,13 @@ const Container = styled.div`
         /* width:1300px;
         margin:0 auto; */
 
-        header {
+        /* header {
             height: 96px;
             line-height: 96px;
             text-align: center;
             font-size: 30px;
             background-color: #eeeeee;
-        }
+        } */
         nav{
             width:1300px;
             margin:0 auto;
@@ -142,11 +142,9 @@ const Container = styled.div`
                 }
             }
         }
-        footer{
-            height: 546px;
-            /* background-color:#eeeeee; */
+        #link{
             background:url(${bg}) no-repeat;
-            background-size:100%
+            /* background-size:100% */
         }
     }
 `

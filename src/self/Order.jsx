@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import OrderForm from './OrderForm';
 
-
+import Footer from '@c/footer/Footer'
+import Link from '@c/link/Link'
+import Header from '@c/header/Header'
 
 import {
     Container
 } from './StyledOrder'
- 
+import banner from '@a/images/banner_dog.png'
 class Order extends Component {
 
     render() {
         return (
             <Container>
-                <header>123</header>
+                <Header ht="546px" bg={banner} ></Header>
                 <main>
                     <div className="category">
                         <ul>
@@ -48,7 +50,8 @@ class Order extends Component {
                         </div>
                     </div>
                 </main>
-                <footer></footer>
+                <Link></Link>
+                <Footer></Footer>
             </Container>
         );
     }

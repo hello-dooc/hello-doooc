@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import{
     NoFilterWrap
 } from './StyledPetMarket'
-import HeaderNoPg from '@c/header/HeaderNoPg'
+import HeaderNoBg from '@c/header/HeaderNoBg'
 
 import Display from '@m/petMarket/Display'
 
@@ -27,7 +27,7 @@ class NoFilter extends Component {
     render() {
         return (
             <NoFilterWrap>
-                <HeaderNoPg></HeaderNoPg>
+                <HeaderNoBg></HeaderNoBg>
                 <div className="bg"></div>
                 <div className="noVariety">
                     <Search></Search>
