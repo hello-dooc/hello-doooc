@@ -3,11 +3,13 @@ import React, { Component } from 'react';
 
 class GoodDetail extends Component {
     render() {
-        // console.log(this.props)
+        console.log(this.props)
+
         return (
             <div className="goodsList">
                 {
                     this.props.list && this.props.list.map(value=>{
+                       
                         return(
                             <div key={value.clothesId} className="oneGood">
                             <img src={value.clothesImage} alt=""/>

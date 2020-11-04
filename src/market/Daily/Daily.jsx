@@ -89,8 +89,8 @@ const navList = [
             },
             {
                 "id": "5",
-                "name": "￥200-500",
-                "price1": "200",
+                "name": "￥201-500",
+                "price1": "201",
                 "price2": "500"
             },
 
@@ -104,6 +104,11 @@ class Daily extends Component {
     state = {
         current: 1,
         type: 1,
+        price1: 0,
+        price2: 10000,
+        des: "clothes",
+        ads: "Clothes",
+        sign: false,
         list: []
     };
 
@@ -117,33 +122,54 @@ class Daily extends Component {
 
     //猫狗数据测试
     listStatus = (item) => {
-        console.log(item);
-        console.log(this.state.type);
-        if(item.PetType!==undefined){
+        // console.log(item);
+        // console.log(this.state.type);
+        if (item.PetType !== undefined) {
             console.log(111);
             this.setState(
                 { type: item.PetType },
                 () => { this.getData(this.state.type) }
-                );
+            );
         }
-
-        
+        // console.log(this.state.price1);
+        // console.log(this.state.price2);
+        if (item.price1 !== undefined && item.price2 !== undefined) {
+            console.log(222);
+            this.setState(
+                { price1: item.price1, price2: item.price2 },
+                () => { this.getData(this.state.price1, this.state.price2) }
+            )
+        }
+        // console.log(this.state.des);
+        // console.log(this.state.ads);
+        if (item.des !== undefined && item.ads !== undefined) {
+            console.log(333);
+            this.setState(
+                { des: item.des, ads: item.ads ,sign:item.des === 'foodtool'? true:false},
+                () => { this.getData(this.state.des, this.state.ads) }
+            )
+        }
+        // this.setState({
+        //     sign:item.des === 'foodtool'? true:false
+        // })
     }
 
     //请求数据函数
     async getData() {
         // console.log(this.state.type);
         let result = await get({
-            url: 'http://123.56.160.44:8080/clothes/findAllByClothesPetTypeOrderByClothesIdDesc/' + this.state.type
+            //根据品种，价格区间，价格排序
+            url: 'http://123.56.160.44:8080/' + this.state.des + '/findAllBy' + this.state.ads + 'PetTypeAnd' + this.state.ads + 'PriceBetween' + (this.state.sign ? 'And' : '') + 'OrderBy' + this.state.ads + 'PriceDesc/' + this.state.type + '/' + this.state.price1 + '/' + this.state.price2
         })
+        console.log(result)
         this.setState({
-            list: result.data.data
+            list: result.data.data,
         })
     }
 
     //请求数据，第一次渲染
     async componentDidMount() {
-        this.getData(this.state.type)
+        this.getData(this.state.type, this.state.price1, this.state.price2, this.state.des, this.state.ads)
     };
 
     render() {
@@ -182,6 +208,7 @@ class Daily extends Component {
                             })
                         }
                     </ul>
+
                     <ul className="priceSort">
                         <i>排序:</i>
                         <li>价格<span> ↓</span></li>
