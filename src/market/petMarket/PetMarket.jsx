@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import NoFilter from './NoFilter'
 import HasFilter from './HasFilter'
-import BuyBanner from '@b/BuyBanner'
+import BuySearch from '@b/BuySearch'
 
 class PetMarket extends Component {
     constructor(){
@@ -24,7 +24,7 @@ class PetMarket extends Component {
     render() {
         return (
             <div>
-                <BuyBanner></BuyBanner>
+                <BuySearch />
                 {
                     this.state.isVariety?<HasFilter callback={this.callback} isVariety={this.state.isVariety}/>:<NoFilter callback={this.callback} isVariety={this.state.isVariety} />   
                 }

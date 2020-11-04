@@ -153,7 +153,7 @@ const BuyBannerWrap = styled.div`
                             height:34px;
                             display: none;
                             z-index: 1;
-                            background-color: rgba(247,251,251,.7)
+                            background-color: rgba(247,251,251,.7);
                             li{
                                 width: 100%;
                                 &:hover{
