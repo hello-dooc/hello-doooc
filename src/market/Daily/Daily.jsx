@@ -21,25 +21,29 @@ const navList = [
                 "id": "1",
                 "name": "服饰",
                 "des": "clothes",
-                "ads": "Clothes"
+                "ads": "Clothes",
+                "desc": "clothes"
             },
             {
                 "id": "2",
                 "name": "餐具",
                 "des": "foodtool",
-                "ads": "Food"
+                "ads": "Food",
+                "desc": "food"
             },
             {
                 "id": "3",
                 "name": "清洁",
                 "des": "cleaning",
-                "ads": "Clean"
+                "ads": "Clean",
+                "desc": "clean"
             },
             {
                 "id": "4",
                 "name": "玩具",
                 "des": "play",
-                "ads": "Play"
+                "ads": "Play",
+                "desc": "play"
             }
         ]
     },
@@ -108,68 +112,84 @@ class Daily extends Component {
         price2: 10000,
         des: "clothes",
         ads: "Clothes",
+        desc: "clothes",
         sign: false,
-        list: []
+        list: [],
+
+        pageSize:10,
+        goValue:0,
+        indexList:[],
+        totalPage:0,
+        
+
+
     };
 
     //分页器
     onChange = page => {
         console.log(page);
-        this.setState({
-            current: page
-        });
-    };
+        this.setState(
+          {current: page},
+          ()=>{this.getData(this.state.current)}
+        )
+      };
 
     //猫狗数据测试
     listStatus = (item) => {
-        // console.log(item);
-        // console.log(this.state.type);
+        console.log(item);
+        console.log(this.state.type);
         if (item.PetType !== undefined) {
             console.log(111);
             this.setState(
-                { type: item.PetType },
+                { type: item.PetType,current:1},
                 () => { this.getData(this.state.type) }
             );
         }
         // console.log(this.state.price1);
-        // console.log(this.state.price2);
         if (item.price1 !== undefined && item.price2 !== undefined) {
             console.log(222);
             this.setState(
-                { price1: item.price1, price2: item.price2 },
+                { price1: item.price1, price2: item.price2,current:1 },
                 () => { this.getData(this.state.price1, this.state.price2) }
             )
         }
-        // console.log(this.state.des);
         // console.log(this.state.ads);
-        if (item.des !== undefined && item.ads !== undefined) {
+        if (item.des !== undefined && item.ads !== undefined && item.desc!==undefined) {
             console.log(333);
             this.setState(
-                { des: item.des, ads: item.ads ,sign:item.des === 'foodtool'? true:false},
-                () => { this.getData(this.state.des, this.state.ads) }
+                { des: item.des, ads: item.ads, sign: item.des === 'foodtool' ? true : false, desc: item.desc ,current:1},
+                () => { this.getData(this.state.des, this.state.ads,this.state.desc) }
             )
         }
         // this.setState({
-        //     sign:item.des === 'foodtool'? true:false
+        //     desc:item.des === 'foodtool'? true:false
         // })
     }
 
     //请求数据函数
     async getData() {
-        // console.log(this.state.type);
         let result = await get({
-            //根据品种，价格区间，价格排序
-            url: 'http://123.56.160.44:8080/' + this.state.des + '/findAllBy' + this.state.ads + 'PetTypeAnd' + this.state.ads + 'PriceBetween' + (this.state.sign ? 'And' : '') + 'OrderBy' + this.state.ads + 'PriceDesc/' + this.state.type + '/' + this.state.price1 + '/' + this.state.price2
+            url: 'http://123.56.160.44:8080/' + this.state.des + '/findAllBy' + this.state.ads + 'PetTypeAnd' + this.state.ads + 'PriceBetween' + (this.state.sign ? 'And' : '') + 'Order'+'By' + this.state.ads + 'PriceDesc/' + this.state.type + '/' + this.state.price1 + '/' + this.state.price2
         })
-        console.log(result)
+        let list = result.data.data;
+        // let indexList = list.slice((this.state.current-1)*this.state.pageSize,this.state.current*this.state.pageSize)
+        list = list.reduce((arr, value) => {
+            value.desc = this.state.desc
+            arr.push(value)
+            return arr;
+        }, []);
+        console.log(list);
         this.setState({
-            list: result.data.data,
+            list,
+            indexList:list.slice((this.state.current-1)*this.state.pageSize,this.state.current*this.state.pageSize)
         })
+        console.log(this.state.indexList);
+
     }
 
     //请求数据，第一次渲染
     async componentDidMount() {
-        this.getData(this.state.type, this.state.price1, this.state.price2, this.state.des, this.state.ads)
+        this.getData(this.state.type, this.state.price1, this.state.price2, this.state.des, this.state.ads,this.state.decs,this.state.current)
     };
 
     render() {
@@ -218,10 +238,21 @@ class Daily extends Component {
 
                 <div className="goods">
                     <GoodDetail
-                        list={this.state.list}
+                        indexList={this.state.indexList}
                     ></GoodDetail>
                     <>
-                        <Pagination current={this.state.current} onChange={this.onChange} total={this.state.list.length} />
+                      {/*   <Pagination 
+                            current={this.state.current} 
+                            onChange={this.onChange}
+                            defaultPageSize={15} 
+                            total={this.state.list.length}
+                        /> */}
+
+                    <Pagination 
+                    current={this.state.current} 
+                    onChange={this.onChange} 
+                    defaultPageSize={10} 
+                    total={this.state.list.length} />
                     </>
                 </div>
                 <Link></Link>

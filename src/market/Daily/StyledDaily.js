@@ -81,7 +81,6 @@ const Container = styled.div `
                     display:flex;
                     font-size:12px;
                     color:#ccc;
-                    display: flex;
                     justify-content:space-between;
                     h2{
                         height:16px;
@@ -89,15 +88,27 @@ const Container = styled.div `
                         font-size:12px;
                         background-color:#ff3366;
                         color:#fff;
+                        /* width:60px; */
                         /* padding:0 3px; */
                     }
+                    /* .hasWidth{
+                        width:60px!important;  
+                    } */
                     h3{
                         font-size:12px;
                         color:#ff3366;
                         font-weight:600;
                     }
                     p{
-                        width:115px;
+                        /* flex:1; */
+                        /* width:115px; */
+                        height:34px;
+                        overflow:hidden;
+                        text-overflow: ellipsis;
+                        /* white-space:nowrap; */
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
                     }
                 }
             }
