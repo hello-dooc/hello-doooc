@@ -16,9 +16,23 @@ const Container = styled.div `
         .category{
             height:658px;
             display:flex;
-            ul{
-                width:200px;
-                text-align:center;
+            .ant-tabs-tab{
+                width:100px;
+            }
+            .ant-tabs-tab:hover{
+                color:#f8c486;
+                .ant-tabs-tab-btn:hover{
+                        color:#f8c486;
+                }
+            }
+            .ant-tabs-tab-active{
+                .ant-tabs-tab-btn{
+                    color:#f8c486;
+                }
+               
+            }
+            .ant-tabs-ink-bar{
+                background:rgba(0,0,0,0)
             }
         }
         .recommend{
@@ -46,6 +60,7 @@ const Container = styled.div `
         /* background-size:100% */
     }
 `
+
 const Info = styled.div `
     .shopDetails{
         height:180px;

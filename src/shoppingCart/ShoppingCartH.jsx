@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import CartH from './CartH';
+import CartH from './CartH';
 import CartN from './CartN';
 
 import Footer from '@c/footer/Footer'
@@ -15,6 +15,9 @@ import img2 from '@a/images/ShoppingCart/dogHead_03.png'
 
 
 class ShoppingCart extends Component {
+    state={
+        isShow:true
+    }
     render() {
         return (
             <Container>
@@ -26,8 +29,9 @@ class ShoppingCart extends Component {
                         <img src={img2} alt="" />
                         <p>我的购物车</p>
                         <div className="cart">
-                            {/* <CartH></CartH> */}
-                            <CartN></CartN>
+                            {
+                                this.state.isShow?(<CartH></CartH>):(<CartN></CartN>)
+                            }
                         </div>
                     </main>
                     <Link></Link>

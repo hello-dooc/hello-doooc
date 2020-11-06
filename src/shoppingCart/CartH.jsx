@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import DetailInfo from '../components/DetailInfo';
+import DetailInfo from '../components/Detail/DetailInfo';
 
 import {
     HCart

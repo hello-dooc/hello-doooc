@@ -22,28 +22,28 @@ const navList = [
                 "name": "服饰",
                 "des": "clothes",
                 "ads": "Clothes",
-                "desc": "clothes"
+                "sptype": "clothes"
             },
             {
                 "id": "2",
                 "name": "餐具",
                 "des": "foodtool",
                 "ads": "Food",
-                "desc": "food"
+                "sptype": "food"
             },
             {
                 "id": "3",
                 "name": "清洁",
                 "des": "cleaning",
                 "ads": "Clean",
-                "desc": "clean"
+                "sptype": "clean"
             },
             {
                 "id": "4",
                 "name": "玩具",
                 "des": "play",
                 "ads": "Play",
-                "desc": "play"
+                "sptype": "play"
             }
         ]
     },
@@ -112,7 +112,7 @@ class Daily extends Component {
         price2: 10000,
         des: "clothes",
         ads: "Clothes",
-        desc: "clothes",
+        sptype: "clothes",
         sign: false,
         list: [],
 
@@ -120,9 +120,6 @@ class Daily extends Component {
         goValue:0,
         indexList:[],
         totalPage:0,
-        
-
-
     };
 
     //分页器
@@ -154,27 +151,33 @@ class Daily extends Component {
             )
         }
         // console.log(this.state.ads);
-        if (item.des !== undefined && item.ads !== undefined && item.desc!==undefined) {
+        if (item.des !== undefined && item.ads !== undefined && item.sptype!==undefined) {
             console.log(333);
             this.setState(
-                { des: item.des, ads: item.ads, sign: item.des === 'foodtool' ? true : false, desc: item.desc ,current:1},
-                () => { this.getData(this.state.des, this.state.ads,this.state.desc) }
+                { des: item.des, ads: item.ads, sign: item.des === 'foodtool' ? true : false, sptype: item.sptype ,current:1},
+                () => { this.getData(this.state.des, this.state.ads,this.state.sptype) }
             )
         }
-        // this.setState({
-        //     desc:item.des === 'foodtool'? true:false
-        // })
+
     }
 
     //请求数据函数
     async getData() {
         let result = await get({
-            url: 'http://123.56.160.44:8080/' + this.state.des + '/findAllBy' + this.state.ads + 'PetTypeAnd' + this.state.ads + 'PriceBetween' + (this.state.sign ? 'And' : '') + 'Order'+'By' + this.state.ads + 'PriceDesc/' + this.state.type + '/' + this.state.price1 + '/' + this.state.price2
+            url: 'http://123.56.160.44:8080/' 
+            + this.state.des + '/findAllBy' 
+            + this.state.ads + 'PetTypeAnd' 
+            + this.state.ads + 'PriceBetween' 
+            + (this.state.sign ? 'And' : '') 
+            + 'Order'+'By' + this.state.ads 
+            + 'PriceDesc/' + this.state.type 
+            + '/' + this.state.price1 + '/' 
+            + this.state.price2
         })
         let list = result.data.data;
         // let indexList = list.slice((this.state.current-1)*this.state.pageSize,this.state.current*this.state.pageSize)
         list = list.reduce((arr, value) => {
-            value.desc = this.state.desc
+            value.sptype = this.state.sptype
             arr.push(value)
             return arr;
         }, []);
@@ -251,7 +254,6 @@ class Daily extends Component {
                     <Pagination 
                     current={this.state.current} 
                     onChange={this.onChange} 
-                    defaultPageSize={10} 
                     total={this.state.list.length} />
                     </>
                 </div>
