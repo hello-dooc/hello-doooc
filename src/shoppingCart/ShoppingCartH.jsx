@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {withRouter} from 'react-router-dom'
 // import CartH from './CartH';
 import CartN from './CartN';
 
@@ -12,13 +13,13 @@ import {
 
 // import img1 from '../assets/images/shoppingCartH_02.png'
 import img2 from '@a/images/ShoppingCart/dogHead_03.png'
-
+import banner from '@a/images/banner_dog.png'
 
 class ShoppingCart extends Component {
     render() {
         return (
             <Container>
-                <Header></Header>
+                <Header ht="546px" bg={banner}></Header>
 
                 <div className="con">
                     

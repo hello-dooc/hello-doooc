@@ -46,8 +46,6 @@ const AddressListWrap=styled.div`
 `
 const AddAddWrap=styled.div`
     #header{
-        background:#eee;
-        height:94px;
         ul>li{
             color:#686868;
             &:hover{

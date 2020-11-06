@@ -54,7 +54,7 @@ const FoodChange1 = styled.div`
   ul {
     display: flex;
     justify-content: space-between;
-    width: 1110px
+    width: 1110px;
     margin-top: 80px;
     li {
       width: 340px;
@@ -100,6 +100,7 @@ const FoodChange2 = styled.div`
       height: 100%;
     }
   }
+}
 `
 const FoodChange3 = styled.div`
   width: 1300px;
@@ -147,7 +148,7 @@ const FoodChange4 = styled.div`
   margin: 0 auto;
 	position: relative;
 	width: 1200px;
-  margin: 0 auto
+  margin: 0 auto;
   overflow: hidden;
   margin-bottom: 60px;
   .swiper-container {

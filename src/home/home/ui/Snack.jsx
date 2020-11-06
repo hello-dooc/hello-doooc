@@ -9,10 +9,19 @@ import fure from '@a/images/fure.jpg'
 import five from '@a/images/five.jpg'
 
 class Snack extends Component {
+
+  handleClick=(url)=>{
+    return ()=>{
+      this.props.gotoFoodMarket(url)
+    }
+  }
+  componentDidMount(){
+    console.log(this.props);
+  }
   render() {
     return (
         <center>
-          <h2><img src={snack} alt=""/></h2>
+          <h2 onClick={this.handleClick('/foodMarket')}><img src={snack} alt=""/></h2>
           <ul>
             <li><img src={one} alt=""/></li>
             <li><img src={two} alt=""/></li>

@@ -2,12 +2,18 @@ import React, { Component } from 'react';
 import {
     BuySearchWrap
 } from './StyledBuyHome'
+import {withRouter } from 'react-router-dom'
 
 import img1 from '@a/images/buyhome/petscan.png'
 import img2 from '@a/images/buyhome/petseat.png'
 import img3 from '@a/images/buyhome/petsmac.png'
-
+@withRouter
 class BuySearch extends Component {
+    handleGotoOthers=(url)=>{
+        return ()=>{
+            this.props.history.push(url)
+        }
+    }
     render() {
         return (
             <BuySearchWrap>
@@ -24,7 +30,7 @@ class BuySearch extends Component {
                     </div>
                     <div className="menu_box">
                         <ul className="menu">
-                            <li className="has-submenu"><p>宠物食品</p>
+                            <li className="has-submenu"><p onClick={this.handleGotoOthers('/daily')}>宠物食品</p>
                                 <ul>
                                     <li><img src={img1} alt=""/><p>宠物主粮</p></li>
                                     <li><img src={img2} alt=""/><p>宠物零食</p></li>
@@ -33,8 +39,8 @@ class BuySearch extends Component {
                                 <span></span>
                                 <em></em>
                             </li>
-                            <li><p>宠物日用</p></li>
-                            <li><p>宠物市场</p></li>
+                            <li><p onClick={this.handleGotoOthers('/daily')}>宠物日用</p></li>
+                            <li><p onClick={this.handleGotoOthers('/petMarket')}>宠物市场</p></li>
                         </ul>
                     </div>
                 </div>

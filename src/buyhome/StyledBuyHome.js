@@ -389,10 +389,6 @@ const AllGoodsWrap =styled.div`
                 }
             }
         }
-
-
-
-
 `
 const BuySearchWrap = styled.div`
  .nav_box{
@@ -540,14 +536,10 @@ const BuySearchWrap = styled.div`
                     border-bottom: 10px solid #217AFF;
                 }
             }
-        }
-        
-        
+        }    
     }
-    
-
-`
-
+ }
+` 
 
 
 
@@ -555,5 +547,6 @@ const BuySearchWrap = styled.div`
 export {
     Container,
     BuyBannerWrap,
-    AllGoodsWrap
+    AllGoodsWrap,
+    BuySearchWrap
 }

@@ -1,18 +1,25 @@
 import React, { Component } from 'react'
+import {withRouter } from 'react-router-dom'
 
 import imgbanner from '@a/images/buyhome/scbanner.png'
-import Header from '@c/header/Header.jsx'
+// import Header from '@c/header/Header.jsx'
 import BuySearch from "./BuySearch"
+import Header from '@c/header/HeaderNoBg.jsx'
 
+import banner from '@a/images/banner_dog.png'
 
 import {
     BuyBannerWrap
 } from './StyledBuyHome'
 
 
-
-export default class BuyBanner extends Component {
-
+@withRouter
+class BuyBanner extends Component {
+    handleGotoOthers=(url)=>{
+        return ()=>{
+            this.props.history.push(url)
+        }
+    }
     render() {
         return (
             <BuyBannerWrap>
@@ -36,7 +43,7 @@ export default class BuyBanner extends Component {
                     </div>
                     <div className="menu_box">
                         <ul className="menu">
-                            <li className="has-submenu"><p>宠物食品</p>
+                            <li className="has-submenu"><p onClick={this.handleGotoOthers('/foodMarket')}>宠物食品</p>
                                 <ul>
                                     <li><img src={img1} alt=""/><p>宠物主粮</p></li>
                                     <li><img src={img2} alt=""/><p>宠物零食</p></li>
@@ -45,8 +52,8 @@ export default class BuyBanner extends Component {
                                 <span></span>
                                 <em></em>
                             </li>
-                            <li><p>宠物日用</p></li>
-                            <li><p>宠物市场</p></li>
+                            <li><p onClick={this.handleGotoOthers('/daily')}>宠物日用</p></li>
+                            <li><p onClick={this.handleGotoOthers('/petMarket')}>宠物市场</p></li>
                         </ul>
                     </div>
                 </div> */}
@@ -56,3 +63,5 @@ export default class BuyBanner extends Component {
         )
     }
 }
+
+export default BuyBanner

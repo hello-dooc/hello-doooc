@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from 'react';
 
 
-import {get} from '../../../utils/http1'
+import {get} from '@u/http1'
 import Head from '@c/header/Header'
 import Search from './Search'
 import Classify from './Classify'
@@ -21,19 +21,22 @@ import {
 } from './StyledFood'
 
 const FoodUi = (props) => {
-  const [list,setList] = useState({})
+  let [list,setList] = useState([])
   useEffect(() => {
     async function loadData(){
       let result = await get(
-        'http://123.56.160.44:8080/food/list'
-        // 'http://123.56.160.44:8080/clothes/findAllByClothesPetTypeOrderByClothesIdDesc/1'
+        // 'http://123.56.160.44:8080/food/list'
+        'http://123.56.160.44:8080/clothes/findAllByClothesPetTypeOrderByClothesIdDesc/1'
       )
-      setList(result.data)
+      setList(result.data.data)
+
       console.log(result)
       console.log(list)
     }
     loadData()
   },[])
+  
+
 
 
   return (

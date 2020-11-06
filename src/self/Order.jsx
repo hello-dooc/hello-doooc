@@ -8,14 +8,13 @@ import Header from '@c/header/Header'
 import {
     Container
 } from './StyledOrder'
- 
+import banner from '@a/images/banner_dog.png'
 class Order extends Component {
 
     render() {
         return (
             <Container>
-                <Header></Header>
-
+                <Header ht="546px" bg={banner} ></Header>
                 <main>
                     <div className="category">
                         <ul>

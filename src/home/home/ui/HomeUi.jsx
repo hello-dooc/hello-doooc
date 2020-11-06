@@ -1,4 +1,5 @@
 import React from 'react'
+import {useHistory} from 'react-router-dom'
 
 import Head from '@c/header/Header'
 import Snack from './Snack'
@@ -32,6 +33,10 @@ import linkimg from '@a/images/底栏.jpg'
 
 
 const HomeUi = (props) => {
+  const history=useHistory();
+  const callback=(url)=>{
+    history.push(url)
+  }
   return (
     <div>
       <Head
@@ -39,7 +44,7 @@ const HomeUi = (props) => {
         bg={banner}
       ></Head>
       <SnackOne>
-        <Snack></Snack>
+        <Snack gotoFoodMarket={callback}></Snack>
       </SnackOne>
       <FoodChange1>
         <Title name="食材选取"></Title>
