@@ -40,7 +40,7 @@ class HeaderNoBg extends Component {
             <HeaderNoBgWrap id="header">
                 <ul>
                     <li onClick={this.handleGotoOthers('/home')}>首页</li>
-                    <li onClick={this.handleGotoOthers('/foodMarket')}>商城</li>
+                    <li onClick={this.handleGotoOthers('/buy')}>商城</li>
                     <li onClick={this.handleGotoOthers('/love')}>知宠</li>
                 </ul>
                 <div className="logo">

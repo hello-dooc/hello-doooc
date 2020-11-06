@@ -1,16 +1,8 @@
-const defaultState={
-    address:[]
-}
-const reducer=(state=defaultState,action)=>{
-    switch(action.type){
-        case 'loadData':
-            return{
-                address:action.address,
-            }
+import { combineReducers } from 'redux'
+import { reducer as petMarket } from '../market/petMarket'
 
-        default:
-            return state;
-    }
-}
+const reducer = combineReducers({
+    petMarket
+})
 
 export default reducer

@@ -6,8 +6,10 @@ import display_up from '@a/images/display_up_03.png'
 import display_bg from '@a/images/display_bg_01.png'
 import pet_bg from '@a/images/pet_bg_02.png'
 import shoppingCart from '@a/images/shoppingCart_04.png'
-import v_footer from '@a/images/variety_footer_02.png'
-const NoFilterWrap = styled.div`
+import bg from '@a/images/bg.png'
+import detail_bg from '@a/images/detail_bg_03.png'
+
+const PetWrap = styled.div`
     height:837px;
     &::before{
         content:'';
@@ -19,83 +21,70 @@ const NoFilterWrap = styled.div`
         background-size:cover;
         filter: blur(30px);
     }
-    .noVariety{
+    #dog_bg{
+        background:url(${display_bg}) no-repeat;
+    }
+    .cat-wrap{
         width:1300px;
         height:741px;
         margin:0 auto;
         background:url(${no_display}) no-repeat;
-        >ul{
-            >span{
-                display:block;
-                background:rgba(246,254,255,.6);
-                width:100%;
-                height:1px;
-            }
-            li{
-                height:40px;
-                width:100%;
-                background:rgba(250,209,161,.6);
-                line-height:40px;
-                padding-left:16px;
-                font-size:13px;
-                color:#000;
-                &:first-child{
-                    height:56px;
-                    line-height:56px;
-                    background:rgba(252,234,213,.6);
-                    >span{
-                        &:first-child{
-                            margin-right:11px;
-                        } 
-                        &:last-child{
-                            margin-left:9px;
-                        }
-                    }
-                }
-                &:nth-child(2){
-                    >span{
-                        margin-right:20px;
-                    }
-                }
-                &:last-child{
-                    font-size:15px;
-                    text-align:right;
-                    span{
-                        &:last-child{
-                            display:inline-block;
-                            width:8px;
-                            height:5px;
-                            background:url(${pet_down}) no-repeat;
-                            margin:0 36px 0 11px;
-                        }
-                    }
-                }
-            }
-        }
+    }
+    .dog-wrap{
+        width:1300px;
+        height:734px;
+        margin:0 auto;
     }
     #link{
         background:#4c4c4c;
     }
 `
-const HasFilterWrap = styled.div`
-    height:837px;
-    background:url(${display_bg}) no-repeat;
-    .variety-wrap{
-        width:1300px;
-        margin:0 auto;
+const FilterUpWrap = styled.ul`
+    >span{
+        display:block;
+        background:#f6feff;
+        width:100%;
+        height:1px;
     }
-    #header{
-        height:94px;
-        background:rgba(234,234,234,.6);
-        li{
-            color:#696969;
-            &:hover{
-                color:#f5a64a;
+    >li{
+        height:40px;
+        width:100%;
+        background:rgba(250,209,161,.6);
+        line-height:40px;
+        padding-left:16px;
+        font-size:13px;
+        color:#000;
+        &:first-child{
+            height:56px;
+            line-height:56px;
+            background:rgba(252,234,213,.6);
+            >span{
+                &:first-child{
+                    margin-right:11px;
+                } 
+                &:last-child{
+                    margin-left:9px;
+                }
             }
         }
-    }
-    #link{
-        background:url(${v_footer}) no-repeat;
+        &:nth-child(2){
+            >span{
+                margin-right:20px;
+            }
+        }
+        &:last-child{
+            font-size:15px;
+            text-align:right;
+            span{
+                &:last-child{
+                    display:inline-block;
+                    width:8px;
+                    height:5px;
+                    background:url(${pet_down}) no-repeat;
+                    margin:0 36px 0 11px;
+                }
+            }
+        }
     }
 `
 const FilterWrap = styled.ul`
@@ -191,6 +180,7 @@ const FilterWrap = styled.ul`
         .pet_variety{
             width:182px;
             padding-left:17px;
+            overflow-y:auto;
         }
         .pet_sex{
             width:167px;
@@ -283,6 +273,7 @@ const DisplayWrap = styled.div`
         }
         .display_video{
             padding-top:25px;
+            height:518px;
             .pet_video{
                 overflow:hidden;
                 .petVideo{
@@ -293,10 +284,10 @@ const DisplayWrap = styled.div`
                         background:#bfbfbf;
                         padding-top:15px;
                         margin-right:50px;
-                        >img{
+                        >video{
                             width:370px;
-                            height:312px;
-                            margin:0 auto;
+                            height:300px;
+                            margin:0 15px;
                         }
                         .video_desc{
                             height:65px;
@@ -313,16 +304,109 @@ const DisplayWrap = styled.div`
         }
     }
 `
-const SearchWrap=styled.div`
-    width:100%;
-    height:109px;
-    background:rgba(192,192,192,.6);
+const ScreenWrap = styled.div`
+    .screen-wrap{
+        width:1300px;
+        margin:0 auto;
+        background:url(${bg}) no-repeat;
+        background-size:cover;
+        .petForSale{
+            >h2{
+                margin:0 auto; 
+                width:404px;
+                font-size:46px;
+                color:#444341;
+                font-weight:bold;
+                padding:52px 0 70px;
+                text-align:center;
+                line-height:46px;
+            }
+            .pet_img{ 
+                width:404px;
+                margin:0 auto;
+                .img_box{
+                    width:400px;
+                    height:400px;
+                    padding:15px 0 0 15px;
+                    background:#bfbfbf;
+                    margin-bottom:74px;
+                    >img{
+                        width:370px;
+                        height:312px;
+                    }
+                }
+            }
+            .detail_box{
+                width:753px;
+                height:478px;
+                margin:0 auto;
+                background:url(${detail_bg}) no-repeat;
+                padding:21px 0 0 149px;
+                >h3{
+                    font-size:30px;
+                    color:#0e0d0e;
+                    line-height:30px;
+                    margin-bottom:45px;
+                    padding-left:12px;
+                }
+                >p{
+                    font-size:24px;
+                    color:#000;
+                    line-height:29px;
+                    margin-bottom:38px;
+                    padding-left:12px;
+                }
+                >div{
+                    font-size:24px;
+                    color:#000;
+                    margin-bottom:45px;
+                    padding-left:12px;
+                    >span{
+                        &:nth-child(2){
+                            font-size:24px;
+                            color:#ff3366;
+                        }
+                    }
+                }
+                >ul{
+                    width:406px;
+                    height:194px;
+                    li{
+                        color:#0d0c0c;
+                        font-size:18px;
+                        padding-left:12px;
+                        &:nth-child(2n-1){
+                            height:25px;
+                            background:#e5cbad;
+                            line-height:25px;
+                            
+                        }
+                        &:nth-child(2n){
+                            height:61px;
+                            line-height:61px;
+                        }
+                        >span{
+                            margin-left:32px;
+                        }
+                    }
+                }
+            }
+            .buy_process{
+                width:755px;
+                height:412px;
+                background:url(${detail_bg}) no-repeat;
+
+            }
+        }
+    }
 `
 
+
+
 export{
-    NoFilterWrap,
-    HasFilterWrap,
-    SearchWrap,
+    PetWrap,
     FilterWrap,
-    DisplayWrap
+    DisplayWrap,
+    FilterUpWrap,
+    ScreenWrap
 }

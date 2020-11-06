@@ -16,7 +16,14 @@ import Order from '@s/Order'
 import AddressList from '@d/AddressList'
 import AddAddress from '@d/AddAddress'
 import ShoppingCart from '@sc/ShoppingCartH'
-import PetMarket from '@m/petMarket/PetMarket'
+import PetMarket from '@m/petMarket/container/PetMarket'
+import Login from '@l/Login'
+import Register from '@r/Register'
+import Daily from '@m/Daily/Daily'
+import BuyHome from '@b/BuyHome'
+import Answer from '@z/Answer'
+import Training from '@z/Training'
+import ScreenAfter from '@m/petMarket/ui/ScreenAfter'
 export default class App extends Component {
   render() {
     return (
@@ -31,6 +38,13 @@ export default class App extends Component {
           <Route path='/add' component={AddAddress} />
           <Route path='/shoppingCart' component={ShoppingCart} />
           <Route path='/petMarket' component={PetMarket} />
+          <Route path='/login' component={Login} />
+          <Route path='/register' component={Register} />
+          <Route path='/daily' component={Daily} />
+          <Route path='/buy' component={BuyHome} />
+          <Route path='/answer' component={Answer} />
+          <Route path='/training' component={Training} />
+          <Route path='/screen' component={ScreenAfter} />
           <Redirect  from='/' to='/home'></Redirect>
         </Switch>
       </Router>
