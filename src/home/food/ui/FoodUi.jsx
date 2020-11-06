@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from 'react';
 
 
-import {get} from '@u/http'
+import {get} from '@u/http1'
 import Head from '@c/header/Header'
 import Search from './Search'
 import Classify from './Classify'
@@ -21,19 +21,22 @@ import {
 } from './StyledFood'
 
 const FoodUi = (props) => {
-  // const [list,setList] = useState({})
-  // useEffect(() => {
-  //   async function loadData(){
-  //     let result = await get(
-  //       'http://123.56.160.44:8080/food/list'
-  //       // 'http://123.56.160.44:8080/clothes/findAllByClothesPetTypeOrderByClothesIdDesc/1'
-  //     )
-  //     setList(result.data)
-  //     console.log(result)
-  //     console.log(list)
-  //   }
-  //   loadData()
-  // },[])
+  let [list,setList] = useState([])
+  useEffect(() => {
+    async function loadData(){
+      let result = await get(
+        // 'http://123.56.160.44:8080/food/list'
+        'http://123.56.160.44:8080/clothes/findAllByClothesPetTypeOrderByClothesIdDesc/1'
+      )
+      setList(result.data.data)
+
+      console.log(result)
+      console.log(list)
+    }
+    loadData()
+  },[])
+  
+
 
 
   return (
@@ -50,8 +53,8 @@ const FoodUi = (props) => {
         <Classify></Classify>
       </ClassifyStyle>
       <ListStyle>
-        {/* <List
-          list={list}></List> */}
+        <List
+          list={list}></List>
       </ListStyle>
       <StyledLink>
         <Link

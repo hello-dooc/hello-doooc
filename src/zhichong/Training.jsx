@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {withRouter } from 'react-router-dom'
 
 import Footer from '@c/footer/Footer'
 import Link from '@c/link/Link'
@@ -9,17 +10,22 @@ import ban from '@a/images/Trainning/TrBan_03.png'
 import news1 from '@a/images/Trainning/TrNews01_03.png'
 import news2 from '@a/images/Trainning/TrNews02_03.png'
 import news3 from '@a/images/Trainning/TrNews03_03.png'
-
+import banner from '@a/images/banner_dog.png'
 
 import {
     Container
   } from './StyledTraining'
-
+@withRouter
 class Training extends Component {
+    handleGotoOthers=(url)=>{
+        return ()=>{
+            this.props.history.push(url)
+        }
+    }
     render() {
         return (
             <Container>
-                <Header></Header>
+                <Header ht="546px" bg={banner} ></Header>
                 <div className="con">
                     <nav>
                         <ul>
@@ -33,7 +39,7 @@ class Training extends Component {
                             </li>
                             <li>
                                 <img src={navImg} alt=""/>
-                                <span>训练</span>
+                                <span onClick={this.handleGotoOthers('/training')}>训练</span>
                             </li>
                         </ul>
                         <ul></ul>
@@ -48,7 +54,7 @@ class Training extends Component {
                             </li>
                             <li>
                                 <img src={navImg} alt=""/>
-                                <span>联系我们</span>
+                                <span onClick={this.handleGotoOthers('/answer')}>联系我们</span>
                             </li>
                         </ul>
                     </nav>

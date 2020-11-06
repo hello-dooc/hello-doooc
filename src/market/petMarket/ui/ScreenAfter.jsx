@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import HeaderNoBg from '@c/header/HeaderNoBg'
-import Search from './Search'
 
-import {ScreenWrap} from './StyledPetMarket'
+import { ScreenWrap } from '../StyledPetMarket'
 import ChangeFilter from './ChangeFilter'
 import Link from '@c/link/Link'
 import Footer from '@c/footer/Footer'
+import BuySearch from '@b/BuySearch'
+
 
 
 import timg from '@a/images/timg.jpeg'
@@ -28,7 +29,9 @@ export default class ScreenAfter extends Component {
             <ScreenWrap>
                 <HeaderNoBg></HeaderNoBg>
                 <div className="screen-wrap">
-                    <Search></Search>
+                    <div style={{height:'108px'}}>
+                        <BuySearch></BuySearch>
+                    </div>
                     <ChangeFilter isVariety={this.state.isVariety} />
                     <div className="petForSale">
                         <h2>宠物待售</h2>

@@ -15,7 +15,6 @@ import {
   BodyStyle,
   DogStyle
 } from './StyledLove'
-
 class loveUi extends Component {
   render() {
     return (

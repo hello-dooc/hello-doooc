@@ -4,6 +4,7 @@ import rgimg from '@a/images/WeChat.jpg'
 const Container = styled.div`
 background:url(${rgimg})  no-repeat;
 background-size:100% 100%;
+overflow-y:scroll;
 backgroound-attachment:fixed;
 position:fixed;
 top:0;
@@ -41,9 +42,9 @@ const RegisterWrap = styled.div`
     .ant-input-affix-wrapper{
       display:block;
       width:400px;
-      anticon anticon-user site-form-item-icon{
+      .anticon anticon-user site-form-item-icon{
         display:block;
-        widtth:30px;
+        width:30px;
         height:30px;
         svg{
           width:2em;

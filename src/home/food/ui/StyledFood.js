@@ -132,6 +132,8 @@ const ListStyle = styled.div`
     position: relative;
   }
   ol{
+    overflow: hidden;
+    height: 1050px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -156,7 +158,7 @@ const ListStyle = styled.div`
           position:absolute;
           top: 0px;
           left: -20px;
-          width: 55px;
+          width: 60px;
           height: 15px;
           background: #fdc98c;
           font-size: 12px;
