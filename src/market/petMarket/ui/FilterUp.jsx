@@ -8,25 +8,25 @@ export default class FilterUp extends Component {
     }
     handleChooseType=()=>{
         return(e)=>{
-            let type=1
+            let pType=1
             if(e.target.innerHTML==='喵喵') {
                 this.setState({
                     type:'喵喵'
                 },()=>{
-                    type=1;
                     this.getPetTypeList()
                     this.props.getpetList&&this.props.getpetList('petcatmarket/findAll','Cat')
                 })
+                pType=1;
             }else if(e.target.innerHTML==='汪汪') {
                 this.setState({
                     type:'汪汪'
                 },()=>{
-                    type=2;
                     this.getPetTypeList()
                     this.props.getpetList&&this.props.getpetList('petdogmarket/findAll','Dog')
                 })
+                pType=2;
             }
-            this.props.changePetType&&this.props.changePetType(type)
+            this.props.changePetType&&this.props.changePetType(pType)
         }
     }
     

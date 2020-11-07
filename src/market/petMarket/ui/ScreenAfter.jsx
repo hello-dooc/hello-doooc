@@ -15,16 +15,50 @@ import img2 from '@a/images/01_05.png'
 import img3 from '@a/images/01_07.png'
 import img4 from '@a/images/01_09.png'
 import img5 from '@a/images/01_11.png'
+import screen_bg from '@a/images/screen_bg_02.png'
+import Filter from './Filter'
+
+import { get } from '@u/http'
 
 
-export default class ScreenAfter extends Component {
-    constructor(){
-        super();
-        this.state={
-            isVariety:true
+class ScreenAfter extends Component {
+    state={
+        screenList:[]
+    }
+    async getScreenList(url){
+        let {petTypeNum,petAge,petSex} = this.props.location.state
+        console.log(this.props.location.state);
+        let result = await get({
+            url:`http://123.56.160.44:8080/${url}/findAllChoice/${petTypeNum}/${petSex}/${petAge}/1`
+        })
+        // console.log(result.data.data);
+        let arr = result.data.data&&result.data.data.reduce((arr,value)=>{
+            if(this.props.location.state.type==="喵喵"){
+                value.pet='Cat'
+            }else{
+                value.pet='Dog'
+            }
+            value.id = new Date().getTime()+Math.random();
+            arr.push(value)
+            return arr
+        },[])
+        this.setState({
+            screenList:arr
+        },()=>{
+            console.log(this.state.screenList);
+        })
+    }
+    componentDidMount(){
+        if(this.props.location.state.type==="喵喵"){
+            this.getScreenList('petcatmarket');
+        }else{
+            this.getScreenList('petdogmarket')
         }
     }
+    
+
     render() {
+        console.log(this.state.screenList);
         return (
             <ScreenWrap>
                 <HeaderNoBg></HeaderNoBg>
@@ -32,43 +66,52 @@ export default class ScreenAfter extends Component {
                     <div style={{height:'108px'}}>
                         <BuySearch></BuySearch>
                     </div>
-                    <ChangeFilter isVariety={this.state.isVariety} />
+                    <Filter />
                     <div className="petForSale">
                         <h2>宠物待售</h2>
                         <div className="pet_img">
-                            <div className="img_box">
-                                <img src={timg} alt=""/>
-                            </div>
-                            <div className="img_box">
-                                <img src={timg} alt=""/>
-                            </div>
-                            <div className="img_box">
-                                <img src={timg} alt=""/>
-                            </div>
+                            {
+                                this.state.screenList&&this.state.screenList.map(value=>{
+                                    return (
+                                        <div key={value.id} className="img_box">
+                                            <img src={value['pet'+value.pet+'TableImage']} alt=""/>
+                                        </div>
+                                    )
+                                })
+                            }
+                            
                         </div>
                         <div className="detail_box">
                             <h3>宠物详细</h3>
                             <p>出售纯种健康宠物猫布偶猫<br/>支持上门挑选送货上门</p>
                             <div>
                                 <span>价格:</span>
-                                <span>3000</span>
+                                <span>
+                                    {
+                                        this.state.screenList&&(this.state.screenList[0]?this.state.screenList[0]['pet'+this.state.screenList[0].pet+'TablePrice']:0)
+                                    }
+                                </span>
                                 <span>元/只</span>
                             </div>
                             <ul>
                                 <li>
-                                    在售只数<span>8</span>只
+                                    在售只数<span>{this.state.screenList.length}</span>只
                                 </li>
                                 <li>
-                                    年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄<span>3</span>个月
+                                    年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄<span>
+                                        {
+                                            this.state.screenList.length!==0&&(this.props.location.state.petAge===0?Math.floor(Math.random(1,3)*10):Math.floor(Math.random(3,8)*10))
+                                        }
+                                    </span>个月
                                 </li>
                                 <li>
-                                    品&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;种<span>布偶猫</span>
+                                    品&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;种<span>{this.state.screenList.length!==0&&this.props.location.state.petType}</span>
                                 </li>
                                 <li>
-                                    性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别<span>公母都有</span>
+                                    性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别<span>{this.state.screenList.length!==0&&this.props.location.state.petSex==='MM'?'母':'公'}</span>
                                 </li>
                                 <li>
-                                    驱虫情况<span>已驱虫</span>
+                                    驱虫情况<span>{this.state.screenList.length!==0?'已驱虫':''}</span>
                                 </li>
                             </ul>
                         </div>
@@ -145,9 +188,10 @@ export default class ScreenAfter extends Component {
                         </div>
                     </div>
                 </div>
-                <Link></Link>
+                <Link style={{background:`url(${screen_bg}) no-repeat`}}></Link>
                 <Footer></Footer>
             </ScreenWrap>
         )
     }
 }
+export default ScreenAfter

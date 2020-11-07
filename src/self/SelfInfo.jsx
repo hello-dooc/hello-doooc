@@ -61,6 +61,7 @@ class SelfInfo extends Component {
         let result = await get({
             url:'http://123.56.160.44:8080/user/address/list',
         })
+        console.log(result);
         let aList=result.data.data;
         let arr=aList.reduce((arr,value)=>{
             let addr = value.province+value.city+value.country+value.addressDetail;
@@ -82,6 +83,7 @@ class SelfInfo extends Component {
             url:'http://123.56.160.44:8080/user/info/detail'
         })
         let info = result.data.data;
+        console.log(result);
         let addr = info.addressInfo.province+info.addressInfo.city+info.addressInfo.country+info.addressInfo.addressDetail;
         this.setState({
             userInfo:{
@@ -92,7 +94,7 @@ class SelfInfo extends Component {
     }
     componentDidMount(){
         this.getAddressList()
-        this.getUserInfo()
+        // this.getUserInfo()
     }
     
     render() {
@@ -119,7 +121,7 @@ class SelfInfo extends Component {
                         >
                             {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
                         </Upload>
-                        <UserInfo userInfo={this.state.userInfo} addressList={this.state.addressList}></UserInfo>
+                        {/* <UserInfo userInfo={this.state.userInfo} addressList={this.state.addressList}></UserInfo> */}
                     </div>
                 </div>
                 <Link></Link>

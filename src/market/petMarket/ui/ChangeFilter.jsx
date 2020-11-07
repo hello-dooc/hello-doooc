@@ -14,6 +14,9 @@ export default class ChangeFilter extends Component {
             isVariety
         })
     }
+    componentDidMount(){
+        console.log(this.props.type);
+    }
     render() {
         return (
             <div>
@@ -24,7 +27,7 @@ export default class ChangeFilter extends Component {
                         changePetType={this.props.changePetType} 
                         isVariety={this.state.isVariety} 
                         callback={this.callback} 
-                        type={this.props.type} 
+                        pType={this.props.pType} 
                     /> 
                     : <FilterUp 
                         getpetList={this.props.getpetList} 

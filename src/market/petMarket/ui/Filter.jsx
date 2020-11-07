@@ -8,7 +8,8 @@ class Filter extends Component {
     state={
         type:'喵喵',
         petTypeList:[],
-        petType:1,
+        petTypeNum:1,
+        petType:'',
         petSex:'',
         petAge:0,
     }
@@ -24,43 +25,43 @@ class Filter extends Component {
                 this.setState({
                     type:'喵喵'
                 },()=>{
-                    pType=1;
                     this.props.getpetList&&this.props.getpetList('petcatmarket/findAll','Cat')
                     this.getPetTypeList()
                 })   
-                
+                pType=1;
             }else if(e.target.innerHTML==='汪汪') {
                 this.setState({
                     type:'汪汪'
                 },()=>{
-                    pType=2;
                     this.props.getpetList&&this.props.getpetList('petdogmarket/findAll','Dog')
                     this.getPetTypeList()
                 })
+                pType=2;
             }else{
                 this.setState({
                     type:'全部'
                 },()=>{
-                    pType=1
                     this.props.getpetList&&this.props.getpetList('allpet/list','')
                     this.getPetTypeList()
                 })
+                pType=3
             }
             this.props.changePetType&&this.props.changePetType(pType,0)
             // this.getPetTypeList()
-            this.props.callback(isVariety)
+            this.props.callback&&this.props.callback(isVariety)
         }
     }
     async getPetTypeList(){
         // let result1 = await get({
         //     url:'/api/petType'
         // })
-        if(this.state.type==="喵喵"){
+        console.log(this.props.type);
+        if(this.props.pType===1){
             let result = await get({
                 url:'http://123.56.160.44:8080/petcatmarket/findAllCategory'
             })
             let list = result.data.data
-            var arr = list.reduce((arr,value)=>{
+            let arr = list.reduce((arr,value)=>{
                 value.category='cat'
                 value.n='x';
                 arr.push(value)
@@ -69,12 +70,12 @@ class Filter extends Component {
             this.setState({
                 petTypeList:arr
             })
-        }else if(this.state.type==="汪汪"){
+        }else if(this.props.pType===2){
             let result1 = await get({
                 url:'http://123.56.160.44:8080/petdogmarket/findAllCategory'
             })
             let list1 = result1.data.data
-            var arr1 = list1.reduce((arr,value)=>{
+            let arr1 = list1.reduce((arr,value)=>{
                 value.category='dog'
                 value.n='y';
                 arr.push(value)
@@ -88,7 +89,7 @@ class Filter extends Component {
                 url:'http://123.56.160.44:8080/petcatmarket/findAllCategory'
             })
             let list = result.data.data
-            var arr = list.reduce((arr,value)=>{
+            let arr = list.reduce((arr,value)=>{
                 value.category='cat'
                 value.n='x';
                 arr.push(value)
@@ -98,7 +99,7 @@ class Filter extends Component {
                 url:'http://123.56.160.44:8080/petdogmarket/findAllCategory'
             })
             let list1 = result1.data.data
-            var arr1 = list1.reduce((arr,value)=>{
+            let arr1 = list1.reduce((arr,value)=>{
                 value.category='dog'
                 value.n='y';
                 arr.push(value)
@@ -111,11 +112,11 @@ class Filter extends Component {
                 ]
             })
         }
-        console.log(arr,arr1);
     }
-    handleType=(petType)=>{
+    handleType=(petTypeNum,petType)=>{
         return ()=>{
             this.setState({
+                petTypeNum,
                 petType
             })
         }
@@ -132,16 +133,20 @@ class Filter extends Component {
             this.setState({
                 petAge
             },()=>{
-                console.log(this.state.petType,this.state.petSex,this.state.petAge);
-                if(this.state.petType && this.state.petSex && this.state.petAge!==null){
-                    this.props.history.push('/screen')
+                let {petType,petTypeNum,petSex,petAge,type}=this.state
+                if(petType && petSex && petAge!==null){
+                    this.props.history.push('/screen',{petType,petSex,petAge,type,petTypeNum})
                 }
+                petType=null
+                petSex=''
+                petAge=null
             })
         }
     }
 
     componentDidMount(){
         this.getPetTypeList()
+        // console.log(this.props);
     }
     render() {
         return (
@@ -172,7 +177,7 @@ class Filter extends Component {
                         {
                             this.state.petTypeList.map(value=>{
                                 return(
-                                    <li key={value[value.category+'CategoryId']+value.n} onClick={this.handleType(value[value.category+'CategoryId'])}>{value[value.category+'CategoryName']}</li>
+                                    <li key={value[value.category+'CategoryId']+value.n} onClick={this.handleType(value[value.category+'CategoryId'],value[value.category+'CategoryName'])}>{value[value.category+'CategoryName']}</li>
                                 )
                             })
                         }
