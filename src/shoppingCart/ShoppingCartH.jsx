@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
-import {withRouter} from 'react-router-dom'
-// import CartH from './CartH';
-=======
 import CartH from './CartH';
->>>>>>> origin/syf
 import CartN from './CartN';
 
 import Footer from '@c/footer/Footer'
