@@ -5,22 +5,22 @@ import DetailInfo from '../components/Detail/DetailInfo';
 
 const { TabPane } = Tabs;
 
-function callback(key) {
-    console.log(key);
-}
-
 class OrderForm extends Component {
+    callback(key) {
+        console.log(key);
+    }
+
     render() {
         return (
             <div>
-                <Tabs defaultActiveKey="1" onChange={callback} tabPosition={'left'}>
-                    <TabPane tab="Tab 1" key="1">
+                <Tabs defaultActiveKey="1" onChange={this.callback} tabPosition={'left'}>
+                    <TabPane tab="待付款" key="1">
                         <DetailInfo></DetailInfo>
                     </TabPane>
-                    <TabPane tab="Tab 2" key="2">
+                    <TabPane tab="待发货" key="2">
                         <DetailInfo></DetailInfo>
                     </TabPane>
-                    <TabPane tab="Tab 3" key="3">
+                    <TabPane tab="联系售后" key="3">
                         00000000000 
                     </TabPane>
                 </Tabs>
