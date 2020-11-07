@@ -6,7 +6,16 @@ import {
     HCart
 } from './StyledCartH'
 
+import { get } from '@u/http'
+
 class CartH extends Component {
+    async componentDidMount(){
+        // let token = _.getStore("tz_token");
+        // axios.defaults.headers.common['token'] = token；
+        let result = await get({
+
+        })
+    }
     render() {
         return (
             <HCart>

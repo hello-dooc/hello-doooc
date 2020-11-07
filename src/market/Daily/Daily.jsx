@@ -106,7 +106,6 @@ const navList = [
 
 class Daily extends Component {
     state = {
-        current: 1,
         type: 1,
         price1: 0,
         price2: 10000,
@@ -116,6 +115,7 @@ class Daily extends Component {
         sign: false,
         list: [],
 
+        current: 1,
         pageSize:10,
         goValue:0,
         indexList:[],
