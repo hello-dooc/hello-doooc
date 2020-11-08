@@ -3,11 +3,14 @@ import React from 'react'
 import App from './App'
 import {BrowserRouter as Router} from 'react-router-dom'
 import './assets/styles/reset.css'
-
+// import {Provider} from 'react-redux'
+// import store from './store'
 
 ReactDOM.render(
-  <Router>
-    <App></App>
-  </Router>,
+  // <Provider store={store}>
+    <Router>
+      <App></App>
+    </Router>,
+  // </Provider>,
   document.querySelector('#root')
 )

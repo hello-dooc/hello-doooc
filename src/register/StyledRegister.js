@@ -41,7 +41,7 @@ const RegisterWrap = styled.div`
     .ant-input-affix-wrapper{
       display:block;
       width:400px;
-      anticon anticon-user site-form-item-icon{
+      .anticon anticon-user site-form-item-icon{
         display:block;
         widtth:30px;
         height:30px;
