@@ -1,11 +1,12 @@
 import styled from 'styled-components'
  
-import sprite from '@a/images/sprite.png'
+import sprite from '../../assets/images/sprite.png'
 const FooterWrap = styled.div`
     .link-wrap{
         height:516px;
         margin:0 auto;
         padding-top:91px;   
+        background: url(${props => props.outerbg}) no-repeat center center;
         .logo{
             width:202px;
             height:160px;

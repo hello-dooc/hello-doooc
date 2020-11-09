@@ -1,52 +1,46 @@
 import React, { Component } from 'react';
-import { InputNumber , Select  } from 'antd';
+<<<<<<< HEAD
+import {withRouter} from 'react-router-dom'
+// import CartH from './CartH';
+=======
+import CartH from './CartH';
+>>>>>>> origin/syf
+import CartN from './CartN';
+
+import Footer from '@c/footer/Footer'
+import Link from '@c/link/Link'
+import Header from '@c/header/Header'
 
 import {
     Container
 } from './StyledCartH'
 
 // import img1 from '../assets/images/shoppingCartH_02.png'
-import img2 from '../assets/images/dogHead_03.png'
-
+import img2 from '@a/images/ShoppingCart/dogHead_03.png'
+import banner from '@a/images/banner_dog.png'
 
 class ShoppingCart extends Component {
+    state={
+        isShow:true
+    }
     render() {
-        const { Option } = Select;
         return (
             <Container>
+                <Header ht="546px" bg={banner}></Header>
+
                 <div className="con">
-                    <header>123</header>
+                    
                     <main>
                         <img src={img2} alt="" />
                         <p>我的购物车</p>
                         <div className="cart">
-                            <div className="cartCon">
-                                <div className="shopDetails">
-                                    <img src="" alt="" />
-                                    <span className="shopName">进口鳕鱼肉</span>
-                                    <i>RMB &nbsp;500</i>
-                                    <InputNumber min={1} max={10} defaultValue={1} style={{ width:50,height:30 }}/>
-                                    <i>口味</i>
-                                    <>
-                                        <Select defaultValue="lucy" style={{ width: 80,height:30}}>
-                                            <Option value="jack">Jack</Option>
-                                            <Option value="lucy">Lucy</Option>
-                                            <Option value="disabled">Disabled</Option>
-                                            <Option value="Yiminghe">yiminghe</Option>
-                                        </Select>
-                                    </>
-                                    <i>删除</i>
-                                </div>
-                                <div className="pay">
-                                    <i>合计：  RMB &nbsp; 5000</i>
-                                    <button>结 &nbsp;&nbsp;&nbsp;&nbsp; 算</button>
-                                </div>
-                            </div>
+                            {
+                                this.state.isShow?(<CartH></CartH>):(<CartN></CartN>)
+                            }
                         </div>
                     </main>
-                    <footer>
-                        {/* <img src={img1} alt=""/> */}
-                    </footer>
+                    <Link></Link>
+                    <Footer></Footer>
                 </div>
             </Container>
         );

@@ -4,54 +4,53 @@ import logo from '@a/images/logo_03.png'
 import profile from '@a/images/profile_03.png'
 import {withRouter } from 'react-router-dom'
 
-
+@withRouter
 class Header extends Component {
     constructor(props){
         super(props);
         this.state={
             isNone:true
         }
-        this.handleClick=this.handleClick.bind(this)
-        this.handleMouseLeave=this.handleMouseLeave.bind(this)
     }
     
-    handleClick(){
+    handleClick=()=>{
         this.setState({
             isNone:!this.state.isNone
         })
     }
-    handleMouseLeave(){
+    handleMouseLeave=()=>{
         this.setState({
             isNone:true
         })
     }
-    handleLogin=(props)=>{
-        let history = this.props.history
-
-        history.push('/login')
+    handleGotoOthers=(url)=>{
+        return ()=>{
+            this.props.history.push(url)
+        }
     }
+    
     render() {
         return (
-            <HeaderWrap>
+            <HeaderWrap id="header" {...this.props}>
                 <div>
                     <ul>
-                        <li>首页</li>
-                        <li>商城</li>
-                        <li>知宠</li>
+                        <li onClick={this.handleGotoOthers('/home')}>首页</li>
+                        <li onClick={this.handleGotoOthers('/buy')}>商城</li>
+                        <li onClick={this.handleGotoOthers('/love')}>知宠</li>
                     </ul>
                     <div className="logo">
                         <img src={logo} alt=""/>
                     </div>
                     <div>
                         <div>
-                            <img src={profile} alt="" onClick={this.handleLogin}/>
+                            <img src={profile} alt="" onClick={this.handleGotoOthers('/login')}/>
                         </div>
                         <div>
                             <i className="iconfont icon-xiala" onClick={this.handleClick} ></i>
                             <ul onMouseLeave ={this.handleMouseLeave} className={this.state.isNone?'dpNone':'dpBlock'}>
-                                <li>我的信息</li>
-                                <li>订单中心</li>
-                                <li>我的购物</li>
+                                <li onClick={this.handleGotoOthers('/self')}>我的信息</li>
+                                <li onClick={this.handleGotoOthers('/order')}>订单中心</li>
+                                <li onClick={this.handleGotoOthers('/shoppingCart')}>我的购物</li>
                                 <li>我的晒宠</li>
                             </ul>
                         </div>
