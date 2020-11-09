@@ -105,7 +105,6 @@ class SelfInfo extends Component {
         );
         return (
             <SelfInfoWrap id="self">
-                <Header ht="546px" bg={banner}></Header>
                 <div className="self-wrap"> 
                     <div className="self_info">
                         <Upload
@@ -123,8 +122,6 @@ class SelfInfo extends Component {
                         <UserInfo userInfo={this.state.userInfo} addressList={this.state.addressList}></UserInfo>
                     </div>
                 </div>
-                <Link></Link>
-                <Footer></Footer>
             </SelfInfoWrap>
         );
     }

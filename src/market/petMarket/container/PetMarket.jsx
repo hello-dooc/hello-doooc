@@ -25,7 +25,6 @@ class NoFilter extends Component {
             current:1,
             petShow:[],
             isChange:false
-
         }
         this.handleClickDown=this.handleClickDown.bind(this);
     }

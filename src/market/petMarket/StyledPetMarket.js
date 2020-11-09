@@ -8,6 +8,7 @@ import pet_bg from '@a/images/pet_bg_02.png'
 import shoppingCart from '@a/images/shoppingCart_04.png'
 import bg from '@a/images/bg.png'
 import detail_bg from '@a/images/detail_bg_03.png'
+import process from '@a/images/process_03.png'
 
 const PetWrap = styled.div`
     height:837px;
@@ -277,6 +278,7 @@ const DisplayWrap = styled.div`
             overflow:hidden;
             .pet_video{
                 overflow:hidden;
+                height:386px;
                 .petVideo{
                     width:1350px;
                     .video_box{
@@ -311,6 +313,36 @@ const ScreenWrap = styled.div`
         margin:0 auto;
         background:url(${bg}) no-repeat;
         background-size:cover;
+        .tit_h3{
+            font-size:32px;
+            color:#000;
+            line-height:32px;
+            margin-top:13px;
+            padding-left:66px;
+            margin-bottom:0;
+        }
+        .title_bg{
+            width:652px;
+            height:34px;
+            margin-left:107px;
+            margin-bottom:13px;
+            >span{
+                &:first-child{
+                    float:left;
+                    background:url(${process}) no-repeat;
+                    width:34px;
+                    height:34px;
+                }
+                &:last-child{
+                    float:right;
+                    width:607px;
+                    height:17px;
+                    border-top:1px solid #fff;
+                    border-bottom:1px solid #fff;
+                    margin-top:7px;
+                }
+            }
+        }
         .petForSale{
             >h2{
                 margin:0 auto; 
@@ -325,6 +357,8 @@ const ScreenWrap = styled.div`
             .pet_img{ 
                 width:404px;
                 margin:0 auto;
+                height:1380px;
+                overflow-y:auto;
                 .img_box{
                     width:400px;
                     height:400px;
@@ -343,6 +377,7 @@ const ScreenWrap = styled.div`
                 margin:0 auto;
                 background:url(${detail_bg}) no-repeat;
                 padding:21px 0 0 149px;
+                margin-bottom:92px;
                 >h3{
                     font-size:30px;
                     color:#0e0d0e;
@@ -395,7 +430,129 @@ const ScreenWrap = styled.div`
             .buy_process{
                 width:755px;
                 height:412px;
+                margin:0 auto;
+                padding-top:25px;
+                margin-bottom:140px;
                 background:url(${detail_bg}) no-repeat;
+                .process_box{
+                    width:670px;
+                    overflow:hidden;
+                    margin-left:66px;
+                    .process_container{
+                        width:700px;
+                        margin-top:90px;
+                        >div{
+                            width:110px;
+                            margin-right:30px;
+                            >div{
+                                height:150px;
+                                background:#e5e2e5;
+                                padding-top:18px;
+                                >h4{
+                                    color:#000;
+                                    font-size:21px;
+                                    line-height:21px;
+                                    text-align:center;
+                                    margin-bottom:15px;
+                                }
+                                >img{
+                                    margin:0 auto;
+                                }
+                            }
+                            >h4{
+                                font-size:18px;
+                                color:#0e0e0d;
+                                line-height:18px;
+                                text-align:center;
+                                margin-top:9px;
+                            }
+                        }
+                    }
+                }
+            }
+            .pet_security{
+                width:750px;
+                height:609px;
+                background:url(${detail_bg}) no-repeat;
+                background-size:cover;
+                margin:0 auto 132px;
+                padding-top:25px;
+                >p{
+                    font-size:20px;
+                    line-height:20px;
+                    color:#000;
+                    padding-left:100px;
+                    margin-top:68px;
+                    margin-bottom:0;
+                }
+                .security_detail{
+                    >ul{
+                        width:104px;
+                        height:254px;
+                        margin:53px 47px 0 94px;
+                        li{
+                            width:104px;
+                            height:38px;
+                            background:#444341;
+                            font-size:22px;
+                            color:#f3f2f2;
+                            text-align:center;
+                            line-height:38px;
+                            border-radius:10px;
+                            &:first-child{
+                                margin-bottom:61px;
+                            }
+                            &:nth-child(2){
+                                margin-bottom:79px;
+                            }
+                        }
+                    }
+                    >div{
+                        width:460px;
+                        font-size:18px;
+                        color:#2c2b2b;
+                        margin-top:35px;
+                        line-height:27px;
+                        >p{
+                            &:first-child{
+                                margin-bottom:36px;
+                            }
+                            &:nth-child(2){
+                                margin-bottom:76px;
+                            }
+                        }
+                    }
+                }
+            }
+            .pet_footer{
+                width:750px;
+                height:205px;
+                background:#e5cbad;
+                margin:0 auto;
+                padding-top:92px;
+                span{
+                    float:left;
+                    &:first-child{
+                        width:247px;
+                        height:5px;
+                        border-top:5px solid #f6fbfb;
+                        margin-top:8px;
+                    }
+                    &:nth-child(2){
+                        width:198px;
+                        font-size:24px;
+                        color:#fff;
+                        line-height:24px;
+                        margin-left:27px;
+                    }
+                    &:last-child{
+                        float:right;
+                        width:245px;
+                        height:5px;
+                        border-top:5px solid #f6fbfb;
+                        margin-top:8px;
+                    }
+                }
             }
         }
     }
