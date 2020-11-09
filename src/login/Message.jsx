@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import {MessageWrap} from './StyledLogin'
 import { Form, Input, Button ,Row,Col} from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import { post } from '../utils/http';
-import Axios from 'axios';
+// import { post } from '../utils/http';
+// import Axios from 'axios';
 
 
 

@@ -6,7 +6,7 @@ import imgbanner from '@a/images/buyhome/scbanner.png'
 import BuySearch from "./BuySearch"
 import Header from '@c/header/HeaderNoBg.jsx'
 
-import banner from '@a/images/banner_dog.png'
+// import banner from '@a/images/banner_dog.png'
 
 import {
     BuyBannerWrap

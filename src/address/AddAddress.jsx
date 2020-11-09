@@ -11,7 +11,7 @@ import Footer from '@c/footer/Footer'
 
 import { AddAddWrap } from './StyledAddressList'
 import addLogo from '@a/images/add_logo_03.png'
-import Axios from 'axios';
+// import Axios from 'axios';
 export default class AddAddress extends Component {
     constructor(props){
         super(props)
@@ -109,7 +109,7 @@ export default class AddAddress extends Component {
         }   
     }
     async handleSubmit(){
-        let {telValue,nameValue,addrValue,provinceList,addrName,countyList} =this.state
+        let {telValue,nameValue,addrValue,addrName,countyList} =this.state
         let addr = this.state.address.reduce((str,value)=>{
             console.log(value);
             str+=value;

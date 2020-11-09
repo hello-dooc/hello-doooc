@@ -2,14 +2,14 @@ import React, { Component } from 'react'
 import HeaderNoBg from '@c/header/HeaderNoBg'
 
 import { ScreenWrap } from '../StyledPetMarket'
-import ChangeFilter from './ChangeFilter'
+// import ChangeFilter from './ChangeFilter'
 import Link from '@c/link/Link'
 import Footer from '@c/footer/Footer'
 import BuySearch from '@b/BuySearch'
 
 
 
-import timg from '@a/images/timg.jpeg'
+// import timg from '@a/images/timg.jpeg'
 import img1 from '@a/images/01_03.png'
 import img2 from '@a/images/01_05.png'
 import img3 from '@a/images/01_07.png'

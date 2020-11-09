@@ -3,6 +3,7 @@ import { Breadcrumb, Pagination } from 'antd';
 import GoodDetail from './GoodDetail'
 import Footer from '@c/footer/Footer'
 import Link from '@c/link/Link'
+import BuySearch from '../../buyhome/BuySearch'
 
 
 import {
@@ -174,6 +175,8 @@ class Daily extends Component {
             + '/' + this.state.price1 + '/' 
             + this.state.price2
         })
+        
+        
         let list = result.data.data;
         // let indexList = list.slice((this.state.current-1)*this.state.pageSize,this.state.current*this.state.pageSize)
         list = list.reduce((arr, value) => {
@@ -201,7 +204,9 @@ class Daily extends Component {
                 <header>123</header>
 
                 <div className="nav">
-                    <div className="search">123456</div>
+                    <div>
+                        <BuySearch></BuySearch>
+                    </div>
                     <>
                         <Breadcrumb separator=">">
                             <Breadcrumb.Item>宠物商城</Breadcrumb.Item>
