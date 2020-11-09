@@ -3,13 +3,6 @@ import styled from 'styled-components'
 import bg from '@a/images/best.jpg'
 
 const Container = styled.div `
-    header {
-        height: 96px;
-        line-height: 96px;
-        text-align: center;
-        font-size: 30px;
-        background-color: #eeeeee;
-    }
     .nav{
         width:1300px;
         margin:0 auto;
@@ -17,6 +10,9 @@ const Container = styled.div `
             height:106px;
             line-height:106px;
         } */
+        div{
+            height: 106px;
+        }
         .ant-breadcrumb{
             height:43px;
             line-height:43px;

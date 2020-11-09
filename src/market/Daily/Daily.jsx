@@ -4,6 +4,7 @@ import GoodDetail from './GoodDetail'
 import Footer from '@c/footer/Footer'
 import Link from '@c/link/Link'
 import BuySearch from '../../buyhome/BuySearch'
+import Header from '@c/header/HeaderNoBg'
 
 
 import {
@@ -201,7 +202,7 @@ class Daily extends Component {
     render() {
         return (
             <Container>
-                <header>123</header>
+                <Header></Header>
 
                 <div className="nav">
                     <div>
