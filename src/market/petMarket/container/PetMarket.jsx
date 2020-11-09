@@ -18,19 +18,23 @@ class NoFilter extends Component {
     constructor(props){
         super(props)
         this.state={
-            petType:1,
+            pType:1,
             petList:[],
             pageSize:6,
             totalPage:1,
             current:1,
             petShow:[],
-            goValue:0,
+            isChange:false
+
         }
         this.handleClickDown=this.handleClickDown.bind(this);
     }
-    changePetType=(petType)=>{
+    changePetType=(pType)=>{
         this.setState({
-            petType,
+            pType,
+            isChange:true
+        },()=>{
+            // console.log(this.state.petType);
         })
     } 
     handleClickDown(isVariety){
@@ -79,12 +83,17 @@ class NoFilter extends Component {
                 totalPage:Math.ceil( arr.length/this.state.pageSize)
             })
         }
-        this.setPage(this.state.goValue);
+        this.setPage(1,2);
     }
     setPage=(num,pagenum)=>{
         this.setState({
             petShow:this.state.petList.slice(num,num+this.state.pageSize),
             pagenum
+        })
+    }
+    changeStatus=()=>{
+        this.setState({
+            isChange:false
         })
     }
     componentDidMount(){
@@ -94,17 +103,17 @@ class NoFilter extends Component {
         let cn = 'cat-wrap'
         let dn = 'dog-wrap'
         return (
-            <PetWrap style={{background:this.state.petType===2?`url(${display_bg}) no-repeat`:''}}>
+            <PetWrap style={{background:this.state.pType===2?`url(${display_bg}) no-repeat`:''}}>
                 <HeaderNoBg></HeaderNoBg>
                 <div className="bg"></div>
-                <div className={this.state.petType===1?cn:dn}>
+                <div className={this.state.pType===1||this.state.pType===3?cn:dn}>
                     <div style={{height:'108px'}}>
                         <BuySearch></BuySearch>
                     </div>
-                    <ChangeFilter getpetList={this.getpetList}  changePetType={this.changePetType} isVariety={this.props.isVariety} />
+                    <ChangeFilter pType={this.state.pType} getpetList={this.getpetList}  changePetType={this.changePetType} isVariety={this.props.isVariety} />
                 </div>
-                <Display {...this.state} setPage={this.setPage} ></Display>
-                <Link style={{background:this.state.petType===1?`url(${v_footer}) no-repeat`:'#4c4c4c'}}></Link>
+                <Display {...this.state} setPage={this.setPage}  changeStatus={this.changeStatus}></Display>
+                <Link style={{background:this.state.pType===1?`url(${v_footer}) no-repeat`:'#4c4c4c'}}></Link>
                 <Footer></Footer>
             </PetWrap>
         );

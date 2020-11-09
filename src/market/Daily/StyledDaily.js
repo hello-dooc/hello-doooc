@@ -89,11 +89,7 @@ const Container = styled.div `
                         font-size:12px;
                         background-color:#ff3366;
                         color:#fff;
-<<<<<<< HEAD
-                        padding:0 3px;
-=======
                         /* padding:0 3px; */
->>>>>>> master
                     }
                     h3{
                         font-size:12px;

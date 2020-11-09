@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import {DisplayWrap} from '../StyledPetMarket'
-import timg from '@a/images/timg.jpeg'
 
 class Display extends Component {
     constructor(props){
@@ -14,22 +13,24 @@ class Display extends Component {
     setNext=()=>{
         if(this.state.pagenum < this.props.totalPage){
             this.setState({
-                num:this.state.num + this.props.pageSize,
-                pagenum:this.state.pagenum + 1
+                num:this.props.isChange?1:this.state.num + this.props.pageSize,
+                pagenum:this.props.isChange?2:this.state.pagenum + 1
             },function () {
                 console.log(this.state)
                 this.props.setPage(this.state.num,this.state.pagenum)
+                this.props.changeStatus()
             })
         }
     }
     setUp=()=>{
         if(this.state.pagenum > 1){
             this.setState({
-                num:this.state.num - this.props.pageSize,
-                pagenum:this.state.pagenum - 1
+                num:this.props.isChange?1:this.state.num - this.props.pageSize,
+                pagenum:this.props.isChange?2:this.state.pagenum - 1
             },function () {
                 console.log(this.state)
                 this.props.setPage(this.state.num,this.state.pagenum)
+                this.props.changeStatus()
             })
         }
     }

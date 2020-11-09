@@ -274,6 +274,7 @@ const DisplayWrap = styled.div`
         .display_video{
             padding-top:25px;
             height:518px;
+            overflow:hidden;
             .pet_video{
                 overflow:hidden;
                 .petVideo{
@@ -395,7 +396,6 @@ const ScreenWrap = styled.div`
                 width:755px;
                 height:412px;
                 background:url(${detail_bg}) no-repeat;
-
             }
         }
     }
