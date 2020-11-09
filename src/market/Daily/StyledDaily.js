@@ -6,13 +6,6 @@ const Container = styled.div `
     .nav{
         width:1300px;
         margin:0 auto;
-        /* .search{
-            height:106px;
-            line-height:106px;
-        } */
-        div{
-            height: 106px;
-        }
         .ant-breadcrumb{
             height:43px;
             line-height:43px;

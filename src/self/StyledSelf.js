@@ -4,7 +4,7 @@ const SelfInfoWrap=styled.div`
     .self-wrap{
         width:864px;
         margin:72px 0 0 217px;
-        height:1096px;
+        height:638px;
         .ant-upload-select{
             margin-left:50%;
         }
@@ -16,4 +16,42 @@ const SelfInfoWrap=styled.div`
         background:url(${footer_banner}) no-repeat;
     }
 `
-export default SelfInfoWrap
+const UserInfoWrap=styled.form`
+    width:600px;
+    margin:0 auto;
+    /* margin:40px 0 0 122px; */
+    font-size:24px;
+    color:#595959;
+    >label{
+        display:block;
+        margin-bottom:40px;
+        >span{
+            display:inline-block;
+            width:104px;
+            text-align:right;
+            margin-right:20px;
+        }
+        >button{
+            margin-left:10px;
+        }
+        >input{
+            display:inline-block;
+            width:300px;
+            border:1px solid #ccc;
+            padding-left:10px;
+        }
+    }
+    >div{
+        width:310px;
+        margin:0 auto;
+        >button{
+            &:first-child{
+                margin-right:40px;
+            }
+        }
+    }
+`
+export{
+    SelfInfoWrap,
+    UserInfoWrap
+}

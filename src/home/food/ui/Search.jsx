@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom'
 import {
   SearchOutlined,
   ShoppingCartOutlined
 } from '@ant-design/icons';
-
+@withRouter
 class Search extends Component {
+  handleGotoOthers=(url)=>{
+    return ()=>{
+        this.props.history.push(url)
+    }
+  }
   render() {
     return (
       <div>
@@ -18,9 +24,9 @@ class Search extends Component {
             <p className="shopnum">购物车(<span>0</span>)</p>
           </div>
           <ul>
-            <li className="active">宠物食品</li>
-            <li>宠物日用</li>
-            <li>宠物市场</li>
+            <li className="active" onClick={this.handleGotoOthers('/foodMarket')}>宠物食品</li>
+            <li onClick={this.handleGotoOthers('/daily')}>宠物日用</li>
+            <li onClick={this.handleGotoOthers('/petMarket')}>宠物市场</li>
           </ul>
           <ol>
             <li>宠物商城</li>

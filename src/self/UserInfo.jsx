@@ -1,64 +1,52 @@
 import React, { useState } from 'react';
-import { Form, Input, Button } from 'antd';
 import {useHistory} from 'react-router-dom'
+import {UserInfoWrap} from './StyledSelf'
+
 const UserInfo = (props) => {
-    const [form] = Form.useForm();
-    const [formLayout, setFormLayout] = useState('horizontal');
 
-    const onFormLayoutChange = ({ layout }) => {
-        setFormLayout(layout);
-    };
-
-    const formItemLayout =
-        formLayout === 'horizontal'
-        ? {
-            labelCol: { span: 4 },
-            wrapperCol: { span: 14 },
-            }
-        : null;
-
-    const buttonItemLayout =
-        formLayout === 'horizontal'
-        ? {
-            wrapperCol: { span: 14, offset: 4 },
-            }
-        : null;
-    const history=useHistory()
-    const handleGotoAddress=(list)=>{
-            return ()=>{
-                history.push('/address',{list})
-            }
+    const handleClick=()=>{
+        return(e)=>{
+            e.preventDefault()
         }
-    console.log(props);
+    }
+    const history = useHistory()
+    const handleAd=(e)=>{
+        e.preventDefault()
+        history.push('/address')
+    }
   return (
     <>
-      <Form
-        {...formItemLayout}
-        layout={formLayout}
-        form={form}
-        initialValues={{ layout: formLayout }}
-        onValuesChange={onFormLayoutChange}
-      >
-        <Form.Item label="手机号">
-            <Input placeholder={props.userInfo.userTelephone} />
-        </Form.Item>
-        <Form.Item label="性别">
-            <Input placeholder={props.userInfo.userGender} />
-        </Form.Item>
-        <Form.Item label="邮箱">
-            <Input placeholder={props.userInfo.email} />
-        </Form.Item>
-        <Form.Item label="QQ">
-            <Input placeholder={props.userInfo.userQq} />
-        </Form.Item>
-        <Form.Item label="收货地址">
-            <Input placeholder={props.userInfo.addr} disabled />
-            <Button type="primary" onClick={handleGotoAddress(props.addressList)}>确认修改</Button>
-        </Form.Item>
-        <Form.Item {...buttonItemLayout}>
-          <Button type="primary">确认修改</Button>
-        </Form.Item>
-      </Form>
+        <UserInfoWrap>
+            <label htmlFor="">
+                <span>用户名</span>
+                <input type="text"/>
+            </label>
+            <label htmlFor="">
+                <span>手机号</span>
+                <input type="text"/>
+            </label>
+            <label htmlFor="">
+                <span>性别</span>
+                <input type="text"/>
+            </label>
+            <label htmlFor="">
+                <span>邮箱</span>
+                <input type="text"/>
+            </label>
+            <label htmlFor="">
+                <span>QQ</span>
+                <input type="text"/>
+            </label>
+            <label htmlFor="">
+                <span>收货地址</span>
+                <input type="text" disabled/>
+                <button onClick={handleAd}>选择收货地址</button>
+            </label>
+            <div>
+                <button onClick={handleClick()}>确认修改</button>
+                <button onClick={handleClick()}>取消修改</button>
+            </div>
+        </UserInfoWrap>
     </>
   );
 };

@@ -4,13 +4,12 @@ import GoodDetail from './GoodDetail'
 import Footer from '@c/footer/Footer'
 import Link from '@c/link/Link'
 import BuySearch from '../../buyhome/BuySearch'
-import Header from '@c/header/HeaderNoBg'
+import HeaderNoBg from '@c/header/HeaderNoBg'
 
 
 import {
     Container
 } from './StyledDaily'
-
 import { get } from '@u/http'
 
 //nav数组
@@ -202,10 +201,9 @@ class Daily extends Component {
     render() {
         return (
             <Container>
-                <Header></Header>
-
+                <HeaderNoBg></HeaderNoBg>
                 <div className="nav">
-                    <div>
+                    <div style={{height:'110px'}}>
                         <BuySearch></BuySearch>
                     </div>
                     <>
@@ -250,13 +248,6 @@ class Daily extends Component {
                         indexList={this.state.indexList}
                     ></GoodDetail>
                     <>
-                      {/*   <Pagination 
-                            current={this.state.current} 
-                            onChange={this.onChange}
-                            defaultPageSize={15} 
-                            total={this.state.list.length}
-                        /> */}
-
                     <Pagination 
                     current={this.state.current} 
                     onChange={this.onChange} 
