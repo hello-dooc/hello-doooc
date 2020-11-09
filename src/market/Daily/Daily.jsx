@@ -8,7 +8,8 @@ import Link from '@c/link/Link'
 import {
     Container
 } from './StyledDaily'
-
+import Header from '@c/header/HeaderNoBg'
+import BuySearch from '@b/BuySearch'
 import { get } from '@u/http'
 
 //nav数组
@@ -198,10 +199,11 @@ class Daily extends Component {
     render() {
         return (
             <Container>
-                <header>123</header>
-
+                <Header></Header>
                 <div className="nav">
-                    <div className="search">123456</div>
+                    <div style={{height:'110px'}}>
+                        <BuySearch></BuySearch>
+                    </div>
                     <>
                         <Breadcrumb separator=">">
                             <Breadcrumb.Item>宠物商城</Breadcrumb.Item>
@@ -244,13 +246,6 @@ class Daily extends Component {
                         indexList={this.state.indexList}
                     ></GoodDetail>
                     <>
-                      {/*   <Pagination 
-                            current={this.state.current} 
-                            onChange={this.onChange}
-                            defaultPageSize={15} 
-                            total={this.state.list.length}
-                        /> */}
-
                     <Pagination 
                     current={this.state.current} 
                     onChange={this.onChange} 

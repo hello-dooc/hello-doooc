@@ -24,6 +24,7 @@ import BuyHome from '@b/BuyHome'
 import Answer from '@z/Answer'
 import Training from '@z/Training'
 import ScreenAfter from '@m/petMarket/ui/ScreenAfter'
+import Disease from '@z/Disease'
 export default class App extends Component {
   render() {
     return (
@@ -45,6 +46,7 @@ export default class App extends Component {
           <Route path='/answer' component={Answer} />
           <Route path='/training' component={Training} />
           <Route path='/screen' component={ScreenAfter} />
+          <Route path='/disease' component={Disease} />
           <Redirect  from='/' to='/home'></Redirect>
         </Switch>
       </Router>

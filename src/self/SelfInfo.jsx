@@ -6,12 +6,12 @@ import {get} from '@u/http'
 import { Upload, message } from 'antd';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 
-import SelfInfoWrap from './StyledSelf'
+import {SelfInfoWrap} from './StyledSelf'
 import UserInfo from './UserInfo'
 import Header from '@c/header/Header'
 import Link from '@c/link/Link'
 import Footer from '@c/footer/Footer'
-// import profile from '@a/images/timg.jpeg'
+import profile from '@a/images/timg.jpeg'
 import banner from '@a/images/banner_dog.png'
 function getBase64(img, callback) {
     const reader = new FileReader();
@@ -56,49 +56,47 @@ class SelfInfo extends Component {
         }
       };
     
-    async getAddressList(){
-        axios.defaults.headers.common["token"] = 'token_123456';
-        let result = await get({
-            url:'http://123.56.160.44:8080/user/address/list',
-        })
-        console.log(result);
-        let aList=result.data.data;
-        let arr=aList.reduce((arr,value)=>{
-            let addr = value.province+value.city+value.country+value.addressDetail;
-            let obj={};
-            obj.addr=addr;
-            obj.userName=value.userName;
-            obj.userTelephone=value.userTelephone
-            obj.addrId=value.userAddressId;
-            arr.push(obj);
-            return arr;
-        },[])
-        this.setState({
-            addressList:arr
-        })
-    }
-    async getUserInfo(){
-        axios.defaults.headers.common["token"] = 'token_123456';
-        let result = await get({
-            url:'http://123.56.160.44:8080/user/info/detail'
-        })
-        let info = result.data.data;
-        console.log(result);
-        let addr = info.addressInfo.province+info.addressInfo.city+info.addressInfo.country+info.addressInfo.addressDetail;
-        this.setState({
-            userInfo:{
-                ...info,
-                addr
-            }
-        })
-    }
+    // async getAddressList(){
+    //     axios.defaults.headers.common["token"] = 'token_123456';
+    //     let result = await get({
+    //         url:'http://123.56.160.44:8080/user/address/list',
+    //     })
+    //     let aList=result.data.data;
+    //     let arr=aList.reduce((arr,value)=>{
+    //         let addr = value.province+value.city+value.country+value.addressDetail;
+    //         let obj={};
+    //         obj.addr=addr;
+    //         obj.userName=value.userName;
+    //         obj.userTelephone=value.userTelephone
+    //         obj.addrId=value.userAddressId;
+    //         arr.push(obj);
+    //         return arr;
+    //     },[])
+    //     this.setState({
+    //         addressList:arr
+    //     })
+    // }
+    // async getUserInfo(){
+    //     axios.defaults.headers.common["token"] = 'token_123456';
+    //     let result = await get({
+    //         url:'http://123.56.160.44:8080/user/info/detail'
+    //     })
+    //     let info = result.data.data;
+    //     let addr = info.addressInfo.province+info.addressInfo.city+info.addressInfo.country+info.addressInfo.addressDetail;
+    //     this.setState({
+    //         userInfo:{
+    //             ...info,
+    //             addr
+    //         }
+    //     })
+    // }
     componentDidMount(){
-        this.getAddressList()
+        // this.getAddressList()
         // this.getUserInfo()
     }
     
     render() {
-        const { loading, imageUrl } = this.state;
+        const { loading, imageUrl=profile } = this.state;
         const uploadButton = (
         <div>
             {loading ? <LoadingOutlined /> : <PlusOutlined />}
@@ -107,7 +105,6 @@ class SelfInfo extends Component {
         );
         return (
             <SelfInfoWrap id="self">
-                <Header ht="546px" bg={banner}></Header>
                 <div className="self-wrap"> 
                     <div className="self_info">
                         <Upload
@@ -121,11 +118,10 @@ class SelfInfo extends Component {
                         >
                             {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
                         </Upload>
-                        {/* <UserInfo userInfo={this.state.userInfo} addressList={this.state.addressList}></UserInfo> */}
+                        
+                        <UserInfo userInfo={this.state.userInfo} addressList={this.state.addressList}></UserInfo>
                     </div>
                 </div>
-                <Link></Link>
-                <Footer></Footer>
             </SelfInfoWrap>
         );
     }

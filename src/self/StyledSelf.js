@@ -16,4 +16,36 @@ const SelfInfoWrap=styled.div`
         background:url(${footer_banner}) no-repeat;
     }
 `
-export default SelfInfoWrap
+const UserInfoWrap=styled.form`
+    margin:40px 0 0 122px;
+    font-size:24px;
+    color:#595959;
+    >label{
+        display:block;
+        margin-bottom:40px;
+        >span{
+            display:inline-block;
+            width:104px;
+            text-align:right;
+            margin-right:20px;
+        }
+        >button{
+            margin-left:10px;
+        }
+        >input{
+            border:1px solid #ccc;
+            padding-left:10px;
+        }
+    }
+    >div{
+        >button{
+            &:first-child{
+                margin:0 40px;
+            }
+        }
+    }
+`
+export{
+    SelfInfoWrap,
+    UserInfoWrap
+}

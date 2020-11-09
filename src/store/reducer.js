@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // import {combineReducers} from  'redux';
 // import { reducer as registerReducer } from '../register/store'
 
@@ -7,7 +6,6 @@
 // export default combineReducers({
 //   register:registerReducer
 // })
-=======
 import { combineReducers } from 'redux'
 import { reducer as petMarket } from '../market/petMarket'
 
@@ -16,4 +14,3 @@ const reducer = combineReducers({
 })
 
 export default reducer
->>>>>>> master

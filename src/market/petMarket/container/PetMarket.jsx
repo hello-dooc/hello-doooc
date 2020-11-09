@@ -24,8 +24,7 @@ class NoFilter extends Component {
             totalPage:1,
             current:1,
             petShow:[],
-            num: 0,
-            pagenum:1
+            isChange:false
         }
         this.handleClickDown=this.handleClickDown.bind(this);
     }

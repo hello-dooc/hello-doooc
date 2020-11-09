@@ -143,7 +143,9 @@ class Filter extends Component {
             })
         }
     }
-
+    handleClick=()=>{
+        this.props.history.push('/buy')
+    }
     componentDidMount(){
         this.getPetTypeList()
         // console.log(this.props);
@@ -152,7 +154,7 @@ class Filter extends Component {
         return (
             <FilterWrap>
                 <li>
-                    <span>宠物商城</span>
+                    <span onClick={this.handleClick}>宠物商城</span>
                     <span>&gt;</span>
                     <span>宠物市场</span>
                 </li>
