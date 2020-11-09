@@ -308,11 +308,11 @@ const DisplayWrap = styled.div`
     }
 `
 const ScreenWrap = styled.div`
+    background:url(${bg}) no-repeat;
+        background-size:cover;
     .screen-wrap{
         width:1300px;
         margin:0 auto;
-        background:url(${bg}) no-repeat;
-        background-size:cover;
         .tit_h3{
             font-size:32px;
             color:#000;
