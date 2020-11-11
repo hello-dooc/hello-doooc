@@ -20,7 +20,7 @@ import PetMarket from '@m/petMarket/container/PetMarket'
 import Login from '@l/Login'
 import Register from '@r/Register'
 import Daily from '@m/Daily/Daily'
-import BuyHome from '@b/BuyHome'
+// import BuyHome from '@b/BuyHome'
 import Answer from '@z/Answer'
 import Training from '@z/Training'
 import ScreenAfter from '@m/petMarket/ui/ScreenAfter'
@@ -42,7 +42,7 @@ export default class App extends Component {
           <Route path='/login' component={Login} />
           <Route path='/register' component={Register} />
           <Route path='/daily' component={Daily} />
-          <Route path='/buy' component={BuyHome} />
+          {/* <Route path='/buy' component={BuyHome} /> */}
           <Route path='/answer' component={Answer} />
           <Route path='/training' component={Training} />
           <Route path='/screen' component={ScreenAfter} />

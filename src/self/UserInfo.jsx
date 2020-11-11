@@ -36,11 +36,13 @@ const UserInfo = (props) => {
             if(type==='name') setName(e.target.value)
             if(type==='tel') setTel(e.target.value)
             if(type === 'gender') setGender(e.target.value)
-            if(type === 'email') setEmail(e.target.email)
+            if(type === 'email') setEmail(e.target.value)
             if(type === 'qqq') setQq(e.target.value)
         }
     }
     var { addressList, userInfo}= props
+    console.log(props);
+
     useEffect(()=>{
         dispatch(loadDataAsync())  
     },[dispatch])
