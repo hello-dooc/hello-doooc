@@ -53,6 +53,13 @@ const UserInfoWrap=styled.form`
                 }
             }
         }
+        /* &:nth-of-type(2){
+            >span{
+                width:50px;
+                height:30px;
+                border:1px solid #ccc;
+            }
+        } */
     }
     >div{
         width:310px;
