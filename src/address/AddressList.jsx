@@ -26,6 +26,7 @@ class AddressList extends Component {
     }
     async getAddressList(){
         let result = this.props.list || this.props.location.state.list
+        this.props.loadData()
         let arr=result.reduce((arr,value)=>{
             let addr = value.province+value.city+value.country+value.addressDetail;
             let obj={};
@@ -53,7 +54,7 @@ class AddressList extends Component {
         this.getAddressList()
     }
     render() {
-        let addressList = this.state.addressList || this.props.location.state.list
+        console.log(this.props.list);
         return (
             <AddressListWrap id="address-list">
                 <Header></Header>
@@ -63,7 +64,7 @@ class AddressList extends Component {
                         <span onClick={this.handleClickRight}>添加</span>
                     </div>
                     {
-                        addressList && addressList.map(value=>{
+                        this.props.list && this.props.list.map(value=>{
                             return(
                                 <div className="address_list"  key={value.addrId} onClick={this.props.location.pathname==='/self'?this.handleBack('/self',value):this.handleBack('/self',value)}>
                                     <div className="address_top clear_fix">
