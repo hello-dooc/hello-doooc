@@ -1,6 +1,10 @@
-import React, { Component } from 'react'
+import React,{ useCallback} from 'react'
+import { useHistory} from 'react-router-dom'
+import Header from '@c/header/Header'
+import Link from '@c/link/Link'
+import Footer from '@c/footer/Footer'
 
-import {AnswerWrap} from './StyledAnswer'
+import {AnswerWrap,TitWrap} from './StyledAnswer'
 import img6 from '../assets/images/01.jpg'
 import img7 from '../assets/images/02.jpg'
 import img8 from '../assets/images/03.png'
@@ -12,11 +16,41 @@ import img13 from '../assets/images/08.JPEG'
 import img15 from '../assets/images/h1.jpg'
 import img16 from '../assets/images/h2.jpg'
 import img17 from '../assets/images/h3.jpg'
+import banner from '@a/images/banner_dog.png'
+import heart from '@a/images/heart_03.jpg'
+import disease_bg from '@a/images/disease_bg_03.jpg'
 
 
-export default class answer extends Component {
-    render() {
-        return (
+
+const  Answer = () => {
+    const history = useHistory()
+    const handleClick = useCallback((url)=>{
+        return ()=>{
+            history.push(url)
+        }
+    },[])
+    return (
+        <>
+            <Header ht="503px" bg={banner}></Header>
+            <TitWrap className="dis_tab clear_fix">
+                <div className="tit_wrap">
+                    <ul className="tit_left">
+                        <li onClick={handleClick('/disease')}>疾病</li>
+                        <li onClick={handleClick('/love')}>养护</li>
+                        <li onClick={handleClick('/training')}>训练</li>
+                    </ul>
+                    <div>
+                        <p>知宠</p>
+                        <p>zhichong</p>
+                        <img src={heart} alt=""/>
+                    </div>
+                    <ul className="tit_right">
+                        <li onClick={handleClick('')}>医疗</li>
+                        <li onClick={handleClick('/answer')}>冷知识</li>
+                        <li onClick={handleClick('')}>联系我们</li>
+                    </ul>
+                </div>
+            </TitWrap>
             <AnswerWrap>
                 <div className="doctor">
                     <h1>宠物医生在线免费解答</h1>
@@ -97,8 +131,10 @@ export default class answer extends Component {
                         </li>
                     </ul>
                 </div>
-
             </AnswerWrap>
-        )
-    }
+            <Link outerbg={disease_bg}></Link>
+            <Footer></Footer>
+        </>
+    )
 }
+export default Answer

@@ -16,7 +16,7 @@ const get = ({url,params}) => {
 }
 const post = (url, params) => {
   return new Promise((resolve, reject) => {
-    axios.post(url, JSON.stringify(params))
+    axios.post(url,params)
   .then(res => {
       resolve(res);
   })

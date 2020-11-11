@@ -7,10 +7,11 @@
 //   register:registerReducer
 // })
 import { combineReducers } from 'redux'
-import { reducer as petMarket } from '../market/petMarket'
+
+import {reducer as address} from '../address/reducer'
 
 const reducer = combineReducers({
-    petMarket
+    address
 })
 
 export default reducer

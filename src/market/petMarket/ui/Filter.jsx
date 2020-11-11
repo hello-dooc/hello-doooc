@@ -15,7 +15,7 @@ class Filter extends Component {
     }
     handleClickUp=(isVariety)=>{
         return()=>{
-            this.props.callback(isVariety)
+            this.props.callback&&this.props.callback(isVariety)
         }
     }
     handleChooseType=(isVariety)=>{
@@ -47,15 +47,10 @@ class Filter extends Component {
                 pType=3
             }
             this.props.changePetType&&this.props.changePetType(pType,0)
-            // this.getPetTypeList()
             this.props.callback&&this.props.callback(isVariety)
         }
     }
     async getPetTypeList(){
-        // let result1 = await get({
-        //     url:'/api/petType'
-        // })
-        console.log(this.props.type);
         if(this.props.pType===1){
             let result = await get({
                 url:'http://123.56.160.44:8080/petcatmarket/findAllCategory'
@@ -134,8 +129,9 @@ class Filter extends Component {
                 petAge
             },()=>{
                 let {petType,petTypeNum,petSex,petAge,type}=this.state
+                let { pType } = this.props
                 if(petType && petSex && petAge!==null){
-                    this.props.history.push('/screen',{petType,petSex,petAge,type,petTypeNum})
+                    this.props.history.push('/screen',{petType,petSex,petAge,type,petTypeNum,pType})
                 }
                 petType=null
                 petSex=''
@@ -148,7 +144,6 @@ class Filter extends Component {
     }
     componentDidMount(){
         this.getPetTypeList()
-        // console.log(this.props);
     }
     render() {
         return (

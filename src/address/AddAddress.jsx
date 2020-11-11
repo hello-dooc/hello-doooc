@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-
+import qs from 'qs'
 import {get,post} from '@u/http.js'
 
 import { Cascader } from 'antd';
@@ -11,7 +11,7 @@ import Footer from '@c/footer/Footer'
 
 import { AddAddWrap } from './StyledAddressList'
 import addLogo from '@a/images/add_logo_03.png'
-import Axios from 'axios';
+// import Axios from 'axios';
 export default class AddAddress extends Component {
     constructor(props){
         super(props)
@@ -109,7 +109,7 @@ export default class AddAddress extends Component {
         }   
     }
     async handleSubmit(){
-        let {telValue,nameValue,addrValue,provinceList,addrName,countyList} =this.state
+        let {telValue,nameValue,addrValue,addrName,countyList} =this.state
         let addr = this.state.address.reduce((str,value)=>{
             console.log(value);
             str+=value;
@@ -121,13 +121,15 @@ export default class AddAddress extends Component {
             }
             return str
         },'')
-        axios.defaults.headers.common['token'] = 'token_123'
-        let result = await post('http://123.56.160.44:8080/user/address/create',{
+        console.log(telValue,nameValue,addrValue,sqe);
+        let params = {
             addressSqe:sqe,
-            addressDetail:addr,
+            addressDetail:addrValue,
             userName:nameValue,
             userTelephone:telValue
-        })
+        }
+        axios.defaults.headers.common['token'] = 'token_123456'
+        let result = await post('http://123.56.160.44:8080/user/address/create',qs.stringify(params))
         console.log(result);
     }
     componentDidMount(){

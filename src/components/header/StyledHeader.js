@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import banner from '../../assets/images/banner_dog.png'
+// import banner from '../../assets/images/banner_dog.png'
 // import banner from '@a/images/banner.jpeg'
 const HeaderWrap = styled.div`
     background:${props => props.bg.charAt(0) === "#" ? props.bg : ''}

@@ -3,13 +3,13 @@ import { Breadcrumb, Pagination } from 'antd';
 import GoodDetail from './GoodDetail'
 import Footer from '@c/footer/Footer'
 import Link from '@c/link/Link'
+import BuySearch from '../../buyhome/BuySearch'
+import HeaderNoBg from '@c/header/HeaderNoBg'
 
 
 import {
     Container
 } from './StyledDaily'
-import Header from '@c/header/HeaderNoBg'
-import BuySearch from '@b/BuySearch'
 import { get } from '@u/http'
 
 //nav数组
@@ -175,6 +175,8 @@ class Daily extends Component {
             + '/' + this.state.price1 + '/' 
             + this.state.price2
         })
+        
+        
         let list = result.data.data;
         // let indexList = list.slice((this.state.current-1)*this.state.pageSize,this.state.current*this.state.pageSize)
         list = list.reduce((arr, value) => {
@@ -199,7 +201,7 @@ class Daily extends Component {
     render() {
         return (
             <Container>
-                <Header></Header>
+                <HeaderNoBg></HeaderNoBg>
                 <div className="nav">
                     <div style={{height:'110px'}}>
                         <BuySearch></BuySearch>
