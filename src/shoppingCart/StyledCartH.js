@@ -52,7 +52,7 @@ const HCart = styled.div`
     
     .goods{
       height:360px;
-      overflow-y:scroll;
+      overflow-y:auto;
       .shopDetails{
         height:180px;
         background:#eee;

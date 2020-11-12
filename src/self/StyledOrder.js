@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import bg from '@a/images/best.jpg'
 
-const Container = styled.div `
+const Container = styled.div`
     /* header {
         height: 96px;
         line-height: 96px;
@@ -16,8 +16,12 @@ const Container = styled.div `
         .category{
             height:750px;
             display:flex;
+            .ant-tabs-nav-wrap{
+                width:140px;
+            }
             .ant-tabs-tab{
-                width:100px;
+                /* width:100px; */
+                font-size:24px;
             }
             .ant-tabs-tab:hover{
                 color:#f8c486;
@@ -61,28 +65,16 @@ const Container = styled.div `
     }
 `
 
-const Info = styled.div `
-    .shopDetails{
-        height:180px;
-        /* background:#eee; */
-        display:flex;
-        justify-content:space-around; 
-        align-items:center;
-        border-bottom:1px solid black;
-        img{
-            height:110px;
-            width:92px;
-        }
-        .shopName{
-            width:90px;
-            height:24px;
-            border-radius:2px;
-            /* background:#f5a64a; */
-            text-align:center;
+const InfoForm = styled.div`
+.ant-tabs-nav{
+    .ant-tabs-nav-list{
+        .ant-tabs-tab{
+            font-size:20px;
         }
     }
+}
 `
 export {
     Container,
-    Info
-  }
+    InfoForm
+}
