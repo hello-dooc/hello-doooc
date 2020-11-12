@@ -1,4 +1,4 @@
-import React,{ useCallback, useState} from 'react'
+import React,{ useCallback} from 'react'
 import { useHistory} from 'react-router-dom'
 import Header from '@c/header/Header'
 import Link from '@c/link/Link'
@@ -16,7 +16,7 @@ const Disease=() => {
         return ()=>{
             history.push(url)
         }
-    },[])
+    },[history])
 
     return (
         <DiseaseWrap>

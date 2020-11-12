@@ -1,4 +1,4 @@
-import {LOADDATA,CHANGETYPE} from './actionTypes'
+import {LOADDATA} from './actionTypes'
 import { get } from '@u/http'
 import axios from 'axios'
 const loadDataSync=(list)=>{

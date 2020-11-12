@@ -1,88 +1,98 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { useCallback, useEffect } from 'react'
+import { useDispatch,useSelector } from 'react-redux'
+import {useHistory} from 'react-router-dom'
 import {loadDataAsync} from './actionCreater'
 import Header from '@c/header/HeaderNoBg'
 import Link from '@c/link/Link'
 import Footer from '@c/footer/Footer'
+import axios from 'axios'
 
 import {AddressListWrap} from './StyledAddressList'
 
-@connect((state)=>{
-    return {
-        list:state.address.list
-    }
-},(dispatch)=>({
-    loadData() {
-        dispatch(loadDataAsync())
-      }
-}))
-class AddressList extends Component {
-    constructor(props){
-        super(props);
-        this.state={
-            addressList:[]
-        }
-        this.handleClickRight=this.handleClickRight.bind(this)
-    }
-    async getAddressList(){
-        let result = this.props.list || this.props.location.state.list
-        this.props.loadData()
-        let arr=result.reduce((arr,value)=>{
+const AddressList = (props)=> {
+    const dispatch = useDispatch()
+    const history=useHistory()
+    const list = useSelector(state => state.address.list)
+    console.log(list);
+    if(list&&list.length>0){
+        var addressList=list.reduce((arr,value)=>{
             let addr = value.province+value.city+value.country+value.addressDetail;
-            let obj={};
-            obj.addr=addr;
-            obj.userName=value.userName;
-            obj.userTelephone=value.userTelephone
-            obj.addrId=value.userAddressId;
-            arr.push(obj);
+            value.addr=addr
+            arr.push(value);
             return arr;
         },[])
-        this.setState({
-            addressList:arr
-        })
     }
-    handleBack=(url,value)=>{
+    const handleBack=useCallback((url,value)=>{
         return ()=>{
-            let {history} = this.props
             history.push(url,{addrList:value})
         }
-    }
-    handleClickRight(){
-        this.props.history.push('/add')
-    }
-    componentDidMount(){
-        this.getAddressList()
-    }
-    render() {
-        console.log(this.props.list);
-        return (
-            <AddressListWrap id="address-list">
-                <Header></Header>
-                <div className="address-list-wrap">
-                    <div className="list_top clear_fix">
-                        <span onClick={this.handleBack('/self')}>返回</span>
-                        <span onClick={this.handleClickRight}>添加</span>
-                    </div>
-                    {
-                        this.props.list && this.props.list.map(value=>{
-                            return(
-                                <div className="address_list"  key={value.addrId} onClick={this.props.location.pathname==='/self'?this.handleBack('/self',value):this.handleBack('/self',value)}>
-                                    <div className="address_top clear_fix">
-                                        <span>{value.userName}</span>
-                                        <span>{value.userTelephone}</span>
-                                    </div>
-                                    <div className="address_bottom">
-                                        {value.addr}
-                                    </div>
-                                </div>
-                            )
-                        })
-                    }
+    },[history])
+    const handleClickRight=useCallback(()=>{
+        history.push('/add')
+    })
+    const handleDel=useCallback((userAddressId)=>{
+        return async ()=>{
+            let result = await axios({
+                url:'http://123.56.160.44:8080/user/address/delete',
+                method:'delete',
+                params:{
+                    userAddressId
+                }
+            })
+            console.log(result);
+            dispatch(loadDataAsync())
+        }
+    })
+    const handleEdit=useCallback((defaultValue)=>{
+        return async ()=>{
+            // let result = await axios({
+            //     url:'http://123.56.160.44:8080/user/address/delete',
+            //     method:'delete',
+            //     params:{
+            //         userAddressId
+            //     }
+            // })
+            // console.log(result);
+            // dispatch(loadDataAsync())
+            console.log(defaultValue);
+            history.push('/add',defaultValue)
+        }
+    })
+
+    
+    useEffect(()=>{
+        dispatch(loadDataAsync())
+    },[dispatch])
+    return (
+        <AddressListWrap id="address-list">
+            <Header></Header>
+            <div className="address-list-wrap">
+                <div className="list_top clear_fix">
+                    <span onClick={handleBack('/self')}>返回</span>
+                    <span onClick={handleClickRight}>添加</span>
                 </div>
-                <Link></Link>
-                <Footer></Footer>
-            </AddressListWrap>
-        )
-    }
+                {
+                    addressList && addressList.map(value=>{
+                        console.log(value);
+                        return(
+                            <div className="address_list"  key={value.userAddressId}>
+                                <div className="address_top clear_fix">
+                                    <span>{value.userName}</span>
+                                    <span>{value.userTelephone}</span>
+                                    <span onClick={handleDel(value.addrId)}>删除</span>
+                                    <span onClick={handleEdit(value)}>编辑</span>
+                                </div>
+                                <div className="address_bottom" onClick={handleBack('/self',value)}>
+                                    {value.addr}
+                                </div>
+                            </div>
+                        )
+                    })
+                }
+            </div>
+            <Link></Link>
+            <Footer></Footer>
+        </AddressListWrap>
+    )
 }
 export default AddressList

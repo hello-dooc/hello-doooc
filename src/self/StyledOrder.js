@@ -14,7 +14,7 @@ const Container = styled.div `
         width:1300px;
         margin:0 auto;
         .category{
-            height:750px;
+            height:850px;
             display:flex;
             .ant-tabs-tab{
                 width:100px;

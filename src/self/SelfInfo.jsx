@@ -69,7 +69,6 @@ class SelfInfo extends Component {
     }
     async componentDidMount(){
         this.getUserInfo()
-        console.log(this.props + '111');
     }
     render() {
         const { loading, imageUrl=profile } = this.state;
