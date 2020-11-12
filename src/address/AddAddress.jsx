@@ -158,7 +158,7 @@ export default class AddAddress extends Component {
             this.props.history.goBack()
         }else{
             // console.log(result);
-            // window.alert('请按照规则填写表单')
+            window.alert('请按照规则填写表单')
         }
         
     }
