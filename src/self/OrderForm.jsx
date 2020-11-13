@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Tabs } from 'antd';
-import { get } from '@u/http'
-import axios from 'axios'
+import axios from 'axios';
+import { get, del } from '@u/http'
 
 import DetailInfo from './DetailInfo';
 import {
@@ -11,8 +11,26 @@ const { TabPane } = Tabs;
 
 class OrderForm extends Component {
     state = {
-        list1:[],
-        list2:[]
+        list1: [],
+        list2: [],
+        // childrenMsg: []
+    }
+
+    getChildrenMsg = (result, msg, sign) => {
+        console.log(msg, sign)
+        this.setState(
+            // { childrenMsg: msg },
+            () => {
+                if (sign === 1) {
+                    console.log(msg.orderID);
+                    this.deleteCar(msg.orderID)
+                };
+                if (sign === 2) {
+                    console.log(msg.orderID);
+                    this.payCar(msg.orderID)
+                }
+            }
+        )
     }
 
     async getData() {
@@ -25,7 +43,7 @@ class OrderForm extends Component {
             return (item.orderStatus === 1) && (item.payStatus === 1);
         })
         let filterlist2 = result.data.content.filter(function (item) {
-            return (item.orderStatus === 2) && (item.payStatus === 3);
+            return (item.orderStatus === 3) && (item.payStatus === 2);
         })
         this.setState({
             list1: filterlist,
@@ -33,6 +51,31 @@ class OrderForm extends Component {
         })
     }
 
+    async deleteCar(orderId) {
+        axios.defaults.headers.common['token'] = 'token_123456'
+        let result = await del({
+            url: 'http://123.56.160.44:8080/order/delete',
+            params: {
+                orderId
+            }
+        });
+        // console.log(result);
+        this.getData()
+    }
+
+
+    async payCar(orderId) {
+        axios.defaults.headers.common['token'] = 'token_123456'
+        let result = await get({
+            url: 'http://123.56.160.44:8080/pay/alipay',
+            params: {
+                orderId,
+                money: 0.01
+            }
+        });
+        console.log(result);
+        this.getData()
+    }
     componentDidMount() {
         this.getData()
     }
@@ -45,7 +88,7 @@ class OrderForm extends Component {
             <InfoForm>
                 <Tabs defaultActiveKey="1" onChange={this.callback} tabPosition={'left'} >
                     <TabPane tab="待付款" key="1">
-                        <DetailInfo list={this.state.list1}></DetailInfo>
+                        <DetailInfo list={this.state.list1} parent={this}></DetailInfo>
                     </TabPane>
                     <TabPane tab="待收货" key="2">
                         <DetailInfo list={this.state.list2}></DetailInfo>

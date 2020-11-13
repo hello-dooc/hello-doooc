@@ -6,8 +6,41 @@ import {
 } from './StyledInfo'
 
 class DetailInfo extends Component {
-    onDelete=()=>{
-        console.log(111);
+    state = {
+        msg: [],
+        sign: 0
+    }
+    handleDelete = (value) => {
+        return (e) => {
+            console.log(value);
+            console.log(value.orderID);
+            this.setState(
+                { msg: value, sign: 1 },
+                () => {
+                    this.toParent()
+                }
+            )
+        }
+    }
+
+
+    handlePay = (value) => {
+        return (e) => {
+            // console.log(value);
+            // console.log(value.orderID); 
+            this.setState(
+                { msg: value, sign: 2 },
+                () => {
+                    this.toParent()
+                }
+            )
+        }
+    }
+
+
+    toParent = () => {
+        // console.log(this.props.parent.getChildrenMsg.bind(this, this.state.msg))
+        this.props.parent.getChildrenMsg(this, this.state.msg, this.state.sign)
     }
     render() {
         // console.log(this.props.list);
@@ -37,8 +70,11 @@ class DetailInfo extends Component {
                                         </Select>
                                     </>
                                     <i>总价：￥{value.orderPrice} </i>
-                                    <i>付款</i>
-                                    <i onClick={this.onDelete}>删除</i>
+                                    <div style={{ visibility: (value.orderStatus === 1 && value.payStatus === 1) ? "" : "hidden" }}>
+                                        <button onClick={this.handlePay(value)}>付款</button>
+                                        <i>   </i>
+                                        <button onClick={this.handleDelete(value)}>删除</button>
+                                    </div>
                                 </div>
                             </div>
                         )
