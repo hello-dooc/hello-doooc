@@ -38,14 +38,31 @@ var post = function post(url, params) {
 
 exports.post = post;
 
-var put = function put(url) {
+var put = function put(_ref2) {
+  var url = _ref2.url,
+      params = _ref2.params;
   return new Promise(function (resolve, reject) {
-    _axios["default"].put(url).then(function (res) {
+    (0, _axios["default"])({
+      url: url,
+      method: 'put',
+      params: params
+    }).then(function (res) {
       resolve(res);
     })["catch"](function (err) {
       reject(err);
     });
   });
-};
+}; // const put = (url,params) => {
+//   return new Promise((resolve, reject) => {
+//     axios.put(url,params)
+//   .then(res => {
+//       resolve(res);
+//   })
+//   .catch(err =>{
+//       reject(err)
+//   })
+// });
+// }
+
 
 exports.put = put;

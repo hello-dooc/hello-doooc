@@ -25,7 +25,7 @@ class Order extends Component {
                 <Header ht="546px" bg={banner} ></Header>
                 <main>
                     <div className="category">
-                        <Tabs defaultActiveKey="1" onChange={this.callback} tabPosition={'left'}>
+                        <Tabs defaultActiveKey="2" onChange={this.callback} tabPosition={'left'} >
                             <TabPane tab="基本信息" key="1">
                                 <SelfInfo></SelfInfo>
                             </TabPane>
