@@ -4,7 +4,6 @@ import rgimg from '@a/images/WeChat.jpg'
 const Container = styled.div`
 background:url(${rgimg})  no-repeat;
 background-size:100% 100%;
-overflow-y:scroll;
 backgroound-attachment:fixed;
 position:fixed;
 top:0;
@@ -22,6 +21,7 @@ const RegisterWrap = styled.div`
   position:absolute;
   top:20%;
   left:60%;
+
   .rgtop{
     font-size:26px;
     color:#fff;
@@ -29,11 +29,17 @@ const RegisterWrap = styled.div`
     width:414px;
     margin:0 auto;
     height:100px;
-    padding-top:78px;
+    padding-top:60px;
   }
   .rgcontent{
+    .ant-form-item {
+      margin-bottom:0px;
+    }
     width:414px;
     margin:0 auto;
+    .ant-input-suffix{
+      margin-bottom:0;
+    }
     Input{
       border:none;
       border-bottom:1px solid #ccc;
@@ -52,7 +58,7 @@ const RegisterWrap = styled.div`
         }
       }
       input{
-        width:280px;
+        width:300px;
         height:30px;
       }
       button{
@@ -60,6 +66,15 @@ const RegisterWrap = styled.div`
         width:320px;
         height:30px;
       }
+      .ant-input-prefix{
+        display:inline;
+      }
+      .ant-input-suffix{
+        width:4px;
+        display:inline;
+        margin-left:0;
+      }
+     
     }
     
   }

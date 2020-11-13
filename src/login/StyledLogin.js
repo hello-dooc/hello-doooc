@@ -64,20 +64,23 @@ const EmailWrap = styled.div `
       border-bottom:1px solid #ccc;
       margin-bottom:15px;
     }
+    div{
+      margin 0 auto;
+      width:350px;
+      Input{
+        width:300px;
+        height:30px;
+      }
+      button{
+        display:inline;
+        width:350px;
+        height:30px;
+      }
+      span{
+        cursor:pointer;
+      }
+    }
   } 
-  div{
-    margin 0 auto;
-    width:350px;
-    Input{
-      width:300px;
-      height:30px;
-    }
-    button{
-      display:inline;
-      width:320px;
-      height:30px;
-    }
-  }
 }
 `
 
@@ -90,20 +93,33 @@ const MessageWrap = styled.div `
     border-bottom:1px solid #ccc;
     margin-bottom:15px;
   }
+  div{
+    margin 0 auto;
+    width:350px;
+    Input{
+      width:300px;
+      height:30px;
+    }
+    button{
+      display:inline;
+      height:53px;
+      width:116px;
+    }
+    .ant-btn > .anticon + span, .ant-btn > span + .anticon{
+      margin-left:0;
+    }
+    .ant-btn-primary{
+      width:350px;
+      height:30px;
+    }
+    span{
+      cursor:pointer;
+    }
+    .ant-btn ant-btn-danger{
+      width:116px;
+    }
+  }
 } 
-div{
-  margin 0 auto;
-  width:350px;
-  Input{
-    width:300px;
-    height:30px;
-  }
-  button{
-    display:inline;
-    width:320px;
-    height:30px;
-  }
-}
 }
 
 `

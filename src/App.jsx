@@ -24,12 +24,15 @@ import BuyHome from '@b/BuyHome'
 import Answer from '@z/Answer'
 import Training from '@z/Training'
 import ScreenAfter from '@m/petMarket/ui/ScreenAfter'
+// 私有化组件
+import PrivateRouter from './components/privateRouter/index'
 export default class App extends Component {
   render() {
     return (
       <Router>
         <Switch>
-          <Route path="/home" component={Home}></Route>
+          <PrivateRouter path="/home" component={Home}></PrivateRouter>
+          {/* <Route path="/home" component={Home}></Route> */}
           <Route path="/love" component={Love}></Route>
           <Route path='/foodMarket' component={FoodMarket}></Route>
           <Route path='/self' component={SelfInfo} />

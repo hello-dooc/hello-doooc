@@ -7,6 +7,7 @@ import SelfInfo from './SelfInfo';
 import Footer from '@c/footer/Footer'
 import Link from '@c/link/Link'
 import Header from '@c/header/Header'
+import banner from '@a/images/banner_dog.png'
 
 import {
     Container

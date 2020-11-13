@@ -4,9 +4,11 @@ import { Form, Input, Button} from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import {validate_password} from '../utils/validate'
 import {EmailLogin}  from '../api/account'
+import qs from 'qs'
+import {withRouter} from 'react-router-dom'
+import {setToken,setEmail} from '../utils/cookies'
 
-
-export default class Email extends Component {
+class Email extends Component {
   constructor(){
     super();
     this.state={
@@ -33,16 +35,24 @@ export default class Email extends Component {
 
 // 登录处理
   onFinish =  (values)=> {
-    EmailLogin().then(response=>{
+    EmailLogin(qs.stringify(values)).then(response=>{
+      // console.log(values)
       console.log(response)
+      const data = response.data
+      console.log(data)
+      // this.props.history.push('/home')
+
+      if(data.data === "密码错误！"){
+        alert('用户名或密码错误')
+      }else{
+        // alert('可以跳转至首页了')
+        setToken(data.data)
+        setEmail(response.config.data)
+        this.props.history.push('/home')
+      }
     }).catch(error=>{
-      // if(this.data.data==="用户不存在!"){
-      //   alert('用户不存在')
-      // }else{
-      //   alert('验证码错误')
-      // }
     })
-    console.log(values)
+    // console.log(values)
    };
 
   //  路由跳转
@@ -76,7 +86,7 @@ export default class Email extends Component {
               </Form.Item>
               <Form.Item
               // id="password"
-                name="password"
+                name="userPassword"
                 rules={
                   [
                     { required: true, message: '请输入您的密码!' },
@@ -105,3 +115,5 @@ export default class Email extends Component {
     )
   }
 }
+
+export default withRouter(Email);
