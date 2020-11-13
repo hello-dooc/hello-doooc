@@ -1,15 +1,11 @@
 import React, { Component } from 'react'
 import {RegisterWrap} from './StyledRegister'
 import { Form, Input, Button,Tooltip,Checkbox,Row,Col, message} from 'antd';
-import { UserOutlined,PoweroffOutlined} from '@ant-design/icons';
+import { UserOutlined,MailOutlined,UnlockOutlined ,SafetyOutlined,PoweroffOutlined} from '@ant-design/icons';
 import {validate_password,validate_phone,validate_email} from '../utils/validate'
 import qs from 'qs'
-// import  VCode from '../components/code/VerificationCode'
+import  REmailCode from '../components/code/RegisterCode'
 import { RegisterInterface ,RegisterCode} from '../api/account';
-
-
-// let timer = null;
-
 
 const tailFormItemLayout = {
   wrapperCol: {
@@ -24,21 +20,15 @@ const tailFormItemLayout = {
   },
 };
 
-
-
  export default class RegisterContent extends Component {
    constructor(){
      super();
      this.state={
-       mobile:"",
        email:"",
        userName:"",
        userPassword:"",
-       name:"",//昵称
        emailCode:"",
-       code_button_loading:false,
-       code_button_disabled:false,
-       code_button_test:"获取验证码",
+       key:''
      };
      this.onFinish = this.onFinish.bind(this);
    }
@@ -46,7 +36,7 @@ const tailFormItemLayout = {
   // 邮箱输入处理
   inputChangeEmail=(e)=>{
     let value = e.target.value
-    // console.log(value)
+    console.log(value)
     this.setState({
      email:value
     })
@@ -57,15 +47,6 @@ const tailFormItemLayout = {
     // console.log(value)
     this.setState({
       userPassword:value
-    })
-  }
-
-
-  inputChangeName=(e)=>{
-    let value = e.target.value
-    // console.log(value)
-    this.setState({
-      name:value
     })
   }
 
@@ -94,8 +75,6 @@ const tailFormItemLayout = {
     })
   }
   
-
-
   essageSbumit=e=>{
     e.preventDefault();
     // console.log(this.state)
@@ -106,94 +85,35 @@ const tailFormItemLayout = {
       // [e.target.name]:e.targrt.value
     })
   }
+
+  getCodekey=(key)=>{
+    console.log(key)
+    this.setState({
+      key
+    })
+  }
+
   onFinish=(values)=>{
     const requestData={
-      mobile:this.state.mobile,
-      email:this.state.email,//邮箱
-      userName:this.state.userName,//邮箱
-      userPassword:this.state.userPassword,
-      // passwordconfrim:this.state.passwordconfrim,
-      name:this.state.name,//昵称
-      emailCode:this.state.emailCode,
-      // key:
+      ...this.state
     }
-    // console.log(requesDate);
-    // return false;
     RegisterInterface(qs.stringify(requestData)).then(Response=>{
         // const data = response.data;
         // message.success
+        console.log(requestData)
         console.log(Response)
+        // 路由跳转
+        if(Response.data.data==="注册成功，请登录！"){
+          alert("注册成功！")
+        }
     }).catch(error=>{
 
     })
     console.log(values)
   }
 
-  getcode=()=>{
-    if(!this.state.email){
-      message.warning('邮箱不能为空',1)
-      return false;
-    }
-    this.setState({
-      code_button_loading:true,
-      code_button_test:"发送中"
-    })
-    const requestData1={
-      email:this.state.email,//邮箱
-      // mobile:this.state.mobile,
-      // userName:this.state.userName,//邮箱
-      // userPassword:this.state.userPassword,
-      // // passwordconfrim:this.state.passwordconfrim,
-      // name:this.state.name,//昵称
-      // emailCode:this.state.emailCode
-    }
-    RegisterCode(requestData1).then(response=>{
-      console.log(response)
-      // let res = 
-      // 执行倒计时
-      this.countDown();
-    }).catch(error=>{ 
-        this.setState({
-          code_button_loading:false,
-          code_button_test:"重新获取"
-        })
-
-    })   
-  }
-
-  countDown=()=>{
-    // 定时器
-    let timer = null;
-    // 倒计时时间
-    let sec = 60;
-    // 修改状态
-    this.setState({
-      code_button_loading:false,
-      code_button_disabled:true,
-      code_button_test:`${sec}S`
-    })
-
-    timer = setInterval(()=>{
-      console.log(1111)
-      sec--;
-      if(sec <= 0){
-        this.setState({
-          code_button_test:`重新获取`,
-          code_button_disabled:false,
-
-        })
-        clearInterval(timer);
-        return false;
-      }
-      this.setState({
-        code_button_test:`${sec}S`
-      })
-    },1000)
-  } 
-
-
   render() {
-    const {mobile,userPassword,passwordconfrim,userName,name,email,emailCode,code_button_disabled,code_button_loading,code_button_test} = this.state;
+    const {userPassword,passwordconfrim,userName,name,email,emailCode} = this.state;
     return (
       <RegisterWrap>
         <div className="rgwrap">
@@ -206,33 +126,6 @@ const tailFormItemLayout = {
               onFinish={this.onFinish}
               onSubmit = {this.MessageSbumit}
             >
-             <Form.Item
-             className="mobile"
-                name="mobile"
-                // label="Phone Number"
-                rules={[
-                  {
-                    required: true,
-                    message: '请输入您的手机号!',
-                  },
-                  {
-                    pattern:validate_phone,message:"请输入正确的手机号"
-                  }
-                
-                ]}
-              >
-                <Input
-                  // addonBefore={prefixSelector}
-                  name="mobile"
-                  id="mobile"
-                  initialvalues={mobile}
-                  onChange={this.inputChangeMobile}
-                  style={{
-                    width: '100%',
-                  }}
-                  prefix={<UserOutlined className="site-form-item-icon" />}placeholder="手机号" />
-              </Form.Item>
-              
               <Form.Item
              className="email"
                 name="email"
@@ -240,35 +133,23 @@ const tailFormItemLayout = {
                   [
                     { required: true, message: '请输入您的邮箱!' },
                     {type:"email",message:"邮箱格式不正确"}
-                    // ({getFieldValue})=>({
-                    //   validator(rule,value){
-                    //     if(validate_email(value)){
-                    //       _this.setState({
-                    //         button_disabled:false
-                    //       })
-                    //       return Promise.resolve();
-                    //     }
-                    //     return Promise.reject("邮箱格式不正确")
-                    //   }
-                    // })
                   ]
                 }
               >
                 <Input id="email"  initialvalues={email} 
                   onChange={this.inputChangeEmail}
-                 prefix={<UserOutlined className="site-form-item-icon" />} placeholder="请输入邮箱" />
+                 prefix={<MailOutlined className="site-form-item-icon" />} placeholder="请输入邮箱" />
               </Form.Item>
              
 
               <Form.Item
               className="password"
                 name="password"
-                // label="Password"
                 rules={[
-                  {
-                    required: true,
-                    message: '设置密码',
-                  },
+                  // {
+                  //   required: true,
+                  //   message: '设置密码',
+                  // },
                   
                   ({ getFieldValue }) => ({
                     validator(rule, value) {
@@ -283,7 +164,7 @@ const tailFormItemLayout = {
                 ]}
                 hasFeedback
               >
-                <Input.Password   id="userPassword" onChange={this.inputChangePassword}  initialvalues={userPassword} prefix={<UserOutlined className="site-form-item-icon" />}placeholder="设置密码" />
+                <Input.Password   id="userPassword" onChange={this.inputChangePassword}  initialvalues={userPassword} prefix={<UnlockOutlined  className="site-form-item-icon" />}placeholder="设置密码" />
              </Form.Item>
 
               <Form.Item
@@ -311,75 +192,47 @@ const tailFormItemLayout = {
                   }),
                 ]}
               >
-                <Input.Password  id="passwordconfrim"  initialvalues={passwordconfrim} onChange={this.inputChange} prefix={<UserOutlined className="site-form-item-icon" />}placeholder="确认密码"/>
+                <Input.Password  id="passwordconfrim"  initialvalues={passwordconfrim} onChange={this.inputChange} prefix={<UnlockOutlined  className="site-form-item-icon" />}placeholder="确认密码"/>
               </Form.Item>
-
-           
               
               <Form.Item
                 name="userName"
-                label={
-                  <span>
-                    {/* Nickname&nbsp; */}
-                    <Tooltip title="请输入用户名">
-                    </Tooltip>
-                  </span>
-                }
                 rules={[
                   {
                     required: true,
                     message: '请输入用户名',
                     whitespace: true,
-                  },
+                  }
                 ]}
+
               >
-                <Input id="userName" initialvalues={userName} onChange={this.inputChangeUsername} prefix={<UserOutlined className="site-form-item-icon" />} placeholder="昵称"/>
+                <Input id="userName" initialvalues={userName} onChange={this.inputChangeUsername} prefix={<UserOutlined className="site-form-item-icon" />} placeholder="用户名"/>
               </Form.Item> 
 
+              {/* <Form.Item> */}
               <Form.Item
-                name="name"
-                label={
-                  <span>
-                    {/* Nickname&nbsp; */}
-                    <Tooltip title="请输入昵称?">
-                    </Tooltip>
-                  </span>
-                }
-                rules={[
-                  {
-                    required: true,
-                    message: '请设置一个昵称!',
-                    whitespace: true,
-                  },
-                ]}
-              >
-                <Input id="name" initialvalues={name} onChange={this.inputChangeName} prefix={<UserOutlined className="site-form-item-icon" />}placeholder="昵称"/>
-              </Form.Item> 
-
-              <Form.Item>
-                  <Row gutter={8}>
-                    <Col span={12}>
-                      <Form.Item
-                        name="code"
-                        noStyle
-                        rules={[
-                          {
-                            required: true,
-                            message: '请输入验证码!',
-                          },
-                        ]}
-                      >
-                        <Input  id="emailCode" initialvalues={emailCode} onChange={this.inputChangeCode} prefix={<UserOutlined className="site-form-item-icon" />}placeholder="输入验证码"/>
-                      </Form.Item>
-                    </Col>
-                    <Col span={12}>
-                      {/* <VCode></VCode> */}
-                      {/* <Button type="danger" email={email} disabled={button_disabled} loading={button_loading} icon={<PoweroffOutlined />} onClick={this.getcode} style={{background:'red',color:'#fff'}} > {button_text} </Button> */}
-
-                      <Button disabled={code_button_disabled} icon={<PoweroffOutlined/>} loading={code_button_loading} onClick={this.getcode}>{code_button_test}</Button>
-                    </Col>
-                  </Row>
-                </Form.Item>
+                  name="code"
+                  noStyle
+                  rules={[
+                    {
+                      required: true,
+                      message: '请输入验证码!',
+                    },
+                  ]}
+                >
+                  <Row gutter={0}>
+                  <Col span={16}>
+                    <Input  id="emailCode" initialvalues={emailCode} onChange={this.inputChangeCode} prefix={<SafetyOutlined className="site-form-item-icon" />}placeholder="输入验证码"/>
+                  </Col>
+                  <Col span={8}>
+                    {/* <VCode></VCode> */}
+                    {/* <Button type="danger" email={email} disabled={button_disabled} loading={button_loading} icon={<PoweroffOutlined />} onClick={this.getcode} style={{background:'red',color:'#fff'}} > {button_text} </Button> */}
+                      <REmailCode email={email} onGetKey={this.getCodekey}></REmailCode>
+                    {/* <Button disabled={code_button_disabled} icon={<PoweroffOutlined/>} loading={code_button_loading} onClick={this.getcode}>{code_button_test}</Button> */}
+                  </Col>
+                </Row>
+                {/* </Form.Item> */}
+              </Form.Item>
 
               <Form.Item
                 name="agreement"
@@ -387,21 +240,21 @@ const tailFormItemLayout = {
                 rules={[
                   {
                     validator: (_, value) =>
-                      value ? Promise.resolve() : Promise.reject('Should accept agreement'),
+                      value ? Promise.resolve() : Promise.reject('请阅读后注册'),
                   },
                 ]}
                 {...tailFormItemLayout}
               >
-                <Checkbox>
+                <Checkbox className="read">
                   我已阅读并接受 <a href="http://www.baidu.com">《版权声明》</a>和<a href="http://www.baidu.com">《隐私保护》</a>
                 </Checkbox>
-              </Form.Item>
+              </Form.Item> 
               <Form.Item>
                 <Button  type="primary" htmlType="submit" className="login-form-button">
                   注册
                 </Button>
                 <br/>
-                <p>已有账号，<a href="#" onClick={this.handleClick} style={{color:'blue'}}> 现在去登录</a></p>
+                <p>已有账号，现在去<a href="../login/Email.jsx"  onClick={this.handleClick} style={{color:'blue'}}> 登录</a></p>
               </Form.Item>
 
            </Form>

@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import { get } from '@u/http'
 import axios from 'axios'
 
 // import {withRouter} from 'react-router-dom'
 // import CartH from './CartH';
+=======
+>>>>>>> origin/zhangyan
 import CartH from './CartH';
 import CartN from './CartN';
 

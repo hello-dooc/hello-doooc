@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import {HeaderWrap} from './StyledHeader'
 import logo from '@a/images/logo_03.png'
 import profile from '@a/images/profile_03.png'
-import {withRouter } from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
+import {getToken} from '../../utils/cookies'
+import cookies from 'react-cookies'
 
-@withRouter
+
 class Header extends Component {
     constructor(props){
         super(props);
@@ -13,10 +15,11 @@ class Header extends Component {
         }
     }
     
-    handleClick=()=>{
+    handleClick=()=>{ 
         this.setState({
             isNone:!this.state.isNone
         })
+        
     }
     handleMouseLeave=()=>{
         this.setState({
@@ -28,7 +31,15 @@ class Header extends Component {
             this.props.history.push(url)
         }
     }
-    
+    handleGotoLogin=(url)=>{
+        return ()=>{
+            getToken() ? alert('已登录') : this.props.history.push(url)
+        }
+    }
+    handleLoginOut=()=>{
+           window.location.reload(cookies.remove('adminToken',{path:'/'})) 
+        // cookies.remove('adminToken')
+    }
     render() {
         return (
             <HeaderWrap id="header" {...this.props}>
@@ -43,16 +54,25 @@ class Header extends Component {
                     </div>
                     <div>
                         <div>
-                            <img src={profile} alt="" onClick={this.handleGotoOthers('/login')}/>
+                            <img src={profile} alt="" onClick={this.handleGotoLogin('/login')}/>
                         </div>
                         <div>
-                            <i className="iconfont icon-xiala" onClick={this.handleClick} ></i>
-                            <ul onMouseLeave ={this.handleMouseLeave} className={this.state.isNone?'dpNone':'dpBlock'}>
-                                <li onClick={this.handleGotoOthers('/order')}>我的信息</li>
-                                <li onClick={this.handleGotoOthers('/order')}>订单中心</li>
-                                <li onClick={this.handleGotoOthers('/shoppingCart')}>我的购物</li>
-                                <li>我的晒宠</li>
-                            </ul>
+                            <i className="iconfont icon-xiala" onClick={this.handleClick}  ></i>
+                            {
+                                getToken() ? 
+                                <ul onMouseLeave ={this.handleMouseLeave} className={this.state.isNone?'dpNone':'dpBlock'}>
+                                    <li onClick={this.handleGotoOthers('/self')}>我的信息</li>
+                                    <li onClick={this.handleGotoOthers('/order')}>订单中心</li>
+                                    <li onClick={this.handleGotoOthers('/shoppingCart')}>我的购物</li>
+                                    <li>我的晒宠</li>
+                                    <li onClick={this.handleLoginOut}>退出</li>
+                                </ul>
+                                :
+                                <ul onMouseLeave ={this.handleMouseLeave} className={this.state.isNone?'dpNone':'dpBlock'}>
+                                    <li onClick={this.handleGotoOthers('/login')}>登录</li>
+                                </ul>
+
+                            }
                         </div>
                     </div>
                 </div>
