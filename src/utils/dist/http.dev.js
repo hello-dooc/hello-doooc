@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.post = exports.put = exports.get = void 0;
+exports.del = exports.post = exports.put = exports.get = void 0;
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -46,10 +46,10 @@ var put = function put(_ref2) {
       url: url,
       method: 'put',
       params: params
-    }).then(function (res) {
-      resolve(res);
-    })["catch"](function (err) {
-      reject(err);
+    }).then(function (result) {
+      resolve(result);
+    }).then(function (error) {
+      reject(error);
     });
   });
 }; // const put = (url,params) => {
@@ -66,3 +66,21 @@ var put = function put(_ref2) {
 
 
 exports.put = put;
+
+var del = function del(_ref3) {
+  var url = _ref3.url,
+      params = _ref3.params;
+  return new Promise(function (resolve, reject) {
+    (0, _axios["default"])({
+      url: url,
+      method: 'delete',
+      params: params
+    }).then(function (result) {
+      resolve(result);
+    }).then(function (error) {
+      reject(error);
+    });
+  });
+};
+
+exports.del = del;

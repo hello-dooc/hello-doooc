@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import DetailInfo from '../components/Detail/DetailInfo';
 import { InputNumber, Select } from 'antd';
 
-import { get, put } from '@u/http'
+import { get, put,del } from '@u/http'
 import axios from 'axios';
 import qs from 'qs'
 
@@ -19,28 +19,33 @@ class CartH extends Component {
 
     onNumberChange = (value) => {
         return (num) => {
-            // console.log(id);
-            // console.log(value);
-            this.updateCar(value, num)
+            // console.log(num);
+            // console.log(value.cartId);
+            this.updateCar(value.cartId, num)
             // this.updateCar(value.cartId,value.goodsNum,num)
         }
     };
 
     onOptionChange = (value) => {
         return (tasteName) => {
-            console.log(tasteName);
-            console.log(value);
-            // this.updateCar(value.cartId,value.goodsNum,tasteName)
+            // console.log(tasteName);
+            // console.log(value.selectGoodsTaste);
+            value.selectGoodsTaste.map((value1)=>{
+                if(tasteName===value1.tasteName){
+                    console.log(value1.tasteId);
+                    this.updateCar(value.cartId,value.goodsNum,value1.tasteId)
+                }
+            })
         }
     }
 
-    onDelete = (item) => {
-        console.log(item);
-    }
-    handleChange = (item) => {
+    // onDelete = (item) => {
+    //     console.log(item);
+    // }
+    handleChange = (value) => {
         return (e) => {
-            console.log(item);
-            
+            console.log(value.cartId);  
+            this.deleteCar(value.cartId)          
         }
     }
 
@@ -54,24 +59,20 @@ class CartH extends Component {
         }
         console.log(params);
         let result = await put({ url: 'http://123.56.160.44:8080/cart/update', params })
-        // console.log(result);
+        console.log(result);
         this.getData()
     }
-
-    async updateCar(cartId, goodsNum,goodsTaste) {
+    async deleteCar(cartId) {
         axios.defaults.headers.common['token'] = 'token_123456'
-        let params = {
-            cartId,
-            goodsNum,
-            goodsTaste,
-            cartStatus: 1
-        }
-        console.log(params);
-        let result = await put({ url: 'http://123.56.160.44:8080/cart/update', params })
-        // console.log(result);
+        let result = await del({
+            url:'http://123.56.160.44:8080/cart/delete',
+            params:{
+                cartId
+            }
+        });
+        console.log(result);
         this.getData()
     }
-    
     async getData() {
         axios.defaults.headers.common['token'] = 'token_123456'
         let result = await get({
@@ -110,7 +111,7 @@ class CartH extends Component {
                                     <i style={{ visibility: value.selectGoodsTaste ? "" : "hidden" }}>口味</i>
 
                                     <>
-                                        <Select defaultValue={value.selectGoodsTaste ? value.selectGoodsTaste[0].tasteName : ""} style={{ width: 80, height: 30, visibility: value.selectGoodsTaste ? "" : "hidden" }} onChange={this.onOptionChange(value)}>
+                                        <Select defaultValue={value.selectGoodsTaste ? value.goodsTaste : ""} style={{ width: 80, height: 30, visibility: value.selectGoodsTaste ? "" : "hidden" }} onChange={this.onOptionChange(value)}>
                                             {
                                                 value.selectGoodsTaste && value.selectGoodsTaste.map(value1 => {
                                                     return (

@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
 import { get } from '@u/http'
 import axios from 'axios'
-
-// import {withRouter} from 'react-router-dom'
-// import CartH from './CartH';
-=======
->>>>>>> origin/zhangyan
 import CartH from './CartH';
 import CartN from './CartN';
 
@@ -45,7 +39,7 @@ class ShoppingCart extends Component {
             isShow: (result.data.data.length > 0) ? true : false,
             length: result.data.data.length,
             totalPrice: 0,
-            // goodsList:result.data.datayyyy
+            // goodsList:result.data.data
         })
     }
 
