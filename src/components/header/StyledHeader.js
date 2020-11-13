@@ -54,6 +54,7 @@ const HeaderWrap = styled.div`
                     width:85px;
                     height:126px;
                     position: absolute;
+                    z-index:5;
                     right:7px;
                     top:64px;
                     li{
@@ -81,7 +82,6 @@ const HeaderNoBgWrap = styled.div`
         li{
             float:left;
             margin-left:80px;
-            font-family:MicrosoftYaHei;
             font-size:30px;
             color:#686868;
             &:hover{
@@ -122,6 +122,7 @@ const HeaderNoBgWrap = styled.div`
                 width:85px;
                 height:126px;
                 position: absolute;
+                z-index:5;
                 right:7px;
                 top:64px;
                 li{
