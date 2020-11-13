@@ -24,45 +24,47 @@ class ShoppingCart extends Component {
     //     super(props)
     //     this.getData()
     // }
-    state={
-        length:0,
-        isShow:true,
-        goodsList:[]
+    state = {
+        length: 0,
+        isShow: true,
+        totalPrice: 0,
+        // goodsList:[]
     }
-    
-    async getData(){
+
+    async getData() {
         axios.defaults.headers.common['token'] = 'token_123456'
         let result = await get({
-            url:'http://123.56.160.44:8080/cart/list'
+            url: 'http://123.56.160.44:8080/cart/list'
             // url:'http://10.9.65.215:8080/cart/list'
         })
         console.log(result.data.data);
         this.setState({
-            isShow:(result.data.data.length>0)?true:false,
-            length:result.data.data.length,
-            goodsList:result.data.data
+            isShow: (result.data.data.length > 0) ? true : false,
+            length: result.data.data.length,
+            totalPrice: 0,
+            // goodsList:result.data.datayyyy
         })
     }
-    
-    componentDidMount(){
+
+    componentDidMount() {
         this.getData()
     }
     render() {
         // console.log(this.result);
-        console.log(this.state.length)
+        console.log(this.state.totalPrice)
         // console.log(this.state.goodsList);
         return (
             <Container>
                 <Header ht="546px" bg={banner}></Header>
 
                 <div className="con">
-                    
+
                     <main>
                         <img src={img2} alt="" />
                         <p>我的购物车</p>
                         <div className="cart">
                             {
-                                this.state.isShow?(<CartH goodsList={this.state.goodsList}></CartH>):(<CartN></CartN>)
+                                this.state.isShow ? (<CartH></CartH>) : (<CartN></CartN>)
                             }
                         </div>
                     </main>
