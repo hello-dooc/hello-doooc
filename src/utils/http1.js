@@ -1,14 +1,29 @@
 import axios from 'axios'
 
-const get = (url) => {
+// const get = (url) => {
+//   return new Promise((resolve, reject) => {
+//     axios(url     
+//     )     
+//     .then(res => {
+//       resolve(res)
+//     })
+//     .then(err => {
+//       reject(err)
+//     })
+//   })
+// }
+
+const get = ({url,params}) => {
   return new Promise((resolve, reject) => {
-    axios(url     
-    )     
-    .then(res => {
-      resolve(res)
+    axios({
+      url,
+      params
     })
-    .then(err => {
-      reject(err)
+    .then(result => {
+      resolve(result)
+    })
+    .then(error => {
+      reject(error)
     })
   })
 }

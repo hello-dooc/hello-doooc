@@ -31,7 +31,6 @@ class ScreenAfter extends Component {
         let result = await get({
             url:`http://123.56.160.44:8080/${url}/findAllChoice/${petTypeNum}/${petSex}/${petAge}/1`
         })
-        // console.log(result.data.data);
         let arr = result.data.data&&result.data.data.reduce((arr,value)=>{
             if(this.props.location.state.type==="喵喵"){
                 value.pet='Cat'
@@ -44,8 +43,6 @@ class ScreenAfter extends Component {
         },[])
         this.setState({
             screenList:arr
-        },()=>{
-            console.log(this.state.screenList);
         })
     }
     componentDidMount(){
@@ -66,7 +63,7 @@ class ScreenAfter extends Component {
                     <div style={{height:'108px'}}>
                         <BuySearch></BuySearch>
                     </div>
-                    <Filter />
+                    <Filter pType={this.props.location.state.pType} />
                     <div className="petForSale">
                         <h2>宠物待售</h2>
                         <div className="pet_img">

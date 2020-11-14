@@ -22,14 +22,13 @@ const PetWrap = styled.div`
         background-size:cover;
         filter: blur(30px);
     }
-    #dog_bg{
-        background:url(${display_bg}) no-repeat;
-    }
+
     .cat-wrap{
         width:1300px;
         height:741px;
         margin:0 auto;
         background:url(${no_display}) no-repeat;
+        background-size:cover;
     }
     .dog-wrap{
         width:1300px;
@@ -82,6 +81,7 @@ const FilterUpWrap = styled.ul`
                     width:8px;
                     height:5px;
                     background:url(${pet_down}) no-repeat;
+                    background-size:cover;
                     margin:0 36px 0 11px;
                 }
             }
@@ -142,6 +142,7 @@ const FilterWrap = styled.ul`
                         width:8px;
                         height:5px;
                         background:url(${pet_down}) no-repeat;
+                        background-size:cover;
                         margin:0 36px 0 11px;
                     }
                 }
@@ -159,6 +160,7 @@ const FilterWrap = styled.ul`
                     width:8px;
                     height:4px;
                     background:url(${display_up}) no-repeat;
+                    background-size:cover;
                     margin:15px 36px 0 11px;
                 }
             }
@@ -308,11 +310,11 @@ const DisplayWrap = styled.div`
     }
 `
 const ScreenWrap = styled.div`
+    background:url(${bg}) no-repeat;
+        background-size:cover;
     .screen-wrap{
         width:1300px;
         margin:0 auto;
-        background:url(${bg}) no-repeat;
-        background-size:cover;
         .tit_h3{
             font-size:32px;
             color:#000;

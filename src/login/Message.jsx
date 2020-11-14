@@ -1,55 +1,29 @@
 import React, { Component } from 'react'
-// import qs from 'qs'
+import qs from 'qs'
 import {MessageWrap} from './StyledLogin'
 import { Form, Input, Button ,Row,Col} from 'antd';
 import { UserOutlined, LockOutlined  } from '@ant-design/icons';
-// import { post } from '../utils/http';
+// import { post } from '../utils[表情]tp';
 // import Axios from 'axios';
 // import {GetCode} from '../api/account'
 import  VCode  from '../components/code/VerificationCode'
 import {MessageLogin} from '../api/account'
+import {withRouter} from 'react-router-dom'
+import {setToken} from '../utils/cookies'
 
 
 
-export default class Message extends Component {
-  constructor(){
-    super();
+class Message extends Component {
+  constructor(props){
+    super(props);
     this.state={
       mobile:"",
-      // code_button_loading:false,
-      // code_button_disabled:false,
-      // code_button_text:"获取验证码"
+      verification:"",
+      key:''
     };
     this.onFinish = this.onFinish.bind(this);
   }
 
-   
- // 获取验证码
-  //  getcode = () =>{
-  //   //  判断手机号是否为空
-  //    if(this.state.mobile ===''){
-  //       message.warning('手机号不能为空',1);
-  //      return false;
-  //    }
-  //    this.setState({
-  //     code_button_loading:true,
-  //     code_button_text:"发送中"
-  //    })
-  //   //  alert(this.state.mobile);
-  //    const requestData={
-  //       mobile:this.state.mobile,
-  //    }
-  //   GetCode(qs.stringify(requestData)).then(Response=>{
-  //     // 处理倒计时
-  //     this.countDown();
-     
-  //   }).catch(error=>{
-  //     this.setState({
-  //       code_button_loading:false,
-  //       code_button_text:"重新获取"
-  //      })
-  //   })
-  // }
   // input输入处理
   inputChange=(e)=>{
     let value = e.target.value
@@ -59,53 +33,52 @@ export default class Message extends Component {
     })
   }
 
-  // 倒计时
-  // countDown =()=>{
-  //   // 定时器
-  //   let timer = null;
-  //   // 倒计时时间
-  //   let sec = 5;
-  //   // 修改状态
-  //   this.setState({
-  //     code_button_loading:false,
-  //     code_button_disabled:true,
-  //     code_button_text: `${sec}S`
-  //    })
-
-  //    timer = setInterval(()=>{
-  //     //  console.log(111)
-  //      sec--;
-  //      if(sec <=0){
-  //       this.setState({
-  //         code_button_text: `重新获取`,
-  //         code_button_disabled:true,
-  //        })
-  //        clearInterval(timer)
-  //        return false
-  //      }
-  //      this.setState({
-  //       code_button_text: `${sec}S`
-  //      })
-  //    },1000)
-  //   //  setInterval 不间断
-  //   //  setTimeout只执行一次
-  // }
-
+  inputCodeChange=(e)=>{
+    let value = e.target.value
+    this.setState({
+      verification:value
+    })
+  }
+  
+  getKey=(key)=>{
+    console.log(key)
+    this.setState({
+      key
+    })
+  }
    onFinish =  (values)=> {
-    MessageLogin().then(response=>{
+     const res = {
+       ...this.state
+     }
+    MessageLogin(qs.stringify(res)).then(response=>{
+      // console.log(res)
       console.log(response)
+      const data = response.data
+      console.log(data)
+      if(data.data ==="用户不存在"){
+        alert("用户不存在，请先注册")
+      }else if(data.data === "验证码错误"){
+        alert("请输入正确的验证码")
+      }else{
+        setToken(data.data)
+        // setEmail(response.config.data)
+        this.props.history.push('/home')
+      }
+      // this.props.history.push('/home')
     }).catch(error=>{
       
     })
-    console.log(values)
     };
   // 路由跳转
     handleClick=(props)=>{
       let history = this.props.history
       history.push('/register')
     };
+
+    
+    
   render() {
-    const {mobile}= this.state
+    const {mobile,verification}= this.state
     return (
       <MessageWrap>
         <div className="from-content">
@@ -125,26 +98,28 @@ export default class Message extends Component {
                     ]
                   } 
                 >
-                  <Row gutter={13}>
+                  <Row gutter={0}>
                     <Col span={16}>
-                      <Input   prefix={<LockOutlined className="site-form-item-icon" />} type="password"  placeholder="请输入验证码" />
+                      <Input id="verification" initialvalues={verification} onChange={this.inputCodeChange}  prefix={<LockOutlined className="site-form-item-icon" />} type="password"  placeholder="请输入验证码" />
                     </Col>
                     <Col span={8}>
-                      <VCode mobile={mobile}></VCode>
+                      <VCode mobile={mobile} onGetKey={this.getKey}></VCode>
                 {/* <Button type="danger" icon={<PoweroffOutlined />} disabled={code_button_disabled} loading={code_button_loading} onClick={this.getcode} style={{background:'red',color:'#fff'}} > {code_button_text} </Button> */}
                     </Col>
                   </Row>
                 </Form.Item>
                 <Form.Item>
-                  <Button onClick= {this.LoginClick}type="primary" htmlType="submit" className="login-form-button">
+                  <Button  className="loginname" onClick= {this.LoginClick} type="primary" htmlType="submit" className="login-form-button">
                     登录
                   </Button>
                   <br/>
                 <span onClick={this.handleClick}> 去注册</span>
-                </Form.Item>
+                </Form.Item> 
           </Form>
         </div>
       </MessageWrap>
     )
   }
 }
+
+export default withRouter(Message);

@@ -41,7 +41,7 @@ class HeaderNoBg extends Component {
                 <ul>
                     <li onClick={this.handleGotoOthers('/home')}>首页</li>
                     <li onClick={this.handleGotoOthers('/buy')}>商城</li>
-                    <li onClick={this.handleGotoOthers('/love')}>知宠</li>
+                    <li onClick={this.handleGotoOthers('/disease')}>知宠</li>
                 </ul>
                 <div className="logo">
                     <img src={logo} alt=""/>
@@ -53,7 +53,7 @@ class HeaderNoBg extends Component {
                     <div>
                         <i className="iconfont icon-xiala" onClick={this.handleClick} ></i>
                         <ul onMouseLeave ={this.handleMouseLeave} className={this.state.isNone?'dpNone':'dpBlock'}>
-                            <li onClick={this.handleGotoOthers('/self')}>我的信息</li>
+                            <li onClick={this.handleGotoOthers('/order')}>我的信息</li>
                             <li onClick={this.handleGotoOthers('/order')}>订单中心</li>
                             <li onClick={this.handleGotoOthers('/shoppingCart')}>我的购物</li>
                             <li>我的晒宠</li>

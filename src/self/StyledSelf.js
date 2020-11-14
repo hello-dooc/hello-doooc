@@ -17,9 +17,8 @@ const SelfInfoWrap=styled.div`
     }
 `
 const UserInfoWrap=styled.form`
-    width:600px;
+    width:800px;
     margin:0 auto;
-    /* margin:40px 0 0 122px; */
     font-size:24px;
     color:#595959;
     >label{
@@ -33,12 +32,49 @@ const UserInfoWrap=styled.form`
         }
         >button{
             margin-left:10px;
+            background:#fff;
+            border:1px solid #ccc;
         }
         >input{
             display:inline-block;
-            width:300px;
+            width:500px;
             border:1px solid #ccc;
             padding-left:10px;
+        }
+        .address_list{
+            width:500px;
+            border:1px solid #ccc;
+            padding:10px 10px;
+            .address_top{
+                margin-bottom:5px;
+                span{
+                    float:left;
+                    &:first-child{
+                        margin-right:20px;
+                    }
+                }
+            }
+        }
+        &:nth-of-type(2){
+            >input{
+                margin-top:10px;
+                &:nth-of-type(2){
+                    width:150px;
+                }
+            }
+            >button{
+                background:#fff;
+                border:1px solid #ccc;
+            }
+        }
+        &:nth-of-type(6){
+            >button{
+                display:inline-block;
+                height:100px;
+                background:#fff;
+                border:1px solid #ccc;
+                margin-left:0;
+            }
         }
     }
     >div{

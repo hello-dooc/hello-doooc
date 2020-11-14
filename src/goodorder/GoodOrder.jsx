@@ -27,7 +27,7 @@ class GoodOrder extends Component {
                             <img src={touxiang} alt="" />
                         </div>
                         <div className="detail-middle">
-                            <span>商品详细</span>
+                            <span>订单详细</span>
                         </div>
                         <div className="detail-right">
                             <div className="left-box">
@@ -35,6 +35,7 @@ class GoodOrder extends Component {
                             </div>
                             <div className="detail-box">
                                 <OrderDetail></OrderDetail> 
+                                
                             </div>
                         </div>
                     </div>

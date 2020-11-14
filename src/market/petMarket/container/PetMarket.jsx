@@ -45,6 +45,7 @@ class NoFilter extends Component {
         let result = await get({
             url:`http://123.56.160.44:8080/${pet}`
         })
+        console.log(result);
         let list = result.data.data
         if(pn){
             let n3='x'
@@ -102,7 +103,12 @@ class NoFilter extends Component {
         let cn = 'cat-wrap'
         let dn = 'dog-wrap'
         return (
-            <PetWrap style={{background:this.state.pType===2?`url(${display_bg}) no-repeat`:''}}>
+            <PetWrap 
+                style={{
+                    background:this.state.pType===2?`url(${display_bg}) no-repeat`:'',
+                    'background-size':this.state.pType===2?'cover':''
+                }}
+            >
                 <HeaderNoBg></HeaderNoBg>
                 <div className="bg"></div>
                 <div className={this.state.pType===1||this.state.pType===3?cn:dn}>

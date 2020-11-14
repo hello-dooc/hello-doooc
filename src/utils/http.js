@@ -34,14 +34,26 @@ const put = ({url,params}) => {
       method:'put',
       params
     })
-  .then(res => {
-      resolve(res);
+    .then(result => {
+      resolve(result)
+    })
+    .then(error => {
+      reject(error)
+    })
   })
-  .catch(err =>{
-      reject(err)
-  })
-});
 }
+// const post = (url, params) => {
+//   return new Promise((resolve, reject) => {
+//     axios.post(url,params)
+//   .then(res => {
+//       resolve(res);
+//   })
+//   .catch(err =>{
+//       reject(err)
+//   })
+// });
+// }
+
 // const put = (url,params) => {
 //   return new Promise((resolve, reject) => {
 //     axios.put(url,params)

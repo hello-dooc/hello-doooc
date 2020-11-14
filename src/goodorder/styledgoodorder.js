@@ -76,13 +76,30 @@ const Container = styled.div`
             border-right:14px solid #444341;
         }
     }
-
+    .detail-box{
+        overflow-y:scroll;
+    }
 
 `
 
 const OrderDetailWrap = styled.div`
     height:300px;
     padding:30px 56px;
+    position:relative;
+    button:focus{
+        outline: none;
+        border-color: transparent;
+    }
+    .sumprice{
+        background:#456;
+        font-size:20px;
+    }
+    select:focus{
+        outline: none;
+    }
+    input:focus{
+        outline: none;
+    }
     .select-lo{
         font-size:14px;
         span{
@@ -122,15 +139,17 @@ const OrderDetailWrap = styled.div`
         }
     }
 
+  
+
     .good-detail{
         width:590px;
         margin-top:40px;
         padding-top:20px;
         .img-box{
             float:left;
-            width:273px;
-            height:273px;
-            margin-right:50px;
+            width:150px;
+            height:150px;
+            margin-right:132px;
             img{
                 display:block;
                 width:100%;
@@ -140,7 +159,7 @@ const OrderDetailWrap = styled.div`
     }
 
     .right-box{
-        height:276px;
+        height:230px;
         width:267px;
         float:left;
         h1{
@@ -157,61 +176,83 @@ const OrderDetailWrap = styled.div`
             line-clamp: 2;
             -webkit-box-orient: vertical;
         }
-    }
-    .prinum{
-        float:right;
-        text-align:right;
-        h2{
-            font-size:20px;
-            line-height:22px;
+        .prinum{
+            float:right;
+            text-align:right;
+            h2{
+                font-size:20px;
+                line-height:22px;
+            }
+            h3{
+                font-size:20px;
+                line-height:22px;
+            }
         }
-        h3{
+        
+        .count-box{
+            clear:both;
             font-size:20px;
-            line-height:22px;
         }
     }
+
     .select-num{
         padding-top:30px;
         width:267px;
-        height:22px;
-        float:left;
+        height:75px;
+        float:left; 
         p{
             font-size:20px;
             line-height:22px;
             width:100px;
-            height:22px;
             float:left;
         }
         .button-num{
-            background:pink;
             height:22px;
-            width:88px;
+            width:96px;
             float:right;
-            .ant-input-number{
+            position:relative;
+            .minus{
+                width:22px;
                 height:22px;
+                text-align:center;
+                position:absolute;
+                z-index:1;
+                left:0;
+                background:#fff;
+                border:none;
             }
-            .ant-input-number-input {
+            .putvalue{
+                background:#f5a64a;
+                border:none;
+                width:96px;
                 height:22px;
-                line-height:22px;
+                text-align:center;
+                position:absolute;
             }
-        }
+            .add{
+                width:22px;
+                height:22px;
+                text-align:center;
+                position:absolute;
+                z-index:1;
+                right:0;
+                border:none;
+                background:#fff;
+                &:focus{
+                    outline: none;
+                    border-color: transparent;
+                }
+            }
     }
-    .count-box{
-        width:267px;
-        float:left;
+    
+    /* .count-box{
+        background:pink;
         padding-top:50px;
-        display:flex;
-        p{
-            margin-right:10px;
-            font-size:18px;
-            line-height:22px;
-        }
-        p:nth-child(3){
-            background:#f5a64a;
-            padding:3px;
-            border-radius:3px;
-        }
-    }
+        width:100px;
+        height:30px;
+    }  */
+  
+
 `
 
 export {

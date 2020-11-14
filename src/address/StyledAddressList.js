@@ -21,9 +21,6 @@ const AddressListWrap=styled.div`
                 &:first-child{
                     margin:0 40px 0 354px;
                 }
-                &:last-child{
-                    
-                }
             }
         }
         .address_list{
@@ -35,6 +32,16 @@ const AddressListWrap=styled.div`
                     float:left;
                     &:first-child{
                         margin-right:20px;
+                    }
+                    &:nth-child(3){
+                        float:right;
+                        padding:5px;
+                        border:1px solid #ccc;
+                    }
+                    &:last-child{
+                        float:right;
+                        padding:5px;
+                        border:1px solid #ccc;
                     }
                 }
             }
@@ -125,21 +132,17 @@ const AddAddWrap=styled.div`
                     }
                     .choice{
                         width:374px;
+                        margin:0 auto;
                         span{
                             display:block;
-                            width:56px;
+                            width:100px;
                             height:38px;
                             text-align:center;
                             line-height:38px;
                             border-radius:10px;
                             float: left;
                             background:#f5a64a;
-                            &:first-child{
-                                margin-left:120px;
-                            }
-                            &:last-child{
-                                margin-left:80px;
-                            }
+                            margin:0 20px;
                         }
                     }
                 }

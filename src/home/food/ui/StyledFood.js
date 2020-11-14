@@ -105,42 +105,51 @@ const SearchStyle = styled.div`
 `
 const ClassifyStyle = styled.div`
   width: 100%;
-  li{
+  span{
     display: inline-block;
     margin: 0 8px;
     font-size: 15px;
     line-height: 35px;
   }
-  ul{
+  span:hover{
+    cursor: pointer;
+  }
+  span.active{
+    background: red;
+  }
+  li{
+    padding-left: 7px;
+  }
+  li:nth-of-type(2n-1){
     margin-top: 5px;
     height: 35px;
     background: #f5a64a;
   }
-  nav{ 
-    height: 55px;
+  li:last-child{
     background: #fdc98c;
-    line-height: 55px;
-    margin-top: 10px;
+    height: 60px;
+    margin-top: 12px;
+    line-height: 60px;
   }
+
 `
 const ListStyle = styled.div`
   width: 100%;
+  height: 850px;
   background: url(${bg});
-  height: 1130px;
+  position: relative;
   .center{
-    height: 1130px;
-    position: relative;
-  }
-  ol{
-    overflow: hidden;
-    height: 1050px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    ol{
+      overflow: hidden;
+      height: 750px;
+      li:nth-of-type(5n) {
+        margin-right: 0
+      }
     li{
+      float: left;
+      margin-right: 43px;
       position: relative;
       background: #eeeeee;
-      display: inline-block;
       width: 225px;
       height: 330px;
       padding: 43px 30px 21px;
@@ -198,6 +207,12 @@ const ListStyle = styled.div`
     bottom: 20px;
     right: 0;
   }
+}
+    .ant-pagination{
+      position: absolute;
+      bottom: 20px;
+      right: 10px;
+    }
 `
 export {
   HeadStyle,
