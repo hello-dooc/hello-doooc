@@ -9,6 +9,7 @@ import { UserOutlined, LockOutlined  } from '@ant-design/icons';
 import  VCode  from '../components/code/VerificationCode'
 import {MessageLogin} from '../api/account'
 import {withRouter} from 'react-router-dom'
+import {setToken} from '../utils/cookies'
 
 
 
@@ -19,45 +20,10 @@ class Message extends Component {
       mobile:"",
       verification:"",
       key:''
-      // code_button_loading:false,
-      // code_button_disabled:false,
-      // code_button_text:"获取验证码"
     };
     this.onFinish = this.onFinish.bind(this);
   }
 
-  
-  //  getChildrenMsg=(key)=>{
-  //   this.setState({
-  //     key:key
-  //   })
-  //  }
- // 获取验证码
-  //  getcode = () =>{
-  //   //  判断手机号是否为空
-  //    if(this.state.mobile ===''){
-  //       message.warning('手机号不能为空',1);
-  //      return false;
-  //    }
-  //    this.setState({
-  //     code_button_loading:true,
-  //     code_button_text:"发送中"
-  //    })
-  //   //  alert(this.state.mobile);
-  //    const requestData={
-  //       mobile:this.state.mobile,
-  //    }
-  //   GetCode(qs.stringify(requestData)).then(Response=>{
-  //     // 处理倒计时
-  //     this.countDown();
-     
-  //   }).catch(error=>{
-  //     this.setState({
-  //       code_button_loading:false,
-  //       code_button_text:"重新获取"
-  //      })
-  //   })
-  // }
   // input输入处理
   inputChange=(e)=>{
     let value = e.target.value
@@ -85,9 +51,20 @@ class Message extends Component {
        ...this.state
      }
     MessageLogin(qs.stringify(res)).then(response=>{
-      console.log(res)
+      // console.log(res)
       console.log(response)
-      this.props.history.push('/home')
+      const data = response.data
+      console.log(data)
+      if(data.data ==="用户不存在"){
+        alert("用户不存在，请先注册")
+      }else if(data.data === "验证码错误"){
+        alert("请输入正确的验证码")
+      }else{
+        setToken(data.data)
+        // setEmail(response.config.data)
+        this.props.history.push('/home')
+      }
+      // this.props.history.push('/home')
     }).catch(error=>{
       
     })
@@ -123,7 +100,7 @@ class Message extends Component {
                 >
                   <Row gutter={0}>
                     <Col span={16}>
-                      <Input id="verification" initialvalues={verification} onChange={this.inputCodeChange}  prefix={<LockOutlined className="site-form-item-icon" />} type="password"  placeholder="请输入验证码" />
+                      <Input id="verification" initialvalues={verification} onChange={this.inputCodeChange}  prefix={<LockOutlined className="site-form-item-icon" />}   placeholder="请输入验证码" />
                     </Col>
                     <Col span={8}>
                       <VCode mobile={mobile} onGetKey={this.getKey}></VCode>

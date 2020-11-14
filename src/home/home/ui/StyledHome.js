@@ -52,10 +52,11 @@ const FoodChange1 = styled.div`
   width: 1300px;
   margin: 0 auto;
   ul {
+    margin: 80px auto;
     display: flex;
     justify-content: space-between;
     width: 1110px;
-    margin-top: 80px;
+    margin-bottom: 0px;
     li {
       width: 340px;
       height: 540px;
@@ -66,6 +67,7 @@ const FoodChange2 = styled.div`
   width: 1300px;
   margin: 0 auto;
   section {
+    box-shadow: 0px 25px 35px #888888;
     width: 100%;
     height: 620px;
     display: grid;
@@ -126,11 +128,20 @@ const FoodChange3 = styled.div`
     li{
       width: 330px;
       height: 250px;
-      img{
+      background: pink;
+      display: flex;
+      flex-direction: column;
+      div{
         width: 100%;
-        height: 200px;
+        height:200px;
+        margin-top: -15px;
+        img {
+          height: 200px;
+          width: 330px;
+        }
       }
       p{
+        width: 100%;
         height: 50px;
         background: #f5a64a;
         line-height: 50px;
@@ -175,8 +186,11 @@ const FoodChange4 = styled.div`
     -webkit-align-items: center;
     align-items: center;
     transition: 300ms;
-    transform: scale(0.7);
+    transform: scale(0.5);
 
+    }
+    .swiper-slide-prev,.swiper-slide-next{
+      transform: scale(0.7)
     }
   .swiper-slide-active,.swiper-slide-duplicate-active{
       transform: scale(1);

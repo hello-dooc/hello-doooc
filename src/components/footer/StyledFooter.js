@@ -15,6 +15,7 @@ const FooterWrap = styled.div`
                 padding:29px 0 19px;
                 line-height:15px;
                 >ul{
+                    margin-bottom:0;
                     li{
                         height:15px;
                         border-right:1px solid #fefefe;
@@ -30,6 +31,7 @@ const FooterWrap = styled.div`
                 >ul{
                     margin-right:8px;
                     float:left;
+                    margin-bottom:0;
                     li{
                         height:15px;
                         border-right:1px solid #fefefe;

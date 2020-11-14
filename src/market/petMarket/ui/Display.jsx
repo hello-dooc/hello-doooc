@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import axios from 'axios'
+import qs from 'qs'
+import {post} from '@u/http'
 
 import {DisplayWrap} from '../StyledPetMarket'
 
@@ -34,6 +37,22 @@ class Display extends Component {
             })
         }
     }
+    async addCart(params){
+        axios.defaults.headers.common['token'] = 'token_123456'
+        const result = await post('http://123.56.160.44:8080/cart/add',qs.stringify(params))
+        console.log(result);
+    }
+    handleAddCart=(pt,id)=>{
+        return ()=>{
+            let type=2
+            if(pt==='Cat') type=2
+            else type=3
+            this.addCart({
+                goodsTypeId:type,
+                goodsId:id
+            })
+        }
+    }
     
     componentDidMount(){
         // console.log(this.props);
@@ -62,7 +81,7 @@ class Display extends Component {
                                                             <span>{value['pet'+value.pn+'TableCategory']}</span>
                                                         </div>
                                                     </div>
-                                                    <span></span>
+                                                    <span onClick={this.handleAddCart(value.pn,value['pet'+value.pn+'TableId'])}></span>
                                                 </div>
                                             </div>
                                         )

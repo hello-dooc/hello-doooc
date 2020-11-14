@@ -47,7 +47,7 @@ class Header extends Component {
                     <ul>
                         <li onClick={this.handleGotoOthers('/home')}>首页</li>
                         <li onClick={this.handleGotoOthers('/buy')}>商城</li>
-                        <li onClick={this.handleGotoOthers('/love')}>知宠</li>
+                        <li onClick={this.handleGotoOthers('/disease')}>知宠</li>
                     </ul>
                     <div className="logo">
                         <img src={logo} alt=""/>

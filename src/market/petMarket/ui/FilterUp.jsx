@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import {FilterUpWrap} from '../StyledPetMarket'
+import { withRouter } from 'react-router-dom'
 import {get} from '@u/http.js'
-export default class FilterUp extends Component {
+@withRouter
+class FilterUp extends Component {
     state={
         type:'喵喵',
         petTypeList:[]
@@ -67,6 +69,9 @@ export default class FilterUp extends Component {
             this.getPetTypeList()
         }
     }
+    handleClick=()=>{
+        this.props.history.push('/buy')
+    }
     componentDidMount(){
         this.getPetTypeList()
     }
@@ -74,7 +79,7 @@ export default class FilterUp extends Component {
         return (
             <FilterUpWrap>
                 <li>
-                    <span>宠物商城</span>
+                    <span onClick={this.handleClick}>宠物商城</span>
                     <span>&gt;</span>
                     <span>宠物市场</span>
                 </li>
@@ -92,3 +97,4 @@ export default class FilterUp extends Component {
         )
     }
 }
+export default FilterUp

@@ -13,15 +13,15 @@ class GoodDetail extends Component {
                         let dis=value[value.sptype+'Discount']
                         return(
                             <div key={value[value.sptype+'Id']} className="oneGood">
-                            <img src={value[value.sptype+'Image']} alt=""/>
-                            <div>
-                                <h2 >{value[value.sptype+'Discount']}</h2>
-                                <p style={{width:dis?"115px":""}}> {value[value.sptype+'Desc']} </p>
-                            </div>
-                            <div>
-                                <h3>￥{value[value.sptype+'Price']} </h3>
-                                <i>已售  {value[value.sptype+'SellCount']} </i>
-                            </div>
+                                <img src={value[value.sptype+'Image']} alt=""/>
+                                <div>
+                                    <h2 >{value[value.sptype+'Discount']}</h2>
+                                    <p style={{width:dis?"115px":""}}> {value[value.sptype+'Desc']} </p>
+                                </div>
+                                <div>
+                                    <h3>￥{value[value.sptype+'Price']} </h3>
+                                    <i>已售  {value[value.sptype+'SellCount']} </i>
+                                </div>
                             </div>
                         )
                     })
