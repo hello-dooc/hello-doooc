@@ -110,6 +110,7 @@ class Training extends Component {
                     <Link></Link>
                     <Footer></Footer>
                 </div>
+            
             </Container>
         );
     }

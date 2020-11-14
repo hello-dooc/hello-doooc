@@ -1,9 +1,9 @@
-import React, { useState,useEffect,Component } from 'react';
+import React, { useState,useEffect} from 'react';
 import { Breadcrumb , Pagination  } from 'antd';
 import { get } from '@u/http1'
 import List from './List'
 
-import Head from './Head'
+import HeaderNoBg from '@c/header/HeaderNoBg'
 
 import Link from '@c/link/Link'
 import StyledLink from '@c/link/StyledLink'
@@ -11,6 +11,8 @@ import StyledLink from '@c/link/StyledLink'
 import Footer from '@c/footer/Footer'
 
 import StyledFooter from '@c/footer/StyledFooter'
+
+import BuySearch from '../../../buyhome/BuySearch'
 
 import {
   HeadStyle,
@@ -84,18 +86,17 @@ const navList = [
 
 const FoodUi = (props) => {
   let [list, setList] = useState([])
-  
 
-  useEffect(() => {
+    useEffect(() => {
     async function loadData() {
       let result = await get({
         url:'http://123.56.160.44:8080/food/list',
         params:{
-          priceArea:1,
-          sort:20,
-          type:1,
-          variety:2,
-          page: 0
+          priceArea:shopprice,
+          sort:changesort,
+          type: shoptype,
+          variety: shopvariety,
+          page: shoppage,
         }
       })
       setList(result.data.content)
@@ -103,6 +104,7 @@ const FoodUi = (props) => {
     }
     loadData()
   }, [])
+
 
   let [shoptype, settype] = useState(1)
   let [shopvariety, setvariety] = useState(1)
@@ -146,7 +148,7 @@ const FoodUi = (props) => {
       loadData()
   }
 
-  let [up1 , setup1] = useState(true)
+
   let [up2 , setup2] = useState(true)
   let [up3 , setup3] = useState(true)
   let [changesort,setchange] = useState(0)
@@ -168,13 +170,14 @@ const FoodUi = (props) => {
     aaa()
   }
 
+
+
   return (
     <div>
 
     <div className="center">
-      <HeadStyle>
-      <Head></Head>
-      </HeadStyle>
+    <HeaderNoBg></HeaderNoBg>
+    <BuySearch></BuySearch>
       <ClassifyStyle>
         <div className="nav">
           <>
@@ -190,7 +193,9 @@ const FoodUi = (props) => {
             {
               navList.map((value, key) => {
                 return (
-                  <li key={value.des}>
+                  <li
+                   key={value.des}
+                   >
                     <i>{value.title}</i>
                     {
                       value.list.map((value1, key1) => {

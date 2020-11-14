@@ -25,6 +25,8 @@ import Answer from '@z/Answer'
 import Training from '@z/Training'
 import ScreenAfter from '@m/petMarket/ui/ScreenAfter'
 import Disease from '@z/Disease'
+import Knowledge from '@z/Hosptial'
+
 // 私有化组件
 import PrivateRouter from './components/privateRouter/index'
 export default class App extends Component {
@@ -50,6 +52,7 @@ export default class App extends Component {
           <Route path='/training' component={Training} />
           <Route path='/screen' component={ScreenAfter} />
           <Route path='/disease' component={Disease} />
+          <Route path='/knowledge' component={Knowledge} />
           <Redirect  from='/' to='/home'></Redirect>
         </Switch>
       </Router>
