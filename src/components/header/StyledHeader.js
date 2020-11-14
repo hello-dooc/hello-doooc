@@ -54,11 +54,7 @@ const HeaderWrap = styled.div`
                     width:85px;
                     height:126px;
                     position: absolute;
-<<<<<<< HEAD
                     z-index:9999;
-=======
-                    z-index:5;
->>>>>>> cc9d764f0c458f08b24d00c0ea41f525986df9fc
                     right:7px;
                     top:64px;
                     li{
@@ -79,6 +75,7 @@ const HeaderNoBgWrap = styled.div`
     width:1300px;
     height:94px; 
     margin:0 auto;
+    border-bottom:1px solid #eee;
     >ul{
         float:left;
         margin-right:214px;
@@ -126,11 +123,7 @@ const HeaderNoBgWrap = styled.div`
                 width:85px;
                 height:126px;
                 position: absolute;
-<<<<<<< HEAD
                 z-index:9999;
-=======
-                z-index:5;
->>>>>>> cc9d764f0c458f08b24d00c0ea41f525986df9fc
                 right:7px;
                 top:64px;
                 li{

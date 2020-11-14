@@ -3,7 +3,7 @@ import { Breadcrumb , Pagination  } from 'antd';
 import { get } from '@u/http1'
 import List from './List'
 
-import Head from './Head'
+import HeaderNoBg from '@c/header/HeaderNoBg'
 
 import Link from '@c/link/Link'
 import StyledLink from '@c/link/StyledLink'
@@ -170,11 +170,8 @@ const FoodUi = (props) => {
 
   return (
     <div>
-
+    <HeaderNoBg></HeaderNoBg>
     <div className="center">
-      <HeadStyle>
-      <Head></Head>
-      </HeadStyle>
       <ClassifyStyle>
         <div className="nav">
           <>

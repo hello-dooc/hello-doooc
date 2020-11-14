@@ -18,6 +18,9 @@ class Order extends Component {
     callback(key) {
         console.log(key);
     }
+    componentDidMount(){
+        console.log(this.props);
+    }
 
     render() {
         return (

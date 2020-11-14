@@ -3,6 +3,8 @@ import {HeaderNoBgWrap} from './StyledHeader'
 import logo from '@a/images/logo_03.png'
 import profile from '@a/images/profile_03.png'
 import {withRouter } from 'react-router-dom'
+import {getToken} from '../../utils/cookies'
+import cookies from 'react-cookies'
 
 @withRouter
 class HeaderNoBg extends Component {
@@ -26,14 +28,19 @@ class HeaderNoBg extends Component {
             isNone:true
         })
     }
-    handleGotoOthers(url){
+    handleGotoOthers=(url,type)=>{
         return ()=>{
-            console.log(this.props);
-            this.props.history.push(url)
+            this.props.history.push(url,{infoType:type})
         }
     }
-    componentDidMount(){
-        // console.log(this.props);
+    handleGotoLogin=(url)=>{
+        return ()=>{
+            getToken() ? alert('已登录') : this.props.history.push(url)
+        }
+    }
+    handleLoginOut=()=>{
+           window.location.reload(cookies.remove('adminToken',{path:'/'})) 
+        // cookies.remove('adminToken')
     }
     render() {
         return (
@@ -52,12 +59,21 @@ class HeaderNoBg extends Component {
                     </div>
                     <div>
                         <i className="iconfont icon-xiala" onClick={this.handleClick} ></i>
-                        <ul onMouseLeave ={this.handleMouseLeave} className={this.state.isNone?'dpNone':'dpBlock'}>
-                            <li onClick={this.handleGotoOthers('/order')}>我的信息</li>
-                            <li onClick={this.handleGotoOthers('/order')}>订单中心</li>
-                            <li onClick={this.handleGotoOthers('/shoppingCart')}>我的购物</li>
-                            <li>我的晒宠</li>
-                        </ul>
+                        {
+                            getToken() ? 
+                            <ul onMouseLeave ={this.handleMouseLeave} className={this.state.isNone?'dpNone':'dpBlock'}>
+                                <li onClick={this.handleGotoOthers('/order',1)}>我的信息</li>
+                                <li onClick={this.handleGotoOthers('/order',2)}>订单中心</li>
+                                <li onClick={this.handleGotoOthers('/shoppingCart')}>我的购物</li>
+                                <li>我的晒宠</li>
+                                <li onClick={this.handleLoginOut}>退出</li>
+                            </ul>
+                            :
+                            <ul onMouseLeave ={this.handleMouseLeave} className={this.state.isNone?'dpNone':'dpBlock'}>
+                                <li onClick={this.handleGotoOthers('/login')}>登录</li>
+                            </ul>
+
+                        }
                     </div>
                 </div>
             </HeaderNoBgWrap>

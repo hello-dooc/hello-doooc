@@ -26,9 +26,9 @@ class Header extends Component {
             isNone:true
         })
     }
-    handleGotoOthers=(url)=>{
+    handleGotoOthers=(url,type)=>{
         return ()=>{
-            this.props.history.push(url)
+            this.props.history.push(url,{infoType:type})
         }
     }
     handleGotoLogin=(url)=>{
@@ -61,8 +61,8 @@ class Header extends Component {
                             {
                                 getToken() ? 
                                 <ul onMouseLeave ={this.handleMouseLeave} className={this.state.isNone?'dpNone':'dpBlock'}>
-                                    <li onClick={this.handleGotoOthers('/self')}>我的信息</li>
-                                    <li onClick={this.handleGotoOthers('/order')}>订单中心</li>
+                                    <li onClick={this.handleGotoOthers('/order',1)}>我的信息</li>
+                                    <li onClick={this.handleGotoOthers('/order',2)}>订单中心</li>
                                     <li onClick={this.handleGotoOthers('/shoppingCart')}>我的购物</li>
                                     <li>我的晒宠</li>
                                     <li onClick={this.handleLoginOut}>退出</li>
