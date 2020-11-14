@@ -22,9 +22,9 @@ class GoodsDetail extends Component {
         current:"goodsdetail"
     }
 
+    /* 取路由里的/后的那个单词赋值给current */
     componentDidMount=()=>{
         let pathname = this.props.location.pathname
-       /*  let moren = pathname.substring(pathname.lastIndexOf('/')+1) */
        let moren = pathname.split("/") 
         let path = moren.slice(1,2)
         console.log(pathname)

@@ -67,6 +67,16 @@ const Container = styled.div`
 
 
 const DetailMiddleWrap = styled.div `
+position:relative;
+.putcar{
+    width:100px;
+    background:#f5a64a;
+    position:absolute;
+    text-align:center;
+    border-radius:6px;
+    right:100px;
+    bottom:30px;
+}
 .left-box{
     float:left;
     width:14px;

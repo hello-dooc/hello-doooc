@@ -6,7 +6,16 @@ import {
 } from '../self/StyledOrder'
 
 class DetailInfo extends Component {
+    constructor(props){
+        super(props);
+        this.state={
+            detailist:this.props.list
+        }
+    }
+    
+
     render() {
+        console.log(this.props.list)
         const { Option } = Select;
         return (
             <Info>

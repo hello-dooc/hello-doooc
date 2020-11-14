@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+/* import React, { Component } from 'react';
 import {HeaderNoBgWrap} from './StyledHeader'
 import logo from '@a/images/logo_03.png'
 import profile from '@a/images/profile_03.png'
@@ -52,4 +52,4 @@ class HeaderNoBg extends Component {
     }
 }
 
-export default HeaderNoBg;
+export default HeaderNoBg; */
