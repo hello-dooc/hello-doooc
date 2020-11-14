@@ -36,7 +36,6 @@ export default class App extends Component {
           <Route path="/home" component={Home}></Route>
           <Route path="/love" component={Love}></Route>
           <Route path='/foodMarket' component={FoodMarket}></Route>
-          <Route path='/self' component={SelfInfo} />
           <Route path='/order' component={Order} />
           <Route path='/address' component={AddressList} />
           <Route path='/add' component={AddAddress} />
