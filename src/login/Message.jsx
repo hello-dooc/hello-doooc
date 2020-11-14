@@ -100,7 +100,7 @@ class Message extends Component {
                 >
                   <Row gutter={0}>
                     <Col span={16}>
-                      <Input id="verification" initialvalues={verification} onChange={this.inputCodeChange}  prefix={<LockOutlined className="site-form-item-icon" />} type="password"  placeholder="请输入验证码" />
+                      <Input id="verification" initialvalues={verification} onChange={this.inputCodeChange}  prefix={<LockOutlined className="site-form-item-icon" />}   placeholder="请输入验证码" />
                     </Col>
                     <Col span={8}>
                       <VCode mobile={mobile} onGetKey={this.getKey}></VCode>

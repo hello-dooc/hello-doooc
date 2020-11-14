@@ -10,7 +10,10 @@ export function getToken(){
   return cookies.load(token)
 }
 
+
+
 // 邮箱登录后存储email名
 export function setEmail(value){
   cookies.save("email",value);
 }
+

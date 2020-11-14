@@ -42,14 +42,14 @@ countDown =()=>{
       button_disabled:true,
       button_text: `${sec}S`
      })
-
+     
      timer = setInterval(()=>{
       //  console.log(111)
        sec--;
        if(sec <=0){
         this.setState({
           button_text: `重新获取`,
-          button_disabled:true,
+          button_disabled:false,
          })
          clearInterval(timer)
          return false
@@ -96,11 +96,10 @@ countDown =()=>{
   
 }
 
-
   render() {
     
     return (
-      <Button type="danger"  disabled={this.state.button_disabled} loading={this.state.button_loading} icon={<PoweroffOutlined />} onClick={this.getcode} style={{background:'red',color:'#fff'}} > {this.state.button_text} </Button>
+      <Button type="danger"  disabled={this.state.button_disabled}  loading={this.state.button_loading} icon={<PoweroffOutlined />} onClick={this.getcode} style={{background:'red',color:'#fff'}} > {this.state.button_text} </Button>
       
     )
   }

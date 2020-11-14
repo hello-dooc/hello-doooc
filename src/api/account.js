@@ -33,8 +33,8 @@ export function GetCode(data){
 // 邮箱注册验证码
 export function RegisterCode(data){
   return axios({
-    // url:'http://10.9.65.215:8080/user/sendEmail',
-    url:'http://123.56.160.44:8080/user/sendEmail',
+    url:'http://10.9.27.150:8080/user/sendEmail',
+    // url:'http://123.56.160.44:8080/user/sendEmail',
     method:'post',
     data,
     headers: {

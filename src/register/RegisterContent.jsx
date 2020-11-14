@@ -105,6 +105,10 @@ const tailFormItemLayout = {
         // 路由跳转
         if(Response.data.data==="注册成功，请登录！"){
           alert("注册成功！")
+        }else if(Response.data.data === "该邮箱已被注册！"){
+          alert ("该邮箱已被注册，换个邮箱试试^_^")
+        }else{
+          alert("请填写正确的验证码")
         }
     }).catch(error=>{
 
@@ -248,6 +252,7 @@ const tailFormItemLayout = {
                 <Checkbox className="read">
                   我已阅读并接受 <a href="http://www.baidu.com">《版权声明》</a>和<a href="http://www.baidu.com">《隐私保护》</a>
                 </Checkbox>
+                 
               </Form.Item> 
               <Form.Item>
                 <Button  type="primary" htmlType="submit" className="login-form-button">

@@ -3,11 +3,11 @@ import Swiper from 'swiper';
 import "./swiper.min.css"
 
 
-import Swiper1 from '@a/images/01.jpg'
-import Swiper2 from '@a/images/02.jpg'
-import Swiper3 from '@a/images/03.jpg'
-import Swiper4 from '@a/images/04.jpg'
-import Swiper5 from '@a/images/05.jpg'
+import Swiper1 from '@a/images/banner1.jpg'
+import Swiper2 from '@a/images/banner2.jpg'
+import Swiper3 from '@a/images/banner1.jpg'
+import Swiper4 from '@a/images/banner4.jpg'
+import Swiper5 from '@a/images/banner5.jpg'
 
 class Food4 extends Component {
 

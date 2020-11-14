@@ -30,6 +30,7 @@ const RegisterWrap = styled.div`
     margin:0 auto;
     height:100px;
     padding-top:60px;
+    margin-bottom:50px;
   }
   .rgcontent{
     .ant-form-item {
@@ -74,7 +75,11 @@ const RegisterWrap = styled.div`
         display:inline;
         margin-left:0;
       }
-     
+    }
+    .ant-form-item{
+      .ant-col-sm-offset-8{
+        margin-left:0!important;
+      }
     }
     
   }
