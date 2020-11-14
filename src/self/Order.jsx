@@ -19,16 +19,17 @@ class Order extends Component {
         console.log(key);
     }
     componentDidMount(){
-        console.log(this.props);
+        // console.log(this.props);
     }
 
     render() {
+        console.log(this.props.location.state.infoType);
         return (
             <Container>
                 <Header ht="546px" bg={banner} ></Header>
                 <main>
                     <div className="category">
-                        <Tabs defaultActiveKey="2" onChange={this.callback} tabPosition={'left'} >
+                        <Tabs defaultActiveKey={this.props.location.state.infoType} onChange={this.callback} tabPosition={'left'} >
                             <TabPane tab="基本信息" key="1">
                                 <SelfInfo></SelfInfo>
                             </TabPane>

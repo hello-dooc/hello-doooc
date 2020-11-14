@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom'
 import { Tabs } from 'antd';
 import axios from 'axios';
-import { get, del } from '@u/http'
+import { get, del,post1 } from '@u/http'
 
 import DetailInfo from './DetailInfo';
 import {
     InfoForm
 } from './StyledOrder'
 const { TabPane } = Tabs;
-
+@withRouter
 class OrderForm extends Component {
     state = {
         list1: [],
@@ -64,16 +65,7 @@ class OrderForm extends Component {
     }
 
 
-    async payCar(orderId) {
-        axios.defaults.headers.common['token'] = 'token_123456'
-        let result = await get({
-            url: 'http://123.56.160.44:8080/pay/alipay',
-            params: {
-                orderId,
-                money: 0.01
-            }
-        });
-        console.log(result);
+    async payCar() {
         this.getData()
     }
     componentDidMount() {

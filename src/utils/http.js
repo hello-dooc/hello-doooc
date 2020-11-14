@@ -17,7 +17,7 @@ const get = ({ url, params }) => {
 
 const post = (url, params) => {
   return new Promise((resolve, reject) => {
-    axios.post(url,params)
+    axios.post(url, params)
       .then(res => {
         resolve(res);
       })
@@ -26,7 +26,21 @@ const post = (url, params) => {
       })
   });
 }
-
+const post1 = ({ url, params }) => {
+  return new Promise((resolve, reject) => {
+    axios({
+      url,
+      method: 'post',
+      params
+    })
+      .then(result => {
+        resolve(result)
+      })
+      .then(error => {
+        reject(error)
+      })
+  })
+}
 const put = ({ url, params }) => {
   return new Promise((resolve, reject) => {
     axios({
@@ -76,5 +90,6 @@ export {
   get,
   put,
   post,
-  del
+  del,
+  post1
 }

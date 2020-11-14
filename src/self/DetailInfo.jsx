@@ -10,6 +10,7 @@ class DetailInfo extends Component {
         msg: [],
         sign: 0
     }
+
     handleDelete = (value) => {
         return (e) => {
             console.log(value);
@@ -71,7 +72,9 @@ class DetailInfo extends Component {
                                     </>
                                     <i>总价：￥{value.orderPrice} </i>
                                     <div style={{ visibility: (value.orderStatus === 1 && value.payStatus === 1) ? "" : "hidden" }}>
-                                        <button onClick={this.handlePay(value)}>付款</button>
+                                        <button>
+                                            <a href={'http://123.56.160.44:8080/pay/alipay?orderId='+value.orderID+'&money=0.01'} onClick={this.handlePay(value)} style={{color:"black"}}>付款</a>
+                                        </button>
                                         <i>   </i>
                                         <button onClick={this.handleDelete(value)}>删除</button>
                                     </div>
