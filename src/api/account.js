@@ -1,4 +1,3 @@
-import {post} from '../utils/http'
 import axios from 'axios'
 
 

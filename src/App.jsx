@@ -5,8 +5,7 @@ import {
   BrowserRouter as Router ,
   Redirect
 } from 'react-router-dom'
-// import Home from '../src/home/home/index'
-// import Food from '../src/home/food/index'
+
 import Love from '@h/love/container/Love'
 
 import Home from '@h/home/container/Home'
@@ -24,21 +23,16 @@ import BuyHome from '@b/BuyHome'
 import Answer from '@z/Answer'
 import Training from '@z/Training'
 import ScreenAfter from '@m/petMarket/ui/ScreenAfter'
-<<<<<<< HEAD
 import Disease from '@z/Disease'
+import KnowUi from '@z/KnowUi'
+
+
 // 私有化组件
-import PrivateRouter from './components/privateRouter/index'
-=======
-// 私有化组件
-import PrivateRouter from './components/privateRouter/index'
-import Disease from '@z/Disease'
->>>>>>> origin/zhangyan
 export default class App extends Component {
   render() {
     return (
       <Router>
         <Switch>
-          {/* <PrivateRouter path="/home" component={Home}></PrivateRouter> */}
           <Route path="/home" component={Home}></Route>
           <Route path="/love" component={Love}></Route>
           <Route path='/foodMarket' component={FoodMarket}></Route>
@@ -55,7 +49,7 @@ export default class App extends Component {
           <Route path='/answer' component={Answer} />
           <Route path='/training' component={Training} />
           <Route path='/screen' component={ScreenAfter} />
-          <Route path='/disease' component={Disease} />
+          <Route path='/disease' component={KnowUi} />
           <Redirect  from='/' to='/home'></Redirect>
         </Switch>
       </Router>

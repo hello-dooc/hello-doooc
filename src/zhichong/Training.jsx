@@ -4,15 +4,14 @@ import {withRouter } from 'react-router-dom'
 import Footer from '@c/footer/Footer'
 import Link from '@c/link/Link'
 import Header from '@c/header/Header'
+import KnowHead from '@c/knowHead/KnowHead'
 
 
-import navImg from '@a/images/Trainning/nav_03.png'
 import ban from '@a/images/Trainning/TrBan_03.png'
 import news1 from '@a/images/Trainning/TrNews01_03.png'
 import news2 from '@a/images/Trainning/TrNews02_03.png'
 import news3 from '@a/images/Trainning/TrNews03_03.png'
 import banner from '@a/images/banner_dog.png'
-import heart from '@a/images/heart_03.jpg'
 
 import {
     Container
@@ -32,28 +31,7 @@ class Training extends Component {
     render() {
         return (
             <Container>
-                <Header ht="546px" bg={banner} ></Header>
-                <div className="dis_tab clear_fix">
-                    <div className="tit_wrap">
-                        <ul className="tit_left">
-                            <li onClick={this.handleClick('/disease')}>疾病</li>
-                            <li onClick={this.handleClick('/love')}>养护</li>
-                            <li onClick={this.handleClick('/training')}>训练</li>
-                        </ul>
-                        <div>
-                            <p>知宠</p>
-                            <p>zhichong</p>
-                            <img src={heart} alt=""/>
-                        </div>
-                        <ul className="tit_right">
-                            <li onClick={this.handleClick('')}>医疗</li>
-                            <li onClick={this.handleClick('/answer')}>冷知识</li>
-                            <li onClick={this.handleClick('')}>联系我们</li>
-                        </ul>
-                    </div>
-                </div>
-                <div className="con">
-                    
+                <div className="con"> 
                     <div className="train">
                         <h2>宠物训练</h2>
                         <h3>Professional pet training course</h3>
@@ -102,8 +80,6 @@ class Training extends Component {
                             <img src={news3} alt=""/>
                         </div>
                     </div>
-                    <Link></Link>
-                    <Footer></Footer>
                 </div>
             </Container>
         );

@@ -4,7 +4,7 @@ import { InputNumber, Select } from 'antd';
 
 import { get, put,del } from '@u/http'
 import axios from 'axios';
-import qs from 'qs'
+
 
 import {
     HCart

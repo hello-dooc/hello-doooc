@@ -1,4 +1,4 @@
-import React, { useState,useEffect,Component } from 'react';
+import React, { useState,useEffect} from 'react';
 import { Breadcrumb , Pagination  } from 'antd';
 import { get } from '@u/http1'
 import List from './List'
@@ -13,7 +13,6 @@ import Footer from '@c/footer/Footer'
 import StyledFooter from '@c/footer/StyledFooter'
 
 import {
-  HeadStyle,
   ClassifyStyle,
   ListStyle
 } from './StyledFood'

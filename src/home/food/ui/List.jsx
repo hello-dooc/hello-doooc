@@ -1,9 +1,5 @@
 import React from 'react';
 
-// import list1 from '@a/images/cadfc367d9263412d9ac9356f53f3b97.jpg'
-
-import { Pagination } from 'antd';
-
 const List = (props) => {
   return (
         <div className="center">

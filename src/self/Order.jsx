@@ -3,6 +3,7 @@ import { Tabs } from 'antd';
 
 import OrderForm from './OrderForm';
 import SelfInfo from './SelfInfo';
+import MyShow from '../showpets/MyShow'
 
 import Link from '@c/link/Link'
 import Footer from '@c/footer/Footer'
@@ -17,9 +18,6 @@ const { TabPane } = Tabs;
 class Order extends Component {
     callback(key) {
         console.log(key);
-    }
-    componentDidMount(){
-        // console.log(this.props);
     }
 
     render() {
@@ -37,7 +35,7 @@ class Order extends Component {
                                 <OrderForm></OrderForm>
                             </TabPane>
                             <TabPane tab="我的晒宠" key="3">
-                                111111111111
+                                <MyShow></MyShow>
                             </TabPane>
                         </Tabs>
                     </div>

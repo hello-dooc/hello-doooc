@@ -5,7 +5,6 @@ import img1 from '@a/images/buyhome/petscan.png'
 import img2 from '@a/images/buyhome/petseat.png'
 import img3 from '@a/images/buyhome/petsmac.png'
 import img11 from '@a/images/buyhome/11.jpg'
-import img22 from '@a/images/buyhome/22.jpg'
 import hotimg from '@a/images/buyhome/hotimg.png'
 
 import {
