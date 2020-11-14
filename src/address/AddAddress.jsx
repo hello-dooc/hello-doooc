@@ -2,10 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import qs from 'qs'
 import {get,post,put} from '@u/http.js'
-<<<<<<< HEAD
 import {getToken} from '@u/cookies'
-=======
->>>>>>> cc9d764f0c458f08b24d00c0ea41f525986df9fc
 
 import { Cascader } from 'antd';
 
@@ -127,7 +124,6 @@ export default class AddAddress extends Component {
                 userName:nameValue,
                 userTelephone:telValue
             }
-<<<<<<< HEAD
             // let token = getToken()
             // console.log(token);
             axios.defaults.headers.common['token'] = 'token_123456'
@@ -138,11 +134,6 @@ export default class AddAddress extends Component {
             // }else{
             //     this.props.history.push('/login')
             // }
-=======
-            axios.defaults.headers.common['token'] = 'token_123456'
-            let result = await post('http://123.56.160.44:8080/user/address/create',qs.stringify(params))
-            this.props.history.goBack()
->>>>>>> cc9d764f0c458f08b24d00c0ea41f525986df9fc
         }else{
             window.alert('请按照规则填写信息')
         }
@@ -166,7 +157,6 @@ export default class AddAddress extends Component {
                 userAddressId
             }
             console.log(params);
-<<<<<<< HEAD
             let token=getToken()
             if(token){
                 // axios.defaults.headers.common['token'] = token
@@ -180,15 +170,6 @@ export default class AddAddress extends Component {
             }else{
                 this.props.history.push('/login')
             }
-=======
-            axios.defaults.headers.common['token'] = 'token_123456'
-            var result = await put({
-                url:'http://123.56.160.44:8080/user/address/update',
-                params
-            })
-            console.log(result);
-            this.props.history.goBack()
->>>>>>> cc9d764f0c458f08b24d00c0ea41f525986df9fc
         }else{
             // console.log(result);
             window.alert('请按照规则填写表单')
@@ -200,13 +181,9 @@ export default class AddAddress extends Component {
         console.log(this.props);
     }
     render() {
-<<<<<<< HEAD
         if(this.props.location.state){
             var { province,city,country,userName,addressDetail,userTelephone} = this.props.location.state
         }
-=======
-        let { province,city,country,userName,addressDetail,userTelephone} = this.props.location.state
->>>>>>> cc9d764f0c458f08b24d00c0ea41f525986df9fc
         // console.log(this.props.location.state);
         return (
             <AddAddWrap>
