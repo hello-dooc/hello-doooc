@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 // import DetailInfo from '../components/Detail/DetailInfo';
 import { InputNumber, Select } from 'antd';
 
+<<<<<<< HEAD
 import { get, put } from '@u/http'
 import axios from 'axios';
 import qs from 'qs'
 
+=======
+>>>>>>> cc9d764f0c458f08b24d00c0ea41f525986df9fc
 import {
     HCart
 } from './StyledCartH'

@@ -1,7 +1,10 @@
 import React, { useCallback, useEffect,useState} from 'react';
 import {useSelector,useDispatch} from 'react-redux'
 import {put,post} from '@u/http'
+<<<<<<< HEAD
 import {getToken} from '@u/cookies'
+=======
+>>>>>>> cc9d764f0c458f08b24d00c0ea41f525986df9fc
 import axios from 'axios'
 import {useHistory} from 'react-router-dom'
 import {UserInfoWrap} from './StyledSelf'
@@ -30,7 +33,11 @@ const UserInfo = (props) => {
         var userAddr = defaultList[0].province+defaultList[0].city+defaultList[0].country+defaultList[0].addressDetail
     }
     const history = useHistory()
+<<<<<<< HEAD
     const handleAd=()=>{
+=======
+    const handleAd=(list)=>{
+>>>>>>> cc9d764f0c458f08b24d00c0ea41f525986df9fc
         return (e)=>{
             e.preventDefault()
             history.push('/address')
@@ -65,6 +72,7 @@ const UserInfo = (props) => {
     const handleClick=()=>{
         return async (e)=>{
             e.preventDefault()
+<<<<<<< HEAD
             // let token = getToken()
             // axios.defaults.headers.common["token"] = token;
             axios.defaults.headers.common["token"] = 'token_123456';
@@ -74,10 +82,20 @@ const UserInfo = (props) => {
                 userGender:gender||userInfo.userGender,
                 userQq:qq || userInfo.userQq,
                 userTelephone:tel || userInfo.userTelephone,
+=======
+            axios.defaults.headers.common["token"] = 'token_123456';
+            let result = await put({url:'http://123.56.160.44:8080/user/info/update',
+            params:{
+                userName:name,
+                userGender:gender,
+                userQq:qq,
+                userTelephone:tel,
+>>>>>>> cc9d764f0c458f08b24d00c0ea41f525986df9fc
                 key,
                 verification:code
             }})
             console.log(result);
+<<<<<<< HEAD
             if(result.data.code===200){
                 window.alert('修改用户信息成功')
             }else{
@@ -87,6 +105,8 @@ const UserInfo = (props) => {
             // }else{
             //     history.push('/login')
             // }
+=======
+>>>>>>> cc9d764f0c458f08b24d00c0ea41f525986df9fc
         }
     }
     const getCode=(tel)=>{

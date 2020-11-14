@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import qs from 'qs'
 import {post} from '@u/http'
+<<<<<<< HEAD
 import {getToken} from '@u/cookies'
+=======
+>>>>>>> cc9d764f0c458f08b24d00c0ea41f525986df9fc
 
 import {DisplayWrap} from '../StyledPetMarket'
 
@@ -39,9 +42,12 @@ class Display extends Component {
         }
     }
     async addCart(params){
+<<<<<<< HEAD
         // let token = getToken()
         // console.log(token);
         // axios.defaults.headers.common['token'] = token
+=======
+>>>>>>> cc9d764f0c458f08b24d00c0ea41f525986df9fc
         axios.defaults.headers.common['token'] = 'token_123456'
         const result = await post('http://123.56.160.44:8080/cart/add',qs.stringify(params))
         console.log(result);
@@ -50,10 +56,13 @@ class Display extends Component {
         }else{
             window.alert('加入购物车失败，请稍后重试！')
         }
+<<<<<<< HEAD
         // if(token){
         // }else{
         //     this.props.history.push('/login')
         // }
+=======
+>>>>>>> cc9d764f0c458f08b24d00c0ea41f525986df9fc
     }
     handleAddCart=(pt,id)=>{
         return ()=>{

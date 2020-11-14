@@ -57,6 +57,7 @@ class Header extends Component {
                             <img src={profile} alt="" onClick={this.handleGotoLogin('/login')}/>
                         </div>
                         <div>
+<<<<<<< HEAD
                             <i className="iconfont icon-xiala" onClick={this.handleClick}  ></i>
                             {
                                 getToken() ? 
@@ -73,6 +74,15 @@ class Header extends Component {
                                 </ul>
 
                             }
+=======
+                            <i className="iconfont icon-xiala" onClick={this.handleClick} ></i>
+                            <ul onMouseLeave ={this.handleMouseLeave} className={this.state.isNone?'dpNone':'dpBlock'}>
+                                <li onClick={this.handleGotoOthers('/order')}>我的信息</li>
+                                <li onClick={this.handleGotoOthers('/order')}>订单中心</li>
+                                <li onClick={this.handleGotoOthers('/shoppingCart')}>我的购物</li>
+                                <li>我的晒宠</li>
+                            </ul>
+>>>>>>> cc9d764f0c458f08b24d00c0ea41f525986df9fc
                         </div>
                     </div>
                 </div>
