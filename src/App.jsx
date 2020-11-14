@@ -32,8 +32,8 @@ export default class App extends Component {
     return (
       <Router>
         <Switch>
-          <PrivateRouter path="/home" component={Home}></PrivateRouter>
-          {/* <Route path="/home" component={Home}></Route> */}
+          {/* <PrivateRouter path="/home" component={Home}></PrivateRouter> */}
+          <Route path="/home" component={Home}></Route>
           <Route path="/love" component={Love}></Route>
           <Route path='/foodMarket' component={FoodMarket}></Route>
           <Route path='/self' component={SelfInfo} />

@@ -161,9 +161,9 @@ class Filter extends Component {
                 </li>
                 <span></span>
                 <li className="clear_fix"> 
-                    <span><i>{this.state.type}</i>品种</span>
-                    <span><i>{this.state.type}</i>性别</span>
-                    <span><i>{this.state.type}</i>年龄</span>
+                    <span><i>{this.props.pType===3?'全部':(this.props.pType===1?'喵喵':'汪汪')}</i>品种</span>
+                    <span><i>{this.props.pType===3?'全部':(this.props.pType===1?'喵喵':'汪汪')}</i>性别</span>
+                    <span><i>{this.props.pType===3?'全部':(this.props.pType===1?'喵喵':'汪汪')}</i>年龄</span>
                     <div className="float_right">
                         <span onClick={this.handleClickUp(false)}>收起筛选器</span>
                         <span></span>

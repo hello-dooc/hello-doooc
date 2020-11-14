@@ -26,7 +26,7 @@ class BuyBanner extends Component {
                 <div className="banner_box">
                     <img src={imgbanner} alt="" />
                 </div>
-                <header>
+                <header >
                     <Header></Header>
                 </header>
                 <BuySearch></BuySearch>

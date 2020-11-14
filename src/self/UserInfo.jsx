@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect,useState} from 'react';
 import {useSelector,useDispatch} from 'react-redux'
 import {put,post} from '@u/http'
+import {getToken} from '@u/cookies'
 import axios from 'axios'
 import {useHistory} from 'react-router-dom'
 import {UserInfoWrap} from './StyledSelf'
@@ -29,7 +30,7 @@ const UserInfo = (props) => {
         var userAddr = defaultList[0].province+defaultList[0].city+defaultList[0].country+defaultList[0].addressDetail
     }
     const history = useHistory()
-    const handleAd=(list)=>{
+    const handleAd=()=>{
         return (e)=>{
             e.preventDefault()
             history.push('/address')
@@ -64,17 +65,28 @@ const UserInfo = (props) => {
     const handleClick=()=>{
         return async (e)=>{
             e.preventDefault()
+            // let token = getToken()
+            // axios.defaults.headers.common["token"] = token;
             axios.defaults.headers.common["token"] = 'token_123456';
             let result = await put({url:'http://123.56.160.44:8080/user/info/update',
             params:{
-                userName:name,
-                userGender:gender,
-                userQq:qq,
-                userTelephone:tel,
+                userName:name||userInfo.userName,
+                userGender:gender||userInfo.userGender,
+                userQq:qq || userInfo.userQq,
+                userTelephone:tel || userInfo.userTelephone,
                 key,
                 verification:code
             }})
             console.log(result);
+            if(result.data.code===200){
+                window.alert('修改用户信息成功')
+            }else{
+                window.alert('修改用户信息失败，请稍后重试')
+            }
+            // if(token){
+            // }else{
+            //     history.push('/login')
+            // }
         }
     }
     const getCode=(tel)=>{

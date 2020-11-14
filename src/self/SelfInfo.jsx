@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import {withRouter} from 'react-router-dom'
-import {get,post} from '@u/http'
+import {get} from '@u/http'
+import {getToken} from '@u/cookies'
 
 import { Upload, message } from 'antd';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
@@ -53,7 +54,10 @@ class SelfInfo extends Component {
         }
         };
     async getUserInfo(){
+        // let token = getToken()
+        // console.log(token);
         axios.defaults.headers.common["token"] = 'token_123456';
+        // axios.defaults.headers.common['token'] = token
         let result = await get({
             url:'http://123.56.160.44:8080/user/info/detail'
         })
@@ -66,6 +70,8 @@ class SelfInfo extends Component {
                 addr
             }
         })
+        // if(token){
+        // }
     }
     async componentDidMount(){
         this.getUserInfo()
