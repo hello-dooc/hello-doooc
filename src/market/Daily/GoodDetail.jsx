@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 // import cs from '@a/images/market/ceshi.jpg';
 
 class GoodDetail extends Component {
+    handleClick=(value)=>{
+        return ()=>{
+            console.log(value);
+            console.log(value.sptype);
+        }
+    }
     render() {
         // console.log(this.props.list)
         return (
@@ -12,7 +18,7 @@ class GoodDetail extends Component {
                         // console.log(value[value.des+'Image']);
                         let dis=value[value.sptype+'Discount']
                         return(
-                            <div key={value[value.sptype+'Id']} className="oneGood">
+                            <div key={value[value.sptype+'Id']} className="oneGood" onClick={this.handleClick(value)}>
                                 <img src={value[value.sptype+'Image']} alt=""/>
                                 <div>
                                     <h2 >{value[value.sptype+'Discount']}</h2>

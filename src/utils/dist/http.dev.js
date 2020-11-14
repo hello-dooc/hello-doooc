@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.del = exports.post = exports.put = exports.get = void 0;
+exports.post1 = exports.del = exports.post = exports.put = exports.get = void 0;
 
 var _axios = _interopRequireDefault(require("axios"));
 
@@ -28,7 +28,7 @@ exports.get = get;
 
 var post = function post(url, params) {
   return new Promise(function (resolve, reject) {
-    _axios["default"].post(url, JSON.stringify(params)).then(function (res) {
+    _axios["default"].post(url, params).then(function (res) {
       resolve(res);
     })["catch"](function (err) {
       reject(err);
@@ -38,9 +38,27 @@ var post = function post(url, params) {
 
 exports.post = post;
 
-var put = function put(_ref2) {
+var post1 = function post1(_ref2) {
   var url = _ref2.url,
       params = _ref2.params;
+  return new Promise(function (resolve, reject) {
+    (0, _axios["default"])({
+      url: url,
+      method: 'post',
+      params: params
+    }).then(function (result) {
+      resolve(result);
+    }).then(function (error) {
+      reject(error);
+    });
+  });
+};
+
+exports.post1 = post1;
+
+var put = function put(_ref3) {
+  var url = _ref3.url,
+      params = _ref3.params;
   return new Promise(function (resolve, reject) {
     (0, _axios["default"])({
       url: url,
@@ -67,9 +85,9 @@ var put = function put(_ref2) {
 
 exports.put = put;
 
-var del = function del(_ref3) {
-  var url = _ref3.url,
-      params = _ref3.params;
+var del = function del(_ref4) {
+  var url = _ref4.url,
+      params = _ref4.params;
   return new Promise(function (resolve, reject) {
     (0, _axios["default"])({
       url: url,
