@@ -81,6 +81,7 @@ class Training extends Component {
                         </div>
                     </div>
                 </div>
+            
             </Container>
         );
     }
