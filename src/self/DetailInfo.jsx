@@ -54,7 +54,7 @@ class DetailInfo extends Component {
         return (
             <Info>
                 {
-                    this.state.datalist && this.state.datalist.map(value => {
+                    this.props.list && this.props.list.map(value => {
                         return (
                             <div key={value.orderID}>
                                 <p>订单编号：{value.orderID} </p>
