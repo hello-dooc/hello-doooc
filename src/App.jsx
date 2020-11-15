@@ -27,6 +27,9 @@ import Disease from '@z/Disease'
 import KnowUi from '@z/KnowUi'
 
 
+import GoodsDetail from '@/goodsdetail/GoodsDetail'
+import GoodOrder from '@/goodorder/GoodOrder'
+
 // 私有化组件
 export default class App extends Component {
   render() {
@@ -45,10 +48,10 @@ export default class App extends Component {
           <Route path='/register' component={Register} />
           <Route path='/daily' component={Daily} />
           <Route path='/buy' component={BuyHome} />
-          <Route path='/answer' component={Answer} />
-          <Route path='/training' component={Training} />
           <Route path='/screen' component={ScreenAfter} />
           <Route path='/disease' component={KnowUi} />
+          <Route path='/goodsdetail' component={GoodsDetail} />
+          <Route path='/goodorder' component={GoodOrder} />
           <Redirect  from='/' to='/home'></Redirect>
         </Switch>
       </Router>

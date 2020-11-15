@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import DetailInfo from '../components/Detail/DetailInfo';
 import { InputNumber, Select } from 'antd';
+import { withRouter} from 'react-router-dom';
 
 import { get, put,del } from '@u/http'
 import axios from 'axios';
@@ -10,6 +11,7 @@ import {
     HCart
 } from './StyledCartH'
 
+@withRouter
 class CartH extends Component {
 
     state = {
@@ -88,7 +90,9 @@ class CartH extends Component {
         this.getData()
         console.log(111);
     }
-
+    handleOrder(){
+        this.props.history.push('/goodorder')
+    }
     render() {
         console.log(this.state.datalist);
         // this.state.totalPrice=0;
@@ -132,7 +136,7 @@ class CartH extends Component {
                 </div>
                 <div className="pay">
                     <i>合计：  RMB &nbsp; {this.state.totalPrice}</i>
-                    <button>提&nbsp; 交&nbsp; 订&nbsp; 单</button>
+                    <button onClick={()=>this.handleOrder()}>提&nbsp; 交&nbsp; 订&nbsp; 单</button>
                 </div>
             </HCart>
         );

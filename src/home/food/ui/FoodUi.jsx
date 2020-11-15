@@ -175,8 +175,9 @@ const FoodUi = (props) => {
     <div>
     <HeaderNoBg></HeaderNoBg>
     <div className="center">
-    <HeaderNoBg></HeaderNoBg>
-    <BuySearch></BuySearch>
+    <div style={{height:'108px'}}>
+      <BuySearch></BuySearch>
+    </div>
       <ClassifyStyle>
         <div className="nav">
           <>

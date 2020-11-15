@@ -6,9 +6,6 @@ import Link from '@c/link/Link'
 import Header from '@c/header/Header'
 
 import ban from '@a/images/hosptial/banner_03.png'
-import news1 from '@a/images/Trainning/TrNews01_03.png'
-import news2 from '@a/images/Trainning/TrNews02_03.png'
-import news3 from '@a/images/Trainning/TrNews03_03.png'
 import banner from '@a/images/banner_dog.png'
 import box1 from '../assets/images/hosptial/box1.png'
 import box2 from '../assets/images/hosptial/box2.jpg'
@@ -55,16 +52,16 @@ class Hosptial extends Component {
             
                     <div className="box">
                         <div>
-                            <div class="item">
+                            <div className="item">
                                 <img src={box1} alt=""/>
                             </div>
-                            <div class="item">
+                            <div className="item">
                                 <img src={box2} alt=""/>
                             </div>
-                            <div class="item">
+                            <div className="item">
                                 <img src={box3} alt=""/>
                             </div>
-                            <div class="item">
+                            <div className="item">
                                 <img src={box4} alt=""/>
                             </div>
                            

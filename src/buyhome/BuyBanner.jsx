@@ -1,25 +1,18 @@
 import React, { Component } from 'react'
-import {withRouter } from 'react-router-dom'
 
 import imgbanner from '@a/images/buyhome/scbanner.png'
-// import Header from '@c/header/Header.jsx'
+import Header from '@c/header/HeaderNoBg'
 import BuySearch from "./BuySearch"
-import Header from '@c/header/HeaderNoBg.jsx'
 
-// import banner from '@a/images/banner_dog.png'
 
 import {
     BuyBannerWrap
 } from './StyledBuyHome'
 
 
-@withRouter
-class BuyBanner extends Component {
-    handleGotoOthers=(url)=>{
-        return ()=>{
-            this.props.history.push(url)
-        }
-    }
+
+export default class BuyBanner extends Component {
+
     render() {
         return (
             <BuyBannerWrap>
@@ -35,5 +28,3 @@ class BuyBanner extends Component {
         )
     }
 }
-
-export default BuyBanner

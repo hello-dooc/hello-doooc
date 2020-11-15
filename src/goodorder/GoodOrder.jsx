@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import touxiang from '@a/images/goodsdetail/touxiang.jpg';
-import Header from '@c/header/Header.jsx'
+import Header from '@c/header/HeaderNoBg'
 import Footer from '@c/footer/Footer.jsx'
 import Link from '@c/link/Link.jsx'
 

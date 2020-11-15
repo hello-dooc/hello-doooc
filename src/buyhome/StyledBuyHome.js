@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import bgImage from "../assets/images/buyhome/bg.png"
+import bgImage from "@a/images/buyhome/bg.png"
+import scbg from "@a/images/buyhome/scbg.png"
 
 const BuyBannerWrap = styled.div`
     height:525px;
@@ -27,161 +28,8 @@ const BuyBannerWrap = styled.div`
             width:100%;
             background-color:rgba(234,237,238,.6);
         }
-    
-        .nav_box{
-            position:absolute;
-            z-index:2;
-            top:93px;
-            left:50%;
-            margin-left:-650px;
-            height:108px;
-            width:1301px;
-            background-color:rgba(233,240,248,.3);
-            .search_box{
-                display:flex;
-                height:68px;
-                .search{
-                    display:flex;
-                    width:370px;
-                    height:43px;
-                    background-color:rgba(233,240,248,.6);
-                    margin-top:25px;
-                    margin-left:436px;
-                    justify-content:center;
-                    align-items:center;
-                    padding-left:5px;
-                    span{
-                        width:321px;
-                        height:100%;
-                        line-height:43px;
-                        font-size:12px;
-                    }
-                    p {
-                        width:48px;
-                        height:43px;
-                        background:#f5a64a;
-                        text-align:center;
-                        padding-top:7px;
-                        margin-block-end: 0;
-                        svg{
-                            width:24px;
-                            height:24px;
-                        }
-                    }
-                }
-                .car{
-                    display:flex;
-                    width:114px;
-                    height:43px;
-                    background:#f5a64a;
-                    margin-top:25px;
-                    margin-left:298px;
-                    border-radius:4px;
-                    p{
-                        width:44px;
-                        height:43px;
-                        background-color:#d4d2d2;
-                        text-align:center;
-                        padding-top:5px;
-                        border-radius:4px;
-                        svg{
-                            width:28px;
-                            height:28px;
-                        }
-                    }
-                    span{
-                        width:69px;
-                        border-radius:0 4px px 0;
-                        border-left:1px solid #fff;
-                        text-align:center;
-                        line-height:43px;
-                        font-size:12px;
-                    }
-                }
-            }
-            .menu_box{
-                height:34px;
-                width:100%;
-                .menu{
-                    height:34px;
-                    li {
-                        float: left;
-                        color:#000;
-                        cursor: pointer;
-                        -webkit-transition: all .3s;
-                        transition: all .3s;
-                        position: relative;
-                        width:160px;
-                        height:34px;
-                        font-size:18px;
-                        /*  */line-height:34px;
-                        display:flex;
-                        justify-content:center;
-                        margin-right:98px;
-                        &:hover{
-                            ul{
-                                display:block;
-                            }
-                            em{
-                                width: 0;   
-                                height: 0;  
-                                border-left: 10px solid transparent;
-                                border-right: 10px solid transparent;
-                                border-top: 10px solid #217AFF;
-                            }
-                            li{
-                                background-color:rgba(247,251,251,.7);
-                                font-size:14px;
-                                img{
-                                    display:block;
-                                    width:16px;
-                                    height:16px;
-                                    margin-top:9px;
-                                    margin-right:4px;
-                                }
-                                &:hover{
-                                    background-color:#f5a64a;
-                                    color:#fff;
-                                }
-                            }
-                        }
-                        ul{
-                            position: absolute;
-                            top: 100%;
-                            left: 0%;
-                            width:160px;
-                            height:34px;
-                            display: none;
-                            z-index: 1;
-                            background-color: rgba(247,251,251,.7);
-                            li{
-                                width: 100%;
-                                &:hover{
-                                    background-color:#f5a64a;
-                                }
-                            }
-                        }
-                    }
-                    .has-submenu{
-                        /* background:pink; */
-                        em{
-                            display:block;
-                            width: 0;   
-                            height: 0;  
-                            border-left: 10px solid transparent;
-                            border-right: 10px solid transparent;
-                            border-bottom: 10px solid #217AFF;
-                        }
-                    }
-                }
-                
-                
-            }
-            
 
-
-        }
-
+        
 
 `
 
@@ -191,7 +39,7 @@ const Container = styled.div`
         /* height:730px; */
         height:640px;
         width:100%;
-        background:#000;
+        background:url(${scbg});
     }
 
 `
@@ -389,8 +237,13 @@ const AllGoodsWrap =styled.div`
                 }
             }
         }
+
+
+
+
 `
-const BuySearchWrap = styled.div`
+
+ const BuySearchWrap = styled.div`
  .nav_box{
     position:absolute;
     z-index:2;
@@ -516,7 +369,7 @@ const BuySearchWrap = styled.div`
                     height:34px;
                     display: none;
                     z-index: 1;
-                    background-color: rgba(247,251,251,.7);
+                    background-color: rgba(247,251,251,.7)
                     li{
                         width: 100%;
                         &:hover{
@@ -536,10 +389,19 @@ const BuySearchWrap = styled.div`
                     border-bottom: 10px solid #217AFF;
                 }
             }
-        }    
+        }
+        
+        
     }
- }
-` 
+    
+
+
+}
+
+ 
+ `
+
+
 
 
 

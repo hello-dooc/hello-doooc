@@ -44,7 +44,6 @@ const Container = styled.div`
             width:864px;
             margin:0 auto;
             text-align:center;
-            background-color:#eee;
             .shopLike{
                 display:flex;
                 justify-content:space-between;
