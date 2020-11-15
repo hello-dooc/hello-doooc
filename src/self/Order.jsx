@@ -4,6 +4,7 @@ import { Tabs } from 'antd';
 import OrderForm from './OrderForm';
 import SelfInfo from './SelfInfo';
 import MyShow from '../showpets/MyShow'
+import YouLike from '../showpets/YouLike'
 
 import Link from '@c/link/Link'
 import Footer from '@c/footer/Footer'
@@ -39,7 +40,7 @@ class Order extends Component {
                         </Tabs>
                     </div>
                     <div className="recommend">
-                        <p>猜你喜欢</p>
+                       {/*  <p>猜你喜欢</p>
                         <div className="shopLike">
                             <div>
                                 <img src="" alt="" />
@@ -61,7 +62,8 @@ class Order extends Component {
                                 <h2>商品属性</h2>
                                 <h3>价格</h3>
                             </div>
-                        </div>
+                        </div> */}
+                        <YouLike></YouLike>
                     </div>
                 </main>
                 <Link></Link>

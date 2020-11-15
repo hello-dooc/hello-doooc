@@ -27,6 +27,9 @@ import ScreenAfter from '@m/petMarket/ui/ScreenAfter'
 import Disease from '@z/Disease'
 import Knowledge from '@z/Hosptial'
 
+import GoodsDetail from '@/goodsdetail/GoodsDetail'
+import GoodOrder from '@/goodorder/GoodOrder'
+
 // 私有化组件
 import PrivateRouter from './components/privateRouter/index'
 export default class App extends Component {
@@ -53,6 +56,8 @@ export default class App extends Component {
           <Route path='/screen' component={ScreenAfter} />
           <Route path='/disease' component={Disease} />
           <Route path='/knowledge' component={Knowledge} />
+          <Route path='/goodsdetail' component={GoodsDetail} />
+          <Route path='/goodorder' component={GoodOrder} />
           <Redirect  from='/' to='/home'></Redirect>
         </Switch>
       </Router>
