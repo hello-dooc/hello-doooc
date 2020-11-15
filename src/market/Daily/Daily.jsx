@@ -260,9 +260,6 @@ class Daily extends Component {
             <Container>
                 <Header></Header>
                 <div className="nav">
-                    <div style={{ height: '110px' }}>
-                        <BuySearch></BuySearch>
-                    </div>
                     <>
                         <Breadcrumb separator=">">
                             <Breadcrumb.Item>宠物商城</Breadcrumb.Item>

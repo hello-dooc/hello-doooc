@@ -30,14 +30,8 @@ class BuySearch extends Component {
                     </div>
                     <div className="menu_box">
                         <ul className="menu">
-                            <li className="has-submenu"><p onClick={this.handleGotoOthers('/foodMarket')}>宠物食品</p>
-                                <ul>
-                                    <li><img src={img1} alt=""/><p>宠物主粮</p></li>
-                                    <li><img src={img2} alt=""/><p>宠物零食</p></li>
-                                    <li><img src={img3} alt=""/><p>宠物保健</p></li>
-                                </ul>
-                                <span></span>
-                                <em></em>
+                            <li className="has-submenu">
+                                <p onClick={this.handleGotoOthers('/foodMarket')}>宠物食品</p>
                             </li>
                             <li><p onClick={this.handleGotoOthers('/daily')}>宠物日用</p></li>
                             <li><p onClick={this.handleGotoOthers('/petMarket')}>宠物市场</p></li>

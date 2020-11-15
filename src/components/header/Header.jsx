@@ -63,8 +63,8 @@ class Header extends Component {
                                 <ul onMouseLeave ={this.handleMouseLeave} className={this.state.isNone?'dpNone':'dpBlock'}>
                                     <li onClick={this.handleGotoOthers('/order','1')}>我的信息</li>
                                     <li onClick={this.handleGotoOthers('/order','2')}>订单中心</li>
-                                    <li onClick={this.handleGotoOthers('/shoppingCart')}>我的购物</li>
-                                    <li>我的晒宠</li>
+                                    <li onClick={this.handleGotoOthers('/shoppingCart','3')}>我的购物</li>
+                                    <li onClick={this.handleGotoOthers('/order','3')}>我的晒宠</li>
                                     <li onClick={this.handleLoginOut}>退出</li>
                                 </ul>
                                 :
