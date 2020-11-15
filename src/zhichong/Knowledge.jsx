@@ -118,9 +118,6 @@ class Knowledge extends Component {
                             </dl>
                         </div>
                     </div>
-
-                    <Link></Link>
-                    <Footer></Footer>
                 </div>
             </Container>
         );
