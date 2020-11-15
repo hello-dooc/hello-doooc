@@ -11,6 +11,8 @@ import AllGoods from './AllGoods'
 import Footer from '@c/footer/Footer.jsx'
 import Link from '@c/link/Link.jsx'
 
+
+
 export default class BuyHome extends Component {
 
   state = {

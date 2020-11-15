@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import imgbanner from '@a/images/buyhome/scbanner.png'
-/* import Header from '@c/header/Header.jsx' */
+import Header from '@c/header/HeaderNoBg'
 import BuySearch from "./BuySearch"
 
 
@@ -20,7 +20,7 @@ export default class BuyBanner extends Component {
                     <img src={imgbanner} alt="" />
                 </div>
                 <header>
-                  {/*   <Header></Header> */}
+                    <Header></Header>
                 </header>
                 <BuySearch></BuySearch>
             </BuyBannerWrap>

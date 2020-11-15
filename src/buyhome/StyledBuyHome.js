@@ -28,7 +28,7 @@ const BuyBannerWrap = styled.div`
             width:100%;
             background-color:rgba(234,237,238,.6);
         }
-    
+
         
 
 `

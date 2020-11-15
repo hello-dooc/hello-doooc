@@ -5,7 +5,7 @@ import detailbg from "@a/images/buyhome/scbg.png"
 const Container = styled.div`
     header{
         height:96px;
-        background:pink;
+        
     }
     footer{
        /*  height:730px; */

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import bg from '@a/images/best.jpg'
+import bg1 from '@a/images/best.jpg'
 
 const Container = styled.div `
     .nav{
@@ -111,7 +111,7 @@ const Container = styled.div `
         }
     }
     #link{
-        background:url(${bg}) no-repeat;
+        background:url(${bg1}) no-repeat;
         /* background-size:100% */
     }
 `

@@ -3,7 +3,7 @@ import { withRouter} from 'react-router-dom'
 
 import touxiang from '@a/images/goodsdetail/touxiang.jpg';
 /* import gouliang from '@a/images/goodsdetail/timg3N38CJXS.jpg'; */
-import Header from '@c/header/Header.jsx'
+import Header from '@c/header/HeaderNoBg'
 import Footer from '@c/footer/Footer.jsx'
 import Link from '@c/link/Link.jsx'
 import DetailMiddle from './DetailMiddle'
@@ -40,7 +40,7 @@ class GoodsDetail extends Component {
         return (
             <Container>
                 <header>
-                   {/*  <Header></Header> */}
+                    <Header></Header>
                 </header>
 
                 <div className="detail-con">
