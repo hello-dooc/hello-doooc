@@ -6,6 +6,7 @@ import SelfInfo from './SelfInfo';
 import MyShow from '../showpets/MyShow'
 import YouLike from '../showpets/YouLike'
 
+
 import Link from '@c/link/Link'
 import Footer from '@c/footer/Footer'
 import Header from '@c/header/Header'
@@ -22,7 +23,7 @@ class Order extends Component {
     }
 
     render() {
-        console.log(this.props.location.state.infoType);
+        // console.log(this.props.location.state.infoType);
         return (
             <Container>
                 <Header ht="546px" bg={banner} ></Header>

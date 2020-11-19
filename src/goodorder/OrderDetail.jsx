@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { withRouter} from 'react-router-dom';
 import {get,put,post} from '@u/http'
-import Axios from 'axios';
+import Axios from 'axios'
 import qs from 'qs'
+import {getToken} from '@u/cookies'
 
 import {
     OrderDetailWrap
@@ -40,7 +41,11 @@ class OrderDetail extends Component {
  */
 
     async getAdress(){
-        Axios.defaults.headers.common['token'] = 'token_123456'
+        let token = getToken()
+        console.log(token);
+        Axios.defaults.headers.common['token'] = token
+
+      /*   Axios.defaults.headers.common['token'] = 'token_123456' */
         let result = await get({
           url:'http://123.56.160.44:8080/user/address/list'
         })
@@ -54,7 +59,11 @@ class OrderDetail extends Component {
       }
 
     async updateCar(cartId,goodsNum){
-        Axios.defaults.headers.common['token'] = 'token_123456'
+        let token = getToken()
+        console.log(token);
+        Axios.defaults.headers.common['token'] = token
+
+        /* Axios.defaults.headers.common['token'] = 'token_123456' */
         let result = await put({
             url:'http://123.56.160.44:8080/cart/update',
             params:{
@@ -78,7 +87,10 @@ class OrderDetail extends Component {
       }
 
       async getData(){
-        Axios.defaults.headers.common['token'] = 'token_123456'
+        let token = getToken()
+        console.log(token);
+        Axios.defaults.headers.common['token'] = token
+       /*  Axios.defaults.headers.common['token'] = 'token_123456' */
                 let result = await get({
                     url:'http://123.56.160.44:8080/cart/list'
                 })
@@ -93,7 +105,10 @@ class OrderDetail extends Component {
         let params={
             orderAddressInfo
         } 
-        Axios.defaults.headers.common['token'] = 'token_123456'
+        let token = getToken()
+        console.log(token);
+        Axios.defaults.headers.common['token'] = token
+       /*  Axios.defaults.headers.common['token'] = 'token_123456' */
         let result = await post('http://123.56.160.44:8080/order/create',qs.stringify(params))
         console.log(result)
         console.log(params)

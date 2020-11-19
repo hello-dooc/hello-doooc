@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { get } from '@u/http'
+import {getToken} from '@u/cookies'
 import axios from 'axios'
 
 // import {withRouter} from 'react-router-dom'
@@ -32,10 +33,12 @@ class ShoppingCart extends Component {
     }
 
     async getData() {
-        axios.defaults.headers.common['token'] = 'token_123456'
+        // axios.defaults.headers.common['token'] = 'token_123456'
+        let token = getToken()
+        console.log(token);
+        axios.defaults.headers.common['token'] = token
         let result = await get({
             url: 'http://123.56.160.44:8080/cart/list'
-            // url:'http://10.9.65.215:8080/cart/list'
         })
         console.log(result.data.data);
         this.setState({

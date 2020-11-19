@@ -3,6 +3,8 @@ import { withRouter } from 'react-router-dom'
 import { Tabs } from 'antd';
 import axios from 'axios';
 import { get, del} from '@u/http'
+import {getToken} from '@u/cookies'
+
 
 import DetailInfo from './DetailInfo';
 import {
@@ -35,7 +37,11 @@ class OrderForm extends Component {
     }
 
     async getData() {
-        axios.defaults.headers.common['token'] = 'token_123456'
+        // axios.defaults.headers.common['token'] = 'token_123456'
+        let token = getToken()
+        console.log(token);
+        axios.defaults.headers.common['token'] = token
+
         let result = await get({
             url: 'http://123.56.160.44:8080/order/list'
         })
@@ -53,7 +59,10 @@ class OrderForm extends Component {
     }
 
     async deleteCar(orderId) {
-        axios.defaults.headers.common['token'] = 'token_123456'
+        // axios.defaults.headers.common['token'] = 'token_123456'
+        let token = getToken()
+        console.log(token);
+        axios.defaults.headers.common['token'] = token
         let result = await del({
             url: 'http://123.56.160.44:8080/order/delete',
             params: {
@@ -86,7 +95,7 @@ class OrderForm extends Component {
                         <DetailInfo list={this.state.list2}></DetailInfo>
                     </TabPane>
                     <TabPane tab="联系售后" key="3">
-                        00000000000
+                        Tel:00000000000
                     </TabPane>
                 </Tabs>
             </InfoForm>
