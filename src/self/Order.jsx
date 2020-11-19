@@ -22,7 +22,7 @@ class Order extends Component {
     }
 
     render() {
-        console.log(this.props.location.state.infoType);
+        // console.log(this.props.location.state.infoType);
         return (
             <Container>
                 <Header ht="546px" bg={banner} ></Header>

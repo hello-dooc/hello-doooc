@@ -4,6 +4,7 @@ import { InputNumber, Select } from 'antd';
 import { withRouter} from 'react-router-dom';
 
 import { get, put,del } from '@u/http'
+import {getToken} from '@u/cookies'
 import axios from 'axios';
 
 
@@ -52,7 +53,10 @@ class CartH extends Component {
     }
 
     async updateCar(cartId, goodsNum,goodsTaste) {
-        axios.defaults.headers.common['token'] = 'token_123456'
+        // axios.defaults.headers.common['token'] = 'token_123456'
+        let token = getToken()
+        console.log(token);
+        axios.defaults.headers.common['token'] = token
         let params = {
             cartId,
             goodsNum,
@@ -65,7 +69,10 @@ class CartH extends Component {
         this.getData()
     }
     async deleteCar(cartId) {
-        axios.defaults.headers.common['token'] = 'token_123456'
+        // axios.defaults.headers.common['token'] = 'token_123456'
+        let token = getToken()
+        console.log(token);
+        axios.defaults.headers.common['token'] = token
         let result = await del({
             url:'http://123.56.160.44:8080/cart/delete',
             params:{
@@ -76,7 +83,10 @@ class CartH extends Component {
         this.getData()
     }
     async getData() {
-        axios.defaults.headers.common['token'] = 'token_123456'
+        // axios.defaults.headers.common['token'] = 'token_123456'
+        let token = getToken()
+        console.log(token);
+        axios.defaults.headers.common['token'] = token
         let result = await get({
             url: 'http://123.56.160.44:8080/cart/list'
         })
