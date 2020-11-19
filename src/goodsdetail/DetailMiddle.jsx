@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
 import { get, post } from '@u/http'
-import Axios from 'axios';
+import Axios from 'axios'
 import qs from 'qs'
+import {getToken} from '@u/cookies'
 
 import {
     DetailMiddleWrap
@@ -45,7 +46,10 @@ class DetailMiddle extends Component {
             goodsTypeId,
             goodsId
         }
-        Axios.defaults.headers.common['token'] = 'token_123456'
+        let token = getToken()
+        console.log(token);
+        Axios.defaults.headers.common['token'] = token
+        /* Axios.defaults.headers.common['token'] = 'token_123456' */
         let result = await post('http://123.56.160.44:8080/cart/add', qs.stringify(params))
         console.log(result)
         console.log(params)

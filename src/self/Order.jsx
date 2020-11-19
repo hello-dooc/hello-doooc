@@ -6,6 +6,7 @@ import SelfInfo from './SelfInfo';
 import MyShow from '../showpets/MyShow'
 import YouLike from '../showpets/YouLike'
 
+
 import Link from '@c/link/Link'
 import Footer from '@c/footer/Footer'
 import Header from '@c/header/Header'
