@@ -263,10 +263,7 @@ class Daily extends Component {
                     <>
                         <Breadcrumb separator=">">
                             <Breadcrumb.Item>宠物商城</Breadcrumb.Item>
-                            <Breadcrumb.Item>
-                                <a href="/src/shoppingCart/ShoppingCartH.jsx">宠物食品</a>
-                            </Breadcrumb.Item>
-                            <Breadcrumb.Item>宠物主粮</Breadcrumb.Item>
+                            <Breadcrumb.Item>宠物日用</Breadcrumb.Item>
                         </Breadcrumb>
                     </>
                     <ul className="classification">

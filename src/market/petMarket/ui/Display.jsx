@@ -39,21 +39,21 @@ class Display extends Component {
         }
     }
     async addCart(params){
-        // let token = getToken()
-        // console.log(token);
-        // axios.defaults.headers.common['token'] = token
-        axios.defaults.headers.common['token'] = 'token_123456'
-        const result = await post('http://123.56.160.44:8080/cart/add',qs.stringify(params))
-        console.log(result);
-        if(result.data.code===200){
-            window.alert('加入购物车成功！')
+        let token = getToken()
+        console.log(token);
+        if(token){
+            axios.defaults.headers.common['token'] = token
+            // axios.defaults.headers.common['token'] = 'token_123456'
+            const result = await post('http://123.56.160.44:8080/cart/add',qs.stringify(params))
+            console.log(result);
+            if(result.data.code===200){
+                window.alert('加入购物车成功！')
+            }else{
+                window.alert('加入购物车失败，请稍后重试！')
+            }
         }else{
-            window.alert('加入购物车失败，请稍后重试！')
+            this.props.history.push('/login')
         }
-        // if(token){
-        // }else{
-        //     this.props.history.push('/login')
-        // }
     }
     handleAddCart=(pt,id)=>{
         return ()=>{

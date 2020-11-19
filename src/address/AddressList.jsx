@@ -31,6 +31,7 @@ const AddressList = (props)=> {
         history.push('/add')
     })
     const handleDel=useCallback((userAddressId)=>{
+
         return async ()=>{
             let result = await axios({
                 url:'http://123.56.160.44:8080/user/address/delete',
@@ -39,21 +40,21 @@ const AddressList = (props)=> {
                     userAddressId
                 }
             })
-            console.log(result);
+            console.log(result,'delete');
             dispatch(loadDataAsync())
         }
     })
     const handleEdit=useCallback((defaultValue)=>{
         return async ()=>{
-            // let result = await axios({
-            //     url:'http://123.56.160.44:8080/user/address/delete',
-            //     method:'delete',
-            //     params:{
-            //         userAddressId
-            //     }
-            // })
-            // console.log(result);
-            // dispatch(loadDataAsync())
+            let result = await axios({
+                url:'http://123.56.160.44:8080/user/address/delete',
+                method:'delete',
+                params:{
+                    userAddressId:defaultValue
+                }
+            })
+            console.log(result);
+            dispatch(loadDataAsync())
             console.log(defaultValue);
             history.push('/add',defaultValue)
         }
@@ -73,13 +74,12 @@ const AddressList = (props)=> {
                 </div>
                 {
                     addressList && addressList.map(value=>{
-                        console.log(value);
                         return(
                             <div className="address_list"  key={value.userAddressId}>
                                 <div className="address_top clear_fix">
                                     <span>{value.userName}</span>
                                     <span>{value.userTelephone}</span>
-                                    <span onClick={handleDel(value.addrId)}>删除</span>
+                                    <span onClick={handleDel(value.userAddressId)}>删除</span>
                                     <span onClick={handleEdit(value)}>编辑</span>
                                 </div>
                                 <div className="address_bottom" onClick={handleBack('/self',value)}>
