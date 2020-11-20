@@ -24,15 +24,9 @@ import BuyHome from '@b/BuyHome'
 import Answer from '@z/Answer'
 import Training from '@z/Training'
 import ScreenAfter from '@m/petMarket/ui/ScreenAfter'
-<<<<<<< HEAD
-import Disease from '@z/Disease'
 // 私有化组件
-import PrivateRouter from './components/privateRouter/index'
-=======
-// 私有化组件
-import PrivateRouter from './components/privateRouter/index'
+// import PrivateRouter from './components/privateRouter/index'
 import Disease from '@z/Disease'
->>>>>>> origin/zhangyan
 export default class App extends Component {
   render() {
     return (
