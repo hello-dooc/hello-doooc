@@ -53,7 +53,7 @@ class Filter extends Component {
     async getPetTypeList(){
         if(this.props.pType===1){
             let result = await get({
-                url:'http://123.56.160.44:8080/petcatmarket/findAllCategory'
+                url:'http://10.9.12.250:8088/petcatmarket/findAllCategory'
             })
             let list = result.data.data
             let arr = list.reduce((arr,value)=>{
@@ -67,7 +67,7 @@ class Filter extends Component {
             })
         }else if(this.props.pType===2){
             let result1 = await get({
-                url:'http://123.56.160.44:8080/petdogmarket/findAllCategory'
+                url:'http://10.9.12.250:8088/petdogmarket/findAllCategory'
             })
             let list1 = result1.data.data
             let arr1 = list1.reduce((arr,value)=>{
@@ -81,7 +81,7 @@ class Filter extends Component {
             })
         }else{
             let result = await get({
-                url:'http://123.56.160.44:8080/petcatmarket/findAllCategory'
+                url:'http://10.9.12.250:8088/petcatmarket/findAllCategory'
             })
             let list = result.data.data
             let arr = list.reduce((arr,value)=>{
@@ -91,7 +91,7 @@ class Filter extends Component {
                 return arr
             },[])
             let result1 = await get({
-                url:'http://123.56.160.44:8080/petdogmarket/findAllCategory'
+                url:'http://10.9.12.250:8088/petdogmarket/findAllCategory'
             })
             let list1 = result1.data.data
             let arr1 = list1.reduce((arr,value)=>{

@@ -60,7 +60,7 @@ export default class AddAddress extends Component {
     }
     async getList(addressId,list){
         let result = await get({
-            url:'http://123.56.160.44:8080/user/address/area',
+            url:'http://10.9.12.250:8088/user/address/area',
             params:{
                 parentId:addressId
             }
@@ -129,7 +129,7 @@ export default class AddAddress extends Component {
             // axios.defaults.headers.common['token'] = 'token_123456'
             if(token){
                 axios.defaults.headers.common['token'] = token
-                let result = await post('http://123.56.160.44:8080/user/address/create',qs.stringify(params))
+                let result = await post('http://10.9.12.250:8088/user/address/create',qs.stringify(params))
                 console.log(result);
                 this.props.history.goBack()
             }else{
@@ -163,7 +163,7 @@ export default class AddAddress extends Component {
                 axios.defaults.headers.common['token'] = token
                 // axios.defaults.headers.common['token'] = 'token_123456'
                 var result = await put({
-                    url:'http://123.56.160.44:8080/user/address/update',
+                    url:'http://10.9.12.250:8088/user/address/update',
                     params
                 })
                 console.log(result);

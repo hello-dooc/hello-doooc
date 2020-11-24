@@ -69,7 +69,7 @@ const UserInfo = (props) => {
             if(token){
                 axios.defaults.headers.common["token"] = token;
                 // axios.defaults.headers.common["token"] = 'token_123456';
-                let result = await put({url:'http://123.56.160.44:8080/user/info/update',
+                let result = await put({url:'http://10.9.12.250:8088/user/info/update',
                 params:{
                     userName:name||userInfo.userName,
                     userGender:gender||userInfo.userGender,
@@ -93,7 +93,7 @@ const UserInfo = (props) => {
         return async (e)=>{
             e.preventDefault();
             console.log(tel);
-            let result = await post('http://123.56.160.44:8080/user/sendMessage?mobile='+tel)
+            let result = await post('http://10.9.12.250:8088/user/sendMessage?mobile='+tel)
             console.log(result);
             setKey(result.data.data)
             if(isSend){

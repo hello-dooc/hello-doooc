@@ -9,7 +9,7 @@ const loadDataSync=(list)=>{
 const loadDataAsync=(pet)=>{
     return async (dispatch) =>{
         let result = await get({
-            url:`http://123.56.160.44:8080/${pet}/findAll`
+            url:`http://10.9.12.250:8088/${pet}/findAll`
         })
         // console.log(result);
         dispatch(loadDataSync(result.data.data))

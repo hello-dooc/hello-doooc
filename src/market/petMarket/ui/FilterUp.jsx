@@ -35,7 +35,7 @@ class FilterUp extends Component {
     async getPetTypeList(){
         if(this.state.type==="喵喵"){
             let result = await get({
-                url:'http://123.56.160.44:8080/petcatmarket/findAllCategory'
+                url:'http://10.9.12.250:8088/petcatmarket/findAllCategory'
             })
             let list = result.data.data
             var arr = list.reduce((arr,value)=>{
@@ -49,7 +49,7 @@ class FilterUp extends Component {
             })
         }else if(this.state.type==="汪汪"){
             let result1 = await get({
-                url:'http://123.56.160.44:8080/petdogmarket/findAllCategory'
+                url:'http://10.9.12.250:8088/petdogmarket/findAllCategory'
             })
             let list1 = result1.data.data
             var arr1 = list1.reduce((arr,value)=>{

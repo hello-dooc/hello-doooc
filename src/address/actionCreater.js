@@ -16,7 +16,7 @@ const loadDataAsync=()=>{
         if(token){
             axios.defaults.headers.common["token"] = token;
             let result = await get({
-                url:'http://123.56.160.44:8080/user/address/list',    
+                url:'http://10.9.12.250:8088/user/address/list',    
             })
             console.log(result);
             dispatch(loadDataSync(result.data.data))

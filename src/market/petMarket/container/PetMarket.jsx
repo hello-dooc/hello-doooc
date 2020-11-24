@@ -43,7 +43,7 @@ class NoFilter extends Component {
     }
     getpetList= async (pet,pn)=>{
         let result = await get({
-            url:`http://123.56.160.44:8080/${pet}`
+            url:`http://10.9.12.250:8088/${pet}`
         })
         console.log(result);
         let list = result.data.data

@@ -89,7 +89,7 @@ const FoodUi = (props) => {
     useEffect(() => {
     async function loadData() {
       let result = await get({
-        url:'http://123.56.160.44:8080/food/list',
+        url:'http://10.9.12.250:8088/food/list',
         params:{
           priceArea:shopprice,
           sort:changesort,
@@ -132,7 +132,7 @@ const FoodUi = (props) => {
 
     async function loadData() {
         let result = await get({
-          url:'http://123.56.160.44:8080/food/list',
+          url:'http://10.9.12.250:8088/food/list',
           params:{
             priceArea:shopprice,
             sort:changesort,

@@ -5,7 +5,7 @@ import axios from 'axios'
 export function MessageLogin(data){
   axios.defaults.headers.common['token'] = 'token_12356'
   return axios({
-    url:'http://123.56.160.44:8080/user/login',
+    url:'http://10.9.12.250:8088/user/login',
     method:'post',
     data,
     headers: {
@@ -20,7 +20,7 @@ export function MessageLogin(data){
 export function GetCode(data){
   // axios.defaults.headers.common['token'] = 'token_123'
   return axios({
-    url:'http://123.56.160.44:8080/user/sendMessage',
+    url:'http://10.9.12.250:8088/user/sendMessage',
     method:'post',
     data,
     headers: {
@@ -33,7 +33,7 @@ export function GetCode(data){
 export function RegisterCode(data){
   return axios({
     // url:'http://10.9.27.150:8080/user/sendEmail',
-    url:'http://123.56.160.44:8080/user/sendEmail',
+    url:'http://10.9.12.250:8088/user/sendEmail',
     method:'post',
     data,
     headers: {
@@ -46,7 +46,7 @@ export function RegisterCode(data){
 export function RegisterInterface(data){
   axios.defaults.headers.common['token'] = 'token_12356'
   return axios({
-    url:'http://123.56.160.44:8080/user/register',
+    url:'http://10.9.12.250:8088/user/register',
     method:'post',
     data,
     headers:{
@@ -60,7 +60,7 @@ export function RegisterInterface(data){
 // 邮箱登录
 export function EmailLogin(data){
   return axios({
-    url:'http://123.56.160.44:8080/user/login2',
+    url:'http://10.9.12.250:8088/user/login2',
     method:'post',
     data,
     headers: {

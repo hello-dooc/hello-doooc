@@ -34,7 +34,7 @@ const AddressList = (props)=> {
 
         return async ()=>{
             let result = await axios({
-                url:'http://123.56.160.44:8080/user/address/delete',
+                url:'http://10.9.12.250:8088/user/address/delete',
                 method:'delete',
                 params:{
                     userAddressId
@@ -46,14 +46,14 @@ const AddressList = (props)=> {
     })
     const handleEdit=useCallback((defaultValue)=>{
         return async ()=>{
-            let result = await axios({
-                url:'http://123.56.160.44:8080/user/address/delete',
-                method:'delete',
-                params:{
-                    userAddressId:defaultValue
-                }
-            })
-            console.log(result);
+            // let result = await axios({
+            //     url:'http://10.9.12.250:8088/user/address/delete',
+            //     method:'delete',
+            //     params:{
+            //         userAddressId:defaultValue
+            //     }
+            // })
+            // console.log(result);
             dispatch(loadDataAsync())
             console.log(defaultValue);
             history.push('/add',defaultValue)
@@ -82,7 +82,7 @@ const AddressList = (props)=> {
                                     <span onClick={handleDel(value.userAddressId)}>删除</span>
                                     <span onClick={handleEdit(value)}>编辑</span>
                                 </div>
-                                <div className="address_bottom" onClick={handleBack('/self',value)}>
+                                <div className="address_bottom" onClick={handleBack('/order',value)}>
                                     {value.addr}
                                 </div>
                             </div>

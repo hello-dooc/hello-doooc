@@ -65,7 +65,7 @@ class CartH extends Component {
             cartStatus: 1
         }
         console.log(params);
-        let result = await put({ url: 'http://123.56.160.44:8080/cart/update', params })
+        let result = await put({ url: 'http://10.9.12.250:8088/cart/update', params })
         console.log(result);
         this.getData()
     }
@@ -75,7 +75,7 @@ class CartH extends Component {
         console.log(token);
         axios.defaults.headers.common['token'] = token
         let result = await del({
-            url:'http://123.56.160.44:8080/cart/delete',
+            url:'http://10.9.12.250:8088/cart/delete',
             params:{
                 cartId
             }
@@ -89,7 +89,7 @@ class CartH extends Component {
         console.log(token);
         axios.defaults.headers.common['token'] = token
         let result = await get({
-            url: 'http://123.56.160.44:8080/cart/list'
+            url: 'http://10.9.12.250:8088/cart/list'
         })
         console.log(result);
         this.setState({

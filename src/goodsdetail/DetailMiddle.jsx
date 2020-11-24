@@ -25,7 +25,7 @@ class DetailMiddle extends Component {
     /* 获取点击进来的商品数据 */
     async getData() {
         let result = await get({
-            url: 'http://123.56.160.44:8080/food/detail',
+            url: 'http://10.9.12.250:8088/food/detail',
             params: {
                 foodId: this.state.foodId
             }
@@ -50,7 +50,7 @@ class DetailMiddle extends Component {
         console.log(token);
         Axios.defaults.headers.common['token'] = token
         /* Axios.defaults.headers.common['token'] = 'token_123456' */
-        let result = await post('http://123.56.160.44:8080/cart/add', qs.stringify(params))
+        let result = await post('http://10.9.12.250:8088/cart/add', qs.stringify(params))
         console.log(result)
         console.log(params)
         console.log(qs.stringify(params))

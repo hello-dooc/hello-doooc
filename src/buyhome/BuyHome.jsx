@@ -33,7 +33,7 @@ export default class BuyHome extends Component {
     }
     async getFood(){
       let result2 = await get({
-        url:'http://123.56.160.44:8080/food/list'
+        url:'http://10.9.12.250:8088/food/list'
       })
       this.setState({
         /* cate: result.data.data.slice(0,4) */
@@ -45,7 +45,7 @@ export default class BuyHome extends Component {
 
   async getList(){
     let result = await get({
-      url:'http://123.56.160.44:8080/clothes/findAllByClothesPetTypeOrderByClothesIdDesc/1'
+      url:'http://10.9.12.250:8088/clothes/findAllByClothesPetTypeOrderByClothesIdDesc/1'
     })
     this.setState({
       cate:this.getRandomArrayElements( result.data.data,4) ,//再写两个的变量
@@ -54,7 +54,7 @@ export default class BuyHome extends Component {
 
   async getPets(){
     let result = await get({
-      url:'http://123.56.160.44:8080/petcatmarket/findAll'
+      url:'http://10.9.12.250:8088/petcatmarket/findAll'
     })
     this.setState({
       cate3:this.getRandomArrayElements( result.data.data,4) ,//再写两个的变量

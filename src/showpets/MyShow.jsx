@@ -26,7 +26,7 @@ class MyShow extends Component {
     }
       async getList(){
         let result = await get({
-          url: 'http://123.56.160.44:8080/clothes/findAllByClothesPetTypeOrderByClothesIdDesc/1'
+          url: 'http://10.9.12.250:8088/clothes/findAllByClothesPetTypeOrderByClothesIdDesc/1'
         })
         this.setState({
             totalData: result.data.data,

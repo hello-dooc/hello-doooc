@@ -38,7 +38,7 @@ class ShoppingCart extends Component {
         console.log(token);
         axios.defaults.headers.common['token'] = token
         let result = await get({
-            url: 'http://123.56.160.44:8080/cart/list'
+            url: 'http://10.9.12.250:8088/cart/list'
         })
         console.log(result.data.data);
         this.setState({

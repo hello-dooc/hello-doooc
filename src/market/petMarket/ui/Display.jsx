@@ -44,7 +44,7 @@ class Display extends Component {
         if(token){
             axios.defaults.headers.common['token'] = token
             // axios.defaults.headers.common['token'] = 'token_123456'
-            const result = await post('http://123.56.160.44:8080/cart/add',qs.stringify(params))
+            const result = await post('http://10.9.12.250:8088/cart/add',qs.stringify(params))
             console.log(result);
             if(result.data.code===200){
                 window.alert('加入购物车成功！')

@@ -43,7 +43,7 @@ class OrderForm extends Component {
         axios.defaults.headers.common['token'] = token
 
         let result = await get({
-            url: 'http://123.56.160.44:8080/order/list'
+            url: 'http://10.9.12.250:8088/order/list'
         })
         console.log(result.data.content);
         let filterlist = result.data.content.filter(function (item) {
@@ -64,7 +64,7 @@ class OrderForm extends Component {
         console.log(token);
         axios.defaults.headers.common['token'] = token
         let result = await del({
-            url: 'http://123.56.160.44:8080/order/delete',
+            url: 'http://10.9.12.250:8088/order/delete',
             params: {
                 orderId
             }

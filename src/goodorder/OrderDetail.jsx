@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { withRouter} from 'react-router-dom';
 import {get,put,post} from '@u/http'
-import Axios from 'axios'
-import qs from 'qs'
 import {getToken} from '@u/cookies'
+import Axios from 'axios';
+import qs from 'qs'
 
 import {
     OrderDetailWrap
@@ -44,8 +44,7 @@ class OrderDetail extends Component {
         let token = getToken()
         console.log(token);
         Axios.defaults.headers.common['token'] = token
-
-      /*   Axios.defaults.headers.common['token'] = 'token_123456' */
+        /* Axios.defaults.headers.common['token'] = 'token_123456' */
         let result = await get({
           url:'http://123.56.160.44:8080/user/address/list'
         })
@@ -62,7 +61,6 @@ class OrderDetail extends Component {
         let token = getToken()
         console.log(token);
         Axios.defaults.headers.common['token'] = token
-
         /* Axios.defaults.headers.common['token'] = 'token_123456' */
         let result = await put({
             url:'http://123.56.160.44:8080/cart/update',
@@ -90,7 +88,7 @@ class OrderDetail extends Component {
         let token = getToken()
         console.log(token);
         Axios.defaults.headers.common['token'] = token
-       /*  Axios.defaults.headers.common['token'] = 'token_123456' */
+      /*   Axios.defaults.headers.common['token'] = 'token_123456' */
                 let result = await get({
                     url:'http://123.56.160.44:8080/cart/list'
                 })
@@ -113,7 +111,12 @@ class OrderDetail extends Component {
         console.log(result)
         console.log(params)
         console.log(qs.stringify(params))
-        this.props.history.push('/order',{infoType:"2"})
+        if(this.state.adresslist){
+
+            this.props.history.push('/order',{infoType:"2"})
+        }else{
+            alert("请添加地址")
+        }
       }
 
     componentDidMount(){

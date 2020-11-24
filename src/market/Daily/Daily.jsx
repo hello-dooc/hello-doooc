@@ -222,7 +222,7 @@ class Daily extends Component {
     //请求数据函数
     async getData() {
         let result = await get({
-            url: 'http://123.56.160.44:8080/'
+            url: 'http://10.9.12.250:8088/'
                 + this.state.des + '/findAllBy'
                 + this.state.ads + 'PetTypeAnd'
                 + this.state.ads + 'PriceBetween'

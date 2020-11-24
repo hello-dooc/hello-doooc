@@ -29,7 +29,7 @@ class ScreenAfter extends Component {
         let {petTypeNum,petAge,petSex} = this.props.location.state
         console.log(this.props.location.state);
         let result = await get({
-            url:`http://123.56.160.44:8080/${url}/findAllChoice/${petTypeNum}/${petSex}/${petAge}/1`
+            url:`http://10.9.12.250:8088/${url}/findAllChoice/${petTypeNum}/${petSex}/${petAge}/1`
         })
         let arr = result.data.data&&result.data.data.reduce((arr,value)=>{
             if(this.props.location.state.type==="喵喵"){
