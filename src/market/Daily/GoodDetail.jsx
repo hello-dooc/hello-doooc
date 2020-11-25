@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom'
 // import cs from '@a/images/market/ceshi.jpg';
 
+@withRouter
 class GoodDetail extends Component {
-    handleClick=(value)=>{
+    handleClick = (data)=>{
         return ()=>{
-            console.log(value);
-            console.log(value.sptype);
+            console.log(this.props.history)
+            this.props.history.push('/goodsdetail',{data})
         }
     }
     render() {

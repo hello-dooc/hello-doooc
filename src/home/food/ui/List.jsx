@@ -1,17 +1,30 @@
-import React from 'react';
 
-// import list1 from '@a/images/cadfc367d9263412d9ac9356f53f3b97.jpg'
+import { render } from '@testing-library/react'
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom'
 
-import { Pagination } from 'antd';
+  @withRouter
+class List extends Component{
 
-const List = (props) => {
+  jump = (data) => {
+    return () => {
+        console.log(this.props.history)
+        this.props.history.push('/goodsdetail', { data })
+    }
+}
+
+
+render(){
+
+
   return (
         <div className="center">
           <ol>
             {
-              props.list.length>0 && props.list.map(item => {
+              this.props.list.length && this.props.list.map(item => {
                   return(
-                    <li key={item.id}>
+                    <li key={item.id}  onClick={this.jump(item.id)}>
+                    {/* <li key={item.id}  onClick={() => this.props.history.push(item.id)}> */}
                       <img src={item.image} alt=""/>
                       <p>
                         <span>满99减20</span>
@@ -30,6 +43,6 @@ const List = (props) => {
           
         </div>
       ) 
-}
-
+    }
+  }
 export default List;

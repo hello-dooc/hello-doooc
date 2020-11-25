@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect,useState} from 'react';
+import React, { useEffect,useState} from 'react';
 import {useSelector,useDispatch} from 'react-redux'
 import {put,post} from '@u/http'
 import {getToken} from '@u/cookies'
@@ -24,7 +24,7 @@ const UserInfo = (props) => {
     let defaultList =list&& list.filter(value=>{
         return value.level===1
     })
-    if(defaultList.length>0){
+    if(defaultList&&defaultList.length>0){
         var username=defaultList[0].userName
         var usertel=defaultList[0].userTelephone
         var userAddr = defaultList[0].province+defaultList[0].city+defaultList[0].country+defaultList[0].addressDetail
@@ -65,28 +65,28 @@ const UserInfo = (props) => {
     const handleClick=()=>{
         return async (e)=>{
             e.preventDefault()
-            // let token = getToken()
-            // axios.defaults.headers.common["token"] = token;
-            axios.defaults.headers.common["token"] = 'token_123456';
-            let result = await put({url:'http://123.56.160.44:8080/user/info/update',
-            params:{
-                userName:name||userInfo.userName,
-                userGender:gender||userInfo.userGender,
-                userQq:qq || userInfo.userQq,
-                userTelephone:tel || userInfo.userTelephone,
-                key,
-                verification:code
-            }})
-            console.log(result);
-            if(result.data.code===200){
-                window.alert('修改用户信息成功')
+            let token = getToken()
+            if(token){
+                axios.defaults.headers.common["token"] = token;
+                // axios.defaults.headers.common["token"] = 'token_123456';
+                let result = await put({url:'http://123.56.160.44:8080/user/info/update',
+                params:{
+                    userName:name||userInfo.userName,
+                    userGender:gender||userInfo.userGender,
+                    userQq:qq || userInfo.userQq,
+                    userTelephone:tel || userInfo.userTelephone,
+                    key,
+                    verification:code
+                }})
+                console.log(result);
+                if(result.data.code===200){
+                    window.alert('修改用户信息成功')
+                }else{
+                    window.alert('修改用户信息失败，请稍后重试')
+                }
             }else{
-                window.alert('修改用户信息失败，请稍后重试')
+                history.push('/login')
             }
-            // if(token){
-            // }else{
-            //     history.push('/login')
-            // }
         }
     }
     const getCode=(tel)=>{

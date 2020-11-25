@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import {RegisterWrap} from './StyledRegister'
-import { Form, Input, Button,Tooltip,Checkbox,Row,Col, message} from 'antd';
-import { UserOutlined,MailOutlined,UnlockOutlined ,SafetyOutlined,PoweroffOutlined} from '@ant-design/icons';
-import {validate_password,validate_phone,validate_email} from '../utils/validate'
+import { Form, Input, Button,Checkbox,Row,Col} from 'antd';
+import { UserOutlined,MailOutlined,UnlockOutlined ,SafetyOutlined} from '@ant-design/icons';
+import {validate_password} from '../utils/validate'
 import qs from 'qs'
 import  REmailCode from '../components/code/RegisterCode'
-import { RegisterInterface ,RegisterCode} from '../api/account';
+import { RegisterInterface} from '../api/account';
 
 const tailFormItemLayout = {
   wrapperCol: {

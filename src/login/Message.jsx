@@ -3,9 +3,7 @@ import qs from 'qs'
 import {MessageWrap} from './StyledLogin'
 import { Form, Input, Button ,Row,Col} from 'antd';
 import { UserOutlined, LockOutlined  } from '@ant-design/icons';
-// import { post } from '../utils[表情]tp';
-// import Axios from 'axios';
-// import {GetCode} from '../api/account'
+
 import  VCode  from '../components/code/VerificationCode'
 import {MessageLogin} from '../api/account'
 import {withRouter} from 'react-router-dom'

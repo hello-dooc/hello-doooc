@@ -73,11 +73,6 @@ class MyShow extends Component {
                    
                 </div>
 
-               {/*  <div className="button-box">
-                    <div className="left-button">上一页</div>
-                    <div className="middle-box">1/3</div>
-                    <div className="left-button">下一页</div>
-                </div> */}
                 <PageButton {...this.state} pageNext={this.pageNext}></PageButton>
             </MyShowWrap>
         );

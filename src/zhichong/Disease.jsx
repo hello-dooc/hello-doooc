@@ -1,45 +1,12 @@
-import React,{ useCallback} from 'react'
-import { useHistory} from 'react-router-dom'
-import Header from '@c/header/Header'
-import Link from '@c/link/Link'
-import Footer from '@c/footer/Footer'
+import React from 'react'
 import { DiseaseWrap } from './StyleDisease'
 
-import banner from '@a/images/banner_dog.png'
-import heart from '@a/images/heart_03.jpg'
+
 import dog_disease from '@a/images/dog_disease_03.jpg'
-import disease_bg from '@a/images/disease_bg_03.jpg'
 
 const Disease=() => {
-    const history = useHistory()
-    const handleClick = useCallback((url)=>{
-        return ()=>{
-            history.push(url)
-        }
-    },[history])
-
     return (
         <DiseaseWrap>
-            <Header ht="503px" bg={banner}></Header>
-            <div className="dis_tab clear_fix">
-                <div className="tit_wrap">
-                    <ul className="tit_left">
-                        <li onClick={handleClick('/disease')}>疾病</li>
-                        <li onClick={handleClick('/love')}>养护</li>
-                        <li onClick={handleClick('/training')}>训练</li>
-                    </ul>
-                    <div>
-                        <p>知宠</p>
-                        <p>zhichong</p>
-                        <img src={heart} alt=""/>
-                    </div>
-                    <ul className="tit_right">
-                        <li onClick={handleClick('')}>医疗</li>
-                        <li onClick={handleClick('/answer')}>冷知识</li>
-                        <li onClick={handleClick('')}>联系我们</li>
-                    </ul>
-                </div>
-            </div>
             <div className="dis-wrap">
                 <p>世界那么大，而我只有你</p>
                 <p>The world is so big, and I only have you.</p>
@@ -88,8 +55,6 @@ const Disease=() => {
                     </ul>
                 </div>
             </div>
-            <Link outerbg={disease_bg}></Link>
-            <Footer></Footer>
         </DiseaseWrap>
     )
 }

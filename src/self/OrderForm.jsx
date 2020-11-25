@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
 import { Tabs } from 'antd';
 import axios from 'axios';
-import { get, del,post1 } from '@u/http'
+import { get, del} from '@u/http'
 
 import DetailInfo from './DetailInfo';
 import {

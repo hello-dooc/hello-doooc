@@ -4,6 +4,7 @@ import owncenter from '@a/images/showpets/owncenter.png'
 import shaibg from "@a/images/showpets/shaibg.png"
 
 const Container = styled.div`
+   
     header{
         height:545px;
         background:url(${owncenter});
@@ -82,10 +83,10 @@ const YouLikeWrap = styled.div`
 `
 
 const MyShowWrap = styled.div`
-    float:left;
-    width:576px;
+    width:964px;
     padding-top:60px;
     .imgbox{
+        margin:0 auto;
         width:576px;
         height:607px;
         display:flex;

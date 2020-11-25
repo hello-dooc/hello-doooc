@@ -19,21 +19,12 @@ class loveUi extends Component {
   render() {
     return (
       <div>
-        <Head
-          bg={banner}
-          ht="510px"
-        ></Head>
-        <KnowHead></KnowHead>
         <BodyStyle>
           <LoveBody></LoveBody>
         </BodyStyle>
         <DogStyle>
           <DogInfo></DogInfo>
         </DogStyle>
-        <Link
-          outerbg={footbg}
-        ></Link>
-        <Foot></Foot>
       </div>
     );
   }

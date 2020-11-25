@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { InputNumber, Select } from 'antd';
 
+import MyShow from '../showpets/PageButton'
+
 import {
     Info
 } from './StyledInfo'
@@ -8,7 +10,8 @@ import {
 class DetailInfo extends Component {
     state = {
         msg: [],
-        sign: 0
+        sign: 0,
+        datalist:this.props.list
     }
 
     handleDelete = (value) => {
@@ -43,8 +46,10 @@ class DetailInfo extends Component {
         // console.log(this.props.parent.getChildrenMsg.bind(this, this.state.msg))
         this.props.parent.getChildrenMsg(this, this.state.msg, this.state.sign)
     }
+    
     render() {
-        // console.log(this.props.list);
+        console.log(this.props);
+        console.log(this.state.datalist)
         const { Option } = Select;
         return (
             <Info>

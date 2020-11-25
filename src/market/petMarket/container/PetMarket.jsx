@@ -106,15 +106,12 @@ class NoFilter extends Component {
             <PetWrap 
                 style={{
                     background:this.state.pType===2?`url(${display_bg}) no-repeat`:'',
-                    'background-size':this.state.pType===2?'cover':''
+                    backgroundSize:this.state.pType===2?'cover':''
                 }}
             >
                 <HeaderNoBg></HeaderNoBg>
                 <div className="bg"></div>
                 <div className={this.state.pType===1||this.state.pType===3?cn:dn}>
-                    <div style={{height:'108px'}}>
-                        <BuySearch></BuySearch>
-                    </div>
                     <ChangeFilter pType={this.state.pType} getpetList={this.getpetList}  changePetType={this.changePetType} isVariety={this.props.isVariety} />
                 </div>
                 <Display {...this.state} setPage={this.setPage}  changeStatus={this.changeStatus}></Display>

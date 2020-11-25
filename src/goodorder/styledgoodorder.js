@@ -5,7 +5,7 @@ import detailbg from "@a/images/buyhome/scbg.png"
 const Container = styled.div`
     header{
         height:96px;
-        background:pink;
+        
     }
     footer{
        /*  height:730px; */
@@ -91,8 +91,14 @@ const OrderDetailWrap = styled.div`
         border-color: transparent;
     }
     .sumprice{
-        background:#456;
         font-size:20px;
+        p{
+            background:#f5a64a;
+            padding:5px;
+            width:112px;
+            border-radius:6px;
+            float:right;
+        }
     }
     select:focus{
         outline: none;
@@ -244,13 +250,6 @@ const OrderDetailWrap = styled.div`
                 }
             }
     }
-    
-    /* .count-box{
-        background:pink;
-        padding-top:50px;
-        width:100px;
-        height:30px;
-    }  */
   
 
 `

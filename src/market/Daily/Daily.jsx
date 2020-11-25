@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Breadcrumb, Pagination } from 'antd';
+
 import GoodDetail from './GoodDetail'
 import Footer from '@c/footer/Footer'
 import Link from '@c/link/Link'
-import BuySearch from '../../buyhome/BuySearch'
-import HeaderNoBg from '@c/header/HeaderNoBg'
+import BuySearch from '@/buyhome/BuySearch'
+import Header from '@c/header/HeaderNoBg'
 
 
 import {
@@ -131,6 +132,7 @@ const sortList = [
     },
 ]
 
+
 class Daily extends Component {
     state = {
         type: 1,
@@ -256,18 +258,12 @@ class Daily extends Component {
     render() {
         return (
             <Container>
-                <HeaderNoBg></HeaderNoBg>
+                <Header></Header>
                 <div className="nav">
-                    <div style={{ height: '110px' }}>
-                        <BuySearch></BuySearch>
-                    </div>
                     <>
                         <Breadcrumb separator=">">
                             <Breadcrumb.Item>宠物商城</Breadcrumb.Item>
-                            <Breadcrumb.Item>
-                                <a href="/src/shoppingCart/ShoppingCartH.jsx">宠物食品</a>
-                            </Breadcrumb.Item>
-                            <Breadcrumb.Item>宠物主粮</Breadcrumb.Item>
+                            <Breadcrumb.Item>宠物日用</Breadcrumb.Item>
                         </Breadcrumb>
                     </>
                     <ul className="classification">

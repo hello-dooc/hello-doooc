@@ -3,7 +3,7 @@ import { withRouter} from 'react-router-dom'
 
 import touxiang from '@a/images/goodsdetail/touxiang.jpg';
 /* import gouliang from '@a/images/goodsdetail/timg3N38CJXS.jpg'; */
-import Header from '@c/header/Header.jsx'
+import Header from '@c/header/HeaderNoBg'
 import Footer from '@c/footer/Footer.jsx'
 import Link from '@c/link/Link.jsx'
 import DetailMiddle from './DetailMiddle'
@@ -22,9 +22,9 @@ class GoodsDetail extends Component {
         current:"goodsdetail"
     }
 
+    /* 取路由里的/后的那个单词赋值给current */
     componentDidMount=()=>{
         let pathname = this.props.location.pathname
-       /*  let moren = pathname.substring(pathname.lastIndexOf('/')+1) */
        let moren = pathname.split("/") 
         let path = moren.slice(1,2)
         console.log(pathname)
@@ -35,9 +35,6 @@ class GoodsDetail extends Component {
         })
     }
     render() {
-      /*   const spdate = this.props.location.state.data;
-      console.log(sptype) 
-      const sptype = this.props.location.pathname.substr(13) */
 
       console.log(this.state.current) 
         return (

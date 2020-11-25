@@ -5,8 +5,7 @@ import {
   BrowserRouter as Router ,
   Redirect
 } from 'react-router-dom'
-// import Home from '../src/home/home/index'
-// import Food from '../src/home/food/index'
+
 import Love from '@h/love/container/Love'
 
 import Home from '@h/home/container/Home'
@@ -27,16 +26,22 @@ import ScreenAfter from '@m/petMarket/ui/ScreenAfter'
 // 私有化组件
 // import PrivateRouter from './components/privateRouter/index'
 import Disease from '@z/Disease'
+import Disease from '@z/Disease'
+import KnowUi from '@z/KnowUi'
+
+
+import GoodsDetail from '@/goodsdetail/GoodsDetail'
+import GoodOrder from '@/goodorder/GoodOrder'
+
+// 私有化组件
 export default class App extends Component {
   render() {
     return (
       <Router>
         <Switch>
-          {/* <PrivateRouter path="/home" component={Home}></PrivateRouter> */}
           <Route path="/home" component={Home}></Route>
           <Route path="/love" component={Love}></Route>
           <Route path='/foodMarket' component={FoodMarket}></Route>
-          <Route path='/self' component={SelfInfo} />
           <Route path='/order' component={Order} />
           <Route path='/address' component={AddressList} />
           <Route path='/add' component={AddAddress} />
@@ -46,10 +51,10 @@ export default class App extends Component {
           <Route path='/register' component={Register} />
           <Route path='/daily' component={Daily} />
           <Route path='/buy' component={BuyHome} />
-          <Route path='/answer' component={Answer} />
-          <Route path='/training' component={Training} />
           <Route path='/screen' component={ScreenAfter} />
-          <Route path='/disease' component={Disease} />
+          <Route path='/disease' component={KnowUi} />
+          <Route path='/goodsdetail' component={GoodsDetail} />
+          <Route path='/goodorder' component={GoodOrder} />
           <Redirect  from='/' to='/home'></Redirect>
         </Switch>
       </Router>
