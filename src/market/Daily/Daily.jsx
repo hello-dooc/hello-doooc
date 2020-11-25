@@ -259,6 +259,9 @@ class Daily extends Component {
         return (
             <Container>
                 <Header></Header>
+                <div style={{height:'60px'}}>
+                    <BuySearch></BuySearch>
+                </div>
                 <div className="nav">
                     <>
                         <Breadcrumb separator=">">

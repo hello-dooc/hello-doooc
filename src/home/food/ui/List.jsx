@@ -1,11 +1,9 @@
 
-import { render } from '@testing-library/react'
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
 
   @withRouter
 class List extends Component{
-
   jump = (data) => {
     return () => {
         console.log(this.props.history)

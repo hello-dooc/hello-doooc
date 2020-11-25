@@ -60,7 +60,7 @@ class ScreenAfter extends Component {
             <ScreenWrap>
                 <HeaderNoBg></HeaderNoBg>
                 <div className="screen-wrap">
-                    <div style={{height:'108px'}}>
+                    <div style={{height:'60px'}}>
                         <BuySearch></BuySearch>
                     </div>
                     <Filter pType={this.props.location.state.pType} />

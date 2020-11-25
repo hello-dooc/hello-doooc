@@ -250,17 +250,17 @@ const AllGoodsWrap =styled.div`
     top:93px;
     left:50%;
     margin-left:-650px;
-    height:108px;
+    height:60px;
     width:1301px;
-    background-color:rgba(233,240,248,.3);
+    /* background-color:rgba(233,240,248,.3); */
     .search_box{
         display:flex;
-        height:68px;
+        height:17px;
         .search{
             display:none;
             width:370px;
             height:43px;
-            background-color:rgba(233,240,248,.6);
+            /* background-color:rgba(233,240,248,.6); */
             margin-top:25px;
             margin-left:436px;
             justify-content:center;
@@ -369,7 +369,7 @@ const AllGoodsWrap =styled.div`
                     height:34px;
                     display: none;
                     z-index: 1;
-                    background-color: rgba(247,251,251,.7)
+                    background-color: rgba(247,251,251,.7);
                     li{
                         width: 100%;
                         &:hover{

@@ -12,7 +12,7 @@ import Footer from '@c/footer/Footer'
 
 import StyledFooter from '@c/footer/StyledFooter'
 
-import BuySearch from '../../../buyhome/BuySearch'
+import BuySearch from '@b/BuySearch'
 
 import {
   ClassifyStyle,
@@ -85,7 +85,6 @@ const navList = [
 
 const FoodUi = (props) => {
   let [list, setList] = useState([])
-
     useEffect(() => {
     async function loadData() {
       let result = await get({
@@ -142,7 +141,7 @@ const FoodUi = (props) => {
           }
         }
       )
-        setList(result.data.content)
+      setList(result.data.content)
       }
       loadData()
   }
@@ -174,6 +173,9 @@ const FoodUi = (props) => {
   return (
     <div>
     <HeaderNoBg></HeaderNoBg>
+    <div style={{height:'60px'}}>
+        <BuySearch></BuySearch>
+    </div>
     <div className="center">
       <ClassifyStyle>
         <div className="nav">

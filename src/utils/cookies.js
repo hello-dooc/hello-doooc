@@ -3,7 +3,10 @@ const token = "adminToken"
 
 // 存储token
 export function setToken(value){
-  cookies.save(token,value);
+  const expires = new Date()
+  expires.setDate(Date.now() + 1000 * 60 * 60 * 24 * 14)
+  cookies.save(token,value,{expires})
+  // cookies.save(token,value);
 }
 
 export function getToken(){

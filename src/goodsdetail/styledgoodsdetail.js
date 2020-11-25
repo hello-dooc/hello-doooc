@@ -148,16 +148,14 @@ position:relative;
             }
             span:nth-child(2){
                 text-align-last:left;
-                width:60px;
+                width:100px;
             }
         }
         li:nth-child(2n-1){
             background:#f5a64a;
         }
     }
-
-
-
+}
 `
 export {
     Container,

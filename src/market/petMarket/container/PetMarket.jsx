@@ -110,6 +110,9 @@ class NoFilter extends Component {
                 }}
             >
                 <HeaderNoBg></HeaderNoBg>
+                <div style={{height:'60px'}}>
+                    <BuySearch></BuySearch>
+                </div>
                 <div className="bg"></div>
                 <div className={this.state.pType===1||this.state.pType===3?cn:dn}>
                     <ChangeFilter pType={this.state.pType} getpetList={this.getpetList}  changePetType={this.changePetType} isVariety={this.props.isVariety} />

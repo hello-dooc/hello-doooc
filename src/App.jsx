@@ -10,7 +10,6 @@ import Love from '@h/love/container/Love'
 
 import Home from '@h/home/container/Home'
 import FoodMarket from '@h/food/container/Food'
-import SelfInfo from '@s/SelfInfo'
 import Order from '@s/Order'
 import AddressList from '@d/AddressList'
 import AddAddress from '@d/AddAddress'
@@ -20,10 +19,7 @@ import Login from '@l/Login'
 import Register from '@r/Register'
 import Daily from '@m/Daily/Daily'
 import BuyHome from '@b/BuyHome'
-import Answer from '@z/Answer'
-import Training from '@z/Training'
 import ScreenAfter from '@m/petMarket/ui/ScreenAfter'
-import Disease from '@z/Disease'
 import KnowUi from '@z/KnowUi'
 
 
