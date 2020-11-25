@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom'
 import axios from 'axios'
 import qs from 'qs'
 import {post} from '@u/http'
 import {getToken} from '@u/cookies'
 
 import {DisplayWrap} from '../StyledPetMarket'
-
+@withRouter
 class Display extends Component {
     constructor(props){
         super(props)
@@ -27,7 +28,7 @@ class Display extends Component {
         }
     }
     setUp=()=>{
-        if(this.state.pagenum > 1){
+        if(this.state.pagenum > 2 && this.state.num>0){
             this.setState({
                 num:this.props.isChange?1:this.state.num - this.props.pageSize,
                 pagenum:this.props.isChange?2:this.state.pagenum - 1
@@ -48,10 +49,12 @@ class Display extends Component {
             console.log(result);
             if(result.data.code===200){
                 window.alert('加入购物车成功！')
-            }else{
-                window.alert('加入购物车失败，请稍后重试！')
+            }else if(result.data.code===-1){
+                this.props.history.push('/login')
+                // window.alert('加入购物车失败，请稍后重试！')
             }
         }else{
+            window.alert('请登录后操作！')
             this.props.history.push('/login')
         }
     }
@@ -68,7 +71,7 @@ class Display extends Component {
     }
     
     componentDidMount(){
-        // console.log(this.props);
+        console.log(this.props);
     }
     render() {
         return (
@@ -105,26 +108,6 @@ class Display extends Component {
                         <div className="page clear_fix">
                             <span onClick={this.setUp}>上一页</span>
                             <span onClick={this.setNext}>下一页</span>
-                        </div>
-                    </div>
-                    <div className="display_video">
-                        <h2>宠物视频</h2>
-                        <div className="pet_video">
-                            <div className="petVideo clear_fix">
-                                {
-                                    this.props.petShow && this.props.petShow.map(value=>{
-                                        return(
-                                            <div key={value['pet'+value.pn+'TableId']+value.n} className="video_box float_left">
-                                                <video src={value['pet'+value.pn+'TableImage']} controls="controls" />
-                                                <div className="video_desc">
-                                                    <div>{value['pet'+value.pn+'TableName']}</div>
-                                                    <div>品种:<span>{value['pet'+value.pn+'TableCategory']}</span></div>
-                                                </div>
-                                            </div>
-                                        )
-                                    })
-                                }
-                            </div>
                         </div>
                     </div>
                 </div>

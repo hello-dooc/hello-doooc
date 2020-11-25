@@ -198,7 +198,7 @@ const DisplayWrap = styled.div`
     background:url(${pet_bg}) no-repeat;
     .display-wrap{
         width:1300px;
-        height:1678px;
+        height:1150px;
         margin:0 auto;
         h2{
             height:120px;
@@ -273,39 +273,6 @@ const DisplayWrap = styled.div`
                 }
             }
         }
-        .display_video{
-            padding-top:25px;
-            height:518px;
-            overflow:hidden;
-            .pet_video{
-                overflow:hidden;
-                height:386px;
-                .petVideo{
-                    width:1350px;
-                    .video_box{
-                        width:400px;
-                        height:386px;
-                        background:#bfbfbf;
-                        padding-top:15px;
-                        margin-right:50px;
-                        >video{
-                            width:370px;
-                            height:300px;
-                            margin:0 15px;
-                        }
-                        .video_desc{
-                            height:65px;
-                            margin:0 auto;
-                            text-align:center;
-                            font-size:15px;
-                            color:#4c4b49;
-                            line-height:26px;
-                            padding-top:9px;
-                        }
-                    }
-                }
-            }
-        }
     }
 `
 const ScreenWrap = styled.div`
@@ -360,6 +327,7 @@ const ScreenWrap = styled.div`
                 margin:0 auto;
                 height:1380px;
                 overflow-y:auto;
+                margin-bottom:20px;
                 .img_box{
                     width:400px;
                     height:400px;
