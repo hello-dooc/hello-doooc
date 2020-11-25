@@ -142,12 +142,13 @@ position:relative;
                 line-height:12px;
                 margin-right:10px;
                 height:12px;
-                width:42px;
+                width:48px;
                 display:block;
                 text-align-last:justify;
             }
             span:nth-child(2){
                 text-align-last:left;
+                width:60px;
             }
         }
         li:nth-child(2n-1){

@@ -46,7 +46,7 @@ class OrderDetail extends Component {
         Axios.defaults.headers.common['token'] = token
         /* Axios.defaults.headers.common['token'] = 'token_123456' */
         let result = await get({
-          url:'http://123.56.160.44:8080/user/address/list'
+          url:'http://10.9.12.250:8088/user/address/list'
         })
         console.log(result);
         this.setState(
@@ -63,7 +63,7 @@ class OrderDetail extends Component {
         Axios.defaults.headers.common['token'] = token
         /* Axios.defaults.headers.common['token'] = 'token_123456' */
         let result = await put({
-            url:'http://123.56.160.44:8080/cart/update',
+            url:'http://10.9.12.250:8088/cart/update',
             params:{
                 cartId,
                 goodsNum,
@@ -90,7 +90,7 @@ class OrderDetail extends Component {
         Axios.defaults.headers.common['token'] = token
       /*   Axios.defaults.headers.common['token'] = 'token_123456' */
                 let result = await get({
-                    url:'http://123.56.160.44:8080/cart/list'
+                    url:'http://10.9.12.250:8088/cart/list'
                 })
         console.log(result);
         this.setState({
@@ -107,7 +107,7 @@ class OrderDetail extends Component {
         console.log(token);
         Axios.defaults.headers.common['token'] = token
        /*  Axios.defaults.headers.common['token'] = 'token_123456' */
-        let result = await post('http://123.56.160.44:8080/order/create',qs.stringify(params))
+        let result = await post('http://10.9.12.250:8088/order/create',qs.stringify(params))
         console.log(result)
         console.log(params)
         console.log(qs.stringify(params))

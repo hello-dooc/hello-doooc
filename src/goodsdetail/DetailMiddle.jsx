@@ -55,7 +55,12 @@ class DetailMiddle extends Component {
         console.log(params)
         console.log(qs.stringify(params))
         console.log(this.props.history)
-        this.props.history.push('/shoppingCart')
+        if(token){
+            this.props.history.push('/shoppingCart')
+        }else{
+            alert("未登录")
+            this.props.history.push('/login')
+        }
     };
 
     render() {

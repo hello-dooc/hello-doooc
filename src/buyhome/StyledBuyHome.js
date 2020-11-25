@@ -257,7 +257,7 @@ const AllGoodsWrap =styled.div`
         display:flex;
         height:68px;
         .search{
-            display:flex;
+            display:none;
             width:370px;
             height:43px;
             background-color:rgba(233,240,248,.6);
@@ -286,7 +286,7 @@ const AllGoodsWrap =styled.div`
             }
         }
         .car{
-            display:flex;
+            display:none;
             width:114px;
             height:43px;
             background:#f5a64a;
