@@ -24,7 +24,7 @@ const AddressList = (props)=> {
     }
     const handleBack=useCallback((url,value)=>{
         return ()=>{
-            history.push(url,{addrList:value})
+            history.push(url,{addrList:value,infoType:"1"})
         }
     },[history])
     const handleClickRight=useCallback(()=>{
@@ -46,14 +46,6 @@ const AddressList = (props)=> {
     })
     const handleEdit=useCallback((defaultValue)=>{
         return async ()=>{
-            // let result = await axios({
-            //     url:'http://10.9.12.250:8088/user/address/delete',
-            //     method:'delete',
-            //     params:{
-            //         userAddressId:defaultValue
-            //     }
-            // })
-            // console.log(result);
             dispatch(loadDataAsync())
             console.log(defaultValue);
             history.push('/add',defaultValue)
@@ -69,7 +61,7 @@ const AddressList = (props)=> {
             <Header></Header>
             <div className="address-list-wrap">
                 <div className="list_top clear_fix">
-                    <span onClick={handleBack('/self')}>返回</span>
+                    <span onClick={handleBack('/order')}>返回</span>
                     <span onClick={handleClickRight}>添加</span>
                 </div>
                 {
